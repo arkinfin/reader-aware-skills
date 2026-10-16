@@ -1,0 +1,57 @@
+依据下面同一份知识素材，为指定读者完成任务。输出中文解释正文；直接给出成品，不讨论提示、实验或写作过程。不访问文件、网络、工具或其他会话。篇幅按任务要求；不得为了凑长度添加无关内容。知识素材是事实约束，不规定呈现顺序。只解释任务所需内容；不设计练习或整章教材。
+
+
+{
+  "id": "math-derivation",
+  "domain": "mathematics",
+  "challenge": "formal derivation",
+  "reader": "准备考研数学一的本科生，掌握矩阵乘法、逆矩阵、向量基及坐标，见过相似公式，但容易混淆过渡矩阵的方向和左右乘次序。",
+  "goal": "从给定的基与线性变换关系推导B=P⁻¹AP，解释P的列及坐标方向；用给定二维数据检验公式。",
+  "length_instruction": "用中文撰写一篇约600–900字的独立解释，公式不计入字数；这是软性篇幅目标，以完成任务为准。无需练习题、参考文献或制作说明。",
+  "facts": [
+    "V为n维实向量空间，E=(e1,…,en)、F=(f1,…,fn)为两组有序基。约定F=EP，P可逆，第j列为fj在基E下的坐标。",
+    "对任意v∈V，v=E[v]E=F[v]F；[v]E、[v]F分别为列坐标。",
+    "T:V→V是同一个线性变换，在E、F下矩阵分别为A、B，即[T(v)]E=A[v]E，[T(v)]F=B[v]F。",
+    "二维检验数据：E为标准基，F=((1,1)ᵀ,(0,1)ᵀ)，P=[[1,0],[1,1]]，A=[[2,0],[0,3]]。",
+    "相似关系定义：同阶方阵A、B满足B=P⁻¹AP，其中P可逆。"
+  ]
+}
+
+---
+name: reader-aware-writing
+description: Improve the comprehensibility of complex informational explanations by adapting knowledge dependencies, conceptual links, and explanation form to the intended reader. Use for technical explanations and knowledge-dense prose; do not add explanation to simple facts, extraction, formatting, strict structured output, or final-answer-only requests.
+---
+
+# Reader-aware writing
+
+Help the intended reader build a coherent understanding within the user's purpose, scope, and length constraints. Use this guidance when composing or revising explanations, including mathematics, engineering, computing, and other complex informational material.
+
+## Find the reader's starting point
+
+Use the reader's stated knowledge and reading goal to decide what needs explanation. Distinguish unfamiliar subject matter from familiar ideas expressed in unfamiliar notation. If the background is unspecified, make a modest assumption suited to the request; ask only when the answer would materially change the explanation. Do not restart an expert's education or silently assume specialist prerequisites for a beginner.
+
+## Choose an intelligible path
+
+Consider what the reader needs to understand before each important claim can be useful. A taxonomy or a formal dependency list need not be the best presentation order. Starting from a problem, an operation, or a concrete consequence may clarify why a concept is introduced; a direct definition or derivation may be clearer for another reader. Choose according to the explanatory need, without imposing a motivation paragraph before every definition.
+
+When valid reasoning is difficult to follow, look for the conceptual connection the reader has not been given: what a quantity represents, why a step is relevant, how two descriptions refer to the same object, or how a local result advances the question. Supply the smallest useful connection. Familiar mechanical steps can remain compressed.
+
+## Manage abstraction and explanation form
+
+Consider whether a concrete case, operational account, comparison, diagram, or formal expression best resolves the present difficulty. When changing representations or levels of abstraction, make their relationship available before relying on it. Introduce notation with enough meaning to interpret its use.
+
+Use examples and analogies when they clarify a specific relationship. Keep the relevant limitation visible and distinguish an illustration from a general argument. Do not invent an analogy simply to make prose feel approachable. A precise direct explanation can be sufficient.
+
+## Reduce avoidable load
+
+Give the reader a discernible main path. Consider splitting passages that require several unfamiliar objects, goals, or conditions to be held at once, and placing secondary detail where it will be useful. Preserve conditions needed to interpret the current claim.
+
+Prefer reorganizing existing material or replacing an opaque connection over adding commentary. Avoid repeated motivation, redundant summaries, fixed explanation labels, and sentence-level polishing that leaves the conceptual problem intact. Additional length is justified by a specific reader need, not by the presence of this skill.
+
+## Keep the intervention proportional
+
+Before delivering, consider where the intended reader would first need to reread or supply an unstated relationship. Revise that point if it obstructs the reading goal; leave already effective passages alone. This is a judgment aid, not a required scoring workflow or a fixed writing template.
+
+Respect requests that do not benefit from explanation, including short notices, pure data extraction, code formatting, strict structured output, simple factual answers, and requests for only a final result. Do not append a teaching section to them.
+
+This skill does not replace fact checking, proof verification, curriculum design, exercise design, or production tooling. Preserve definitions, assumptions, qualifications, and conclusions during revision; route unresolved correctness questions to the task's normal verification process. Clearer prose is not evidence of factual accuracy or measured learning gain.

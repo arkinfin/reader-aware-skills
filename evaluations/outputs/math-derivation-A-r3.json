@@ -1,0 +1,31 @@
+{
+  "id": "math-derivation-A-r3",
+  "task": "math-derivation",
+  "domain": "mathematics",
+  "group": "A",
+  "repeat": 3,
+  "prompt_sha256": "18853bf6828fe22a9c606a70d8b83287ec80e5d9af75f605b753afd243bbbfce",
+  "key": "math-derivation-A-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:58:15.780333+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 756,
+  "status": "completed",
+  "text": "相似公式描述的是：**同一个线性变换，换一组基后，其矩阵怎样改变。** 推导时，关键是先确定坐标转换方向，再安排矩阵的乘法次序。\n\n设两组有序基为 \\(E=(e_1,\\ldots,e_n)\\)、\\(F=(f_1,\\ldots,f_n)\\)，约定\n\\[\nF=EP.\n\\]\n这里把基看作由基向量排成的“行”。展开等式的第 \\(j\\) 列，得到\n\\[\nf_j=e_1p_{1j}+\\cdots+e_np_{nj},\n\\qquad\nP_{\\cdot j}=[f_j]_E.\n\\]\n因此，**\\(P\\) 的第 \\(j\\) 列是新基向量 \\(f_j\\) 在旧基 \\(E\\) 下的坐标**。列的顺序必须与 \\(F\\) 中基向量的顺序一致。\n\n对任意向量 \\(v\\)，由两种坐标表示可得\n\\[\nv=E[v]_E=F[v]_F=EP[v]_F.\n\\]\n因为基下的坐标唯一，所以\n\\[\n[v]_E=P[v]_F,\n\\qquad\n[v]_F=P^{-1}[v]_E.\n\\]\n这就明确了方向：\\(P\\) 把 **\\(F\\) 坐标变成 \\(E\\) 坐标**，\\(P^{-1}\\) 则反向转换。转换前后始终是同一个向量，变化的是表示它的坐标列。\n\n现在设线性变换 \\(T\\) 在两组基下的矩阵分别为 \\(A,B\\)。从任意的 \\(F\\) 坐标出发，先换成 \\(E\\) 坐标，用 \\(A\\) 实施变换，再将结果换回 \\(F\\) 坐标：\n\\[\n[T(v)]_F\n=P^{-1}[T(v)]_E\n=P^{-1}A[v]_E\n=P^{-1}AP[v]_F.\n\\]\n另一方面，按定义有\n\\[\n[T(v)]_F=B[v]_F.\n\\]\n由于 \\([v]_F\\) 可以取任意列向量，便得到\n\\[\n\\boxed{B=P^{-1}AP}.\n\\]\n矩阵作用于列向量时，最右侧先起作用。因此，右边的 \\(P\\) 负责转换输入坐标，左边的 \\(P^{-1}\\) 负责转换输出坐标；这解释了左右次序，而不必死记公式。按定义，满足这一关系的同阶方阵 \\(A,B\\) 互为相似矩阵。\n\n用题给二维数据检验：\n\\[\nP=\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\n\\qquad\nP^{-1}=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix},\n\\qquad\nA=\\begin{pmatrix}2&0\\\\0&3\\end{pmatrix}.\n\\]\n计算得到\n\\[\nB=P^{-1}AP\n=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}\n \\begin{pmatrix}2&0\\\\0&3\\end{pmatrix}\n \\begin{pmatrix}1&0\\\\1&1\\end{pmatrix}\n=\\begin{pmatrix}2&0\\\\1&3\\end{pmatrix}.\n\\]\n还可以直接检查 \\(B\\) 的两列。由于 \\(E\\) 是标准基，\n\\[\nT(f_1)=T\\binom11=\\binom23=2f_1+f_2,\n\\qquad\nT(f_2)=T\\binom01=\\binom03=3f_2.\n\\]\n故它们的 \\(F\\) 坐标分别是 \\((2,1)^{\\mathsf T}\\)、\\((0,3)^{\\mathsf T}\\)，恰好组成上述 \\(B\\) 的两列，验证了公式。",
+  "usage": {
+    "input_tokens": 11066,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1002,
+    "reasoning_output_tokens": 91
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1394,
+  "han_chars": 376,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:58:49.890272+00:00",
+  "elapsed_seconds": 34.11
+}

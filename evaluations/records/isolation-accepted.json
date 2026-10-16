@@ -1,0 +1,23 @@
+{
+  "accepted": true,
+  "definition": "Comparable fixed platform background, not sterile instruction-free context.",
+  "common_skill_catalog": [
+    "imagegen",
+    "openai-docs",
+    "skill-creator",
+    "skill-installer",
+    "dual-lane-agent-workflow",
+    "technical-educational-pdf"
+  ],
+  "common_global_guidance": "Global Working Rules",
+  "effective_tool_removal": false,
+  "target_skills_automatically_visible": false,
+  "actual_tool_calls_permitted": false,
+  "controls": "Fresh ephemeral non-resumed CLI launches, empty temp cwd, identical settings, no tools permitted; events checked.",
+  "limitations": "Configuration switches did not remove common catalog or tool definitions; automatic catalog influence cannot be ruled out.",
+  "evidence": [
+    "preflight.json",
+    "context-probe.json"
+  ],
+  "requested_overrides_not_guaranteed_effective": true
+}

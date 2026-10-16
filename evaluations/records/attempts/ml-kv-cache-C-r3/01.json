@@ -1,0 +1,26 @@
+{
+  "key": "ml-kv-cache-C-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:56:33.698844+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "1cf820a9f9cbf9a6eb913f6c58099c472de3382a978841e4d67551dcdab4e70c",
+  "prompt_chars": 5125,
+  "status": "completed",
+  "text": "语言模型逐 token 生成时，每一步都会用到此前的上下文。KV cache 的作用，是保存过去位置已经算好的 key（K）和 value（V），供后续步骤复用。它缓存的是中间计算结果，不是模型参数；追加缓存也不意味着训练或更新模型。\n\n先看单层、单头的因果自注意力。位置 \\(i\\) 的输入隐向量 \\(h_i\\) 经过三个投影，得到：\n\n\\[\nq_i=h_iW_Q,\\qquad k_i=h_iW_K,\\qquad v_i=h_iW_V.\n\\]\n\n其中，query 表示当前位置用来匹配上下文的向量，key 用来与 query 计算匹配分数，value 则提供被汇总的信息。位置 \\(t\\) 的输出为：\n\n\\[\na_{t,i}=\n\\frac{\\exp(q_t\\cdot k_i/\\sqrt{d_k})}\n{\\sum_{j=1}^{t}\\exp(q_t\\cdot k_j/\\sqrt{d_k})},\n\\qquad\no_t=\\sum_{i=1}^{t}a_{t,i}v_i.\n\\]\n\n因果掩码规定，位置 \\(t\\) 只能访问自身及之前的位置。于是，即使后来追加了新 token，旧位置也不能读取它。理解缓存能否复用，关键就在这条依赖限制。\n\n设模型参数固定、dropout 关闭，而且已有 token 的位置和此前上下文都不改动。在第一层，旧位置的输入不变，允许读取的范围也不变，因此输出不变；下一层接收的旧位置输入随之不变，同样可得输出不变。逐层推下去，旧位置在每一层的隐状态以及由它产生的 K、V 都不会因追加 token 而改变。因此，各层可以分别保存过去的 K、V，之后直接取用，结果与重新计算一致。\n\n处理新位置 \\(t\\) 时，每层只需为该位置计算新的 \\(q_t,k_t,v_t\\)，把 \\(k_t,v_t\\) 追加到该层缓存，再让 \\(q_t\\) 与全部过去及当前的 key 计算分数，经过 softmax 后，对相应 value 加权求和。过去的 query 不必缓存，因为当前输出用的是新的 query。过去的注意力权重也不能直接复用：query 变了，匹配分数和归一化后的权重通常都会变。\n\n因此，相比每一步重新运行整个前缀，KV cache 省去了旧位置的 K、V 投影，也避免了为得到这些量而重算旧位置各层的前向计算。但新位置的投影、各层计算，以及它对全部缓存的注意力仍然需要执行。上下文越长，新 query 要匹配的 key、要汇总的 value 就越多，所以缓存并没有让每步计算量变成与长度无关的常数。\n\n节省计算的代价是占用显存或内存。单层单头缓存 \\(t\\) 个位置，需要保存的元素数为：\n\n\\[\nt(d_k+d_v).\n\\]\n\n实际模型还要计入层数、头数、批量大小及每个元素的存储字节数。生成继续进行，缓存便随序列长度线性增长；它是随本次推理累积的状态。",
+  "usage": {
+    "input_tokens": 11842,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 810,
+    "reasoning_output_tokens": 63
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1194,
+  "han_chars": 651,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:57:06.771735+00:00",
+  "elapsed_seconds": 33.073
+}

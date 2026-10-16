@@ -1,0 +1,125 @@
+{
+  "id": "P90fe9471e424",
+  "status": "validated",
+  "judgment": {
+    "texts": [
+      {
+        "id": "Tc63bb7929ccd",
+        "scores": {
+          "correctness": 5,
+          "prior_knowledge_alignment": 4,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 5,
+          "overall_comprehensibility": 5
+        },
+        "errors": [],
+        "evidence": [
+          {
+            "dimension": "conceptual_sequencing",
+            "quote": "因此，第一层中旧位置的输出不变；下一层收到的旧位置输入也不变。逐层推下去，所有层的旧隐状态及其 key、value 都不变。",
+            "reason": "从因果依赖推导跨层不变性，补足了读者理解精确缓存所需的核心推理，没有直接把可复用性当作前提。"
+          },
+          {
+            "dimension": "explanatory_coherence",
+            "quote": "新的 \\(q_t\\) 必须与过去及当前的全部 key 计算分数，重新做 softmax，再对全部对应 value 加权。",
+            "reason": "明确区分可复用的历史表示与必须重新计算的当前注意力，准确说明缓存的计算收益及边界。"
+          },
+          {
+            "dimension": "prior_knowledge_alignment",
+            "quote": "其中 \\(d_v\\) 是 value 维数；多层多头还需累计各层各头的存储。",
+            "reason": "解释了存储公式中的 value 维数，但全文未明确说明 d_k 是 key 维数，对初次接触注意力的读者有轻微符号说明缺口。"
+          },
+          {
+            "dimension": "transfer_support",
+            "quote": "它属于当前生成过程的推理状态，不会更新模型参数。",
+            "reason": "结合前文的适用条件和依赖分析，帮助读者区分缓存状态与模型参数，并判断相近生成场景中的复用条件。"
+          }
+        ],
+        "redundancy": {
+          "score": 1,
+          "reason": "各段分别承担定义、计算规则、不变性证明、操作过程和成本分析，重复提及历史 KV 的作用均服务于新的解释环节。",
+          "quote": ""
+        }
+      },
+      {
+        "id": "T04fa69f889da",
+        "scores": {
+          "correctness": 5,
+          "prior_knowledge_alignment": 4,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 5,
+          "overall_comprehensibility": 5
+        },
+        "errors": [],
+        "evidence": [
+          {
+            "dimension": "conceptual_sequencing",
+            "quote": "第一层的旧位置输入不变，输出也不变；这些输出进入下一层后，同样不受未来位置影响。逐层推下去，各层旧位置的隐状态及其 key、value 都保持不变。",
+            "reason": "清楚建立固定输入、因果限制与各层历史表示不变之间的联系，符合读者已有的前向计算知识。"
+          },
+          {
+            "dimension": "explanatory_coherence",
+            "quote": "即使 key、value 没变，query 变了，匹配关系与归一化分母也会变化。",
+            "reason": "将不能复用历史权重的原因连接到点积和 softmax，解释了为何保存 KV 仍不能省去当前注意力计算。"
+          },
+          {
+            "dimension": "transfer_support",
+            "quote": "单步注意力计算量仍随上下文长度增长，不能把每步生成理解为恒定成本。",
+            "reason": "把仍需访问全部历史 KV 的计算结构转化为明确的成本判断，有助于理解更长上下文下的生成开销。"
+          },
+          {
+            "dimension": "prior_knowledge_alignment",
+            "quote": "单层单头缓存 \\(t\\) 个位置，需要的 KV 元素数为\n\n\\[\nt(d_k+d_v).\n\\]",
+            "reason": "存储公式正确，但未明确解释 d_k、d_v 分别是哪种向量的维数，初学者需要自行从下标推断。"
+          }
+        ],
+        "redundancy": {
+          "score": 1,
+          "reason": "定义、依赖证明、缓存操作、权重重算和成本分析各有作用，没有明显可删而不损失解释的信息。",
+          "quote": ""
+        }
+      }
+    ],
+    "pairs": [
+      {
+        "left": "Tc63bb7929ccd",
+        "right": "T04fa69f889da",
+        "winner": "tie",
+        "reason": "两文均先建立注意力计算，再通过因果依赖解释逐层不变性，最后区分节省的计算、剩余计算和存储代价。左文明确列出旧位置前馈网络计算也可省去，并解释 value 维数；右文更明确连接 query 改变、softmax 分母改变及单步成本随上下文增长。这些差异互有帮助，未形成实质可理解性差距，也均无准确性代价。",
+        "left_quote": "缓存节省了旧位置的重复前向计算，包括旧 key、value 的投影，以及为重新得到它们而重复执行的旧位置注意力和前馈网络计算。",
+        "right_quote": "即使 key、value 没变，query 变了，匹配关系与归一化分母也会变化。"
+      }
+    ]
+  },
+  "metadata": {
+    "key": "P90fe9471e424",
+    "attempt": 1,
+    "started_utc": "2026-10-16T01:03:32.201502+00:00",
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "prompt_sha256": "21a0ba73a1f2ed101c8f8b4711d75aa274743aa57cdf6fdec8d68b40be31985b",
+    "prompt_chars": 4582,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 13110,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1521,
+      "reasoning_output_tokens": 207
+    },
+    "adapter_model_label": "gpt-6.1-sol",
+    "server_model_identity": "not independently exposed by CLI",
+    "model_revision": "not exposed by CLI",
+    "chars": 3185,
+    "han_chars": 828,
+    "tool_items": [],
+    "finished_utc": "2026-10-16T01:04:17.828355+00:00",
+    "elapsed_seconds": 45.627
+  }
+}

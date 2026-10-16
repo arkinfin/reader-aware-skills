@@ -1,0 +1,226 @@
+{
+  "id": "P0e9434d33d57",
+  "status": "validated",
+  "judgment": {
+    "texts": [
+      {
+        "id": "T0ffa9e428d9f",
+        "scores": {
+          "correctness": 5,
+          "prior_knowledge_alignment": 5,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 5,
+          "overall_comprehensibility": 5
+        },
+        "errors": [],
+        "evidence": [
+          {
+            "dimension": "prior_knowledge_alignment",
+            "quote": "因此，微分是增量中的线性部分，不是实际增量的另一个名称。",
+            "reason": "直接处理读者尚不能稳定区分增量与微分的问题，将符号差别落实为概念差别。"
+          },
+          {
+            "dimension": "explanatory_coherence",
+            "quote": "反过来，若可微，把分解式除以 \\(h\\ne0\\)，便有",
+            "reason": "与前面的可导推出可微证明形成完整双向论证，说明等价关系来自同一增量表达式。"
+          },
+          {
+            "dimension": "transfer_support",
+            "quote": "可微保证的是忽略部分相对于 \\(h\\) 足够小，并不保证它相对于实际增量也很小。",
+            "reason": "准确限定近似误差的比较基准，结合零导数例子，有助于读者判断其他函数的线性近似能保证什么。"
+          }
+        ],
+        "redundancy": {
+          "score": 1,
+          "reason": "定义、证明、反例和增量例子分别承担必要功能，结尾对微分的再次说明增加了误差尺度这一信息。",
+          "quote": ""
+        }
+      },
+      {
+        "id": "Tb6937a48939f",
+        "scores": {
+          "correctness": 5,
+          "prior_knowledge_alignment": 5,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 5,
+          "overall_comprehensibility": 5
+        },
+        "errors": [],
+        "evidence": [
+          {
+            "dimension": "conceptual_sequencing",
+            "quote": "连续关心实际增量是否趋于零；可导关心增量之比是否趋于一个有限值；可微关心实际增量能否分解为线性部分与足够小的误差。",
+            "reason": "开头以共同对象组织三个概念，使后面的定义和证明有清楚的比较框架。"
+          },
+          {
+            "dimension": "prior_knowledge_alignment",
+            "quote": "这里 \\(dx\\) 就是选取的自变量增量，\\(dy\\) 则是由它得到的线性变化量。",
+            "reason": "明确解释两个微分符号的角色，适合已经学过求导但容易混淆增量与微分的读者。"
+          },
+          {
+            "dimension": "explanatory_coherence",
+            "quote": "连续只保证增量趋于零，不能保证存在一个统一的线性部分来描述两侧的变化。",
+            "reason": "将绝对值反例与可微定义连接起来，解释了反向关系为何失败，而不只是罗列左右导数。"
+          },
+          {
+            "dimension": "transfer_support",
+            "quote": "所以微分为零不代表函数没有变化，也不能据此要求误差相对于 \\(dy\\) 很小。",
+            "reason": "利用零点情形揭示误差应相对于自变量增量衡量，能支持对相近近似问题的分析。"
+          }
+        ],
+        "redundancy": {
+          "score": 1,
+          "reason": "开头概览与后文展开分工清楚；末尾回到连续性关系构成收束，没有明显无效重复。",
+          "quote": ""
+        }
+      },
+      {
+        "id": "T6c33e3c2665d",
+        "scores": {
+          "correctness": 5,
+          "prior_knowledge_alignment": 5,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 5,
+          "overall_comprehensibility": 5
+        },
+        "errors": [],
+        "evidence": [
+          {
+            "dimension": "conceptual_sequencing",
+            "quote": "连续只要求 \\(\\Delta y\\to0\\)，即自变量变化趋于零时，函数值变化也趋于零。可导则要求变化之比有有限极限：",
+            "reason": "从读者已知的连续和导数出发，再引入可微，前提安排自然。"
+          },
+          {
+            "dimension": "prior_knowledge_alignment",
+            "quote": "“高阶无穷小”在这里有明确含义：余项与 \\(h\\) 的比值趋于零，而不只是余项本身趋于零。",
+            "reason": "即时解释可能造成理解障碍的术语，并突出可微条件比误差趋零更强。"
+          },
+          {
+            "dimension": "explanatory_coherence",
+            "quote": "可微还蕴含连续：因为 \\(ah\\to0\\)，且",
+            "reason": "随后将余项写成增量与比值的乘积，补全余项趋零的理由，使关系链有明确依据。"
+          },
+          {
+            "dimension": "transfer_support",
+            "quote": "因此，微分为零不表示实际增量为零；可微保证的是误差相对于 \\(h\\) 趋于零，并不保证误差相对于 \\(dy\\) 趋于零。",
+            "reason": "从平方函数提取一般判断原则，准确区分线性近似的保证与不保证的内容。"
+          }
+        ],
+        "redundancy": {
+          "score": 1,
+          "reason": "先完成定义与关系证明，再集中澄清微分和增量，各部分推进明确，必要复现没有形成负担。",
+          "quote": ""
+        }
+      },
+      {
+        "id": "T694fad839996",
+        "scores": {
+          "correctness": 5,
+          "prior_knowledge_alignment": 5,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 5,
+          "overall_comprehensibility": 5
+        },
+        "errors": [],
+        "evidence": [
+          {
+            "dimension": "cognitive_load",
+            "quote": "这里 \\(h\\) 可以为正，也可以为负；下文涉及除以 \\(h\\) 时，均取 \\(h\\ne0\\)。",
+            "reason": "提前明确双侧增量和除法条件，减少读者在后续证明中自行补足前提的负担。"
+          },
+          {
+            "dimension": "explanatory_coherence",
+            "quote": "连续只要求变化趋于零，并不保证存在统一的线性近似。",
+            "reason": "紧接绝对值函数的双侧差商，把反例与统一线性系数的要求联系起来。"
+          },
+          {
+            "dimension": "transfer_support",
+            "quote": "对应的函数值线性近似是\n\\[\nf(x_0+h)\\approx f(x_0)+f'(x_0)h.\n\\]",
+            "reason": "显式连接增量近似与函数值近似，使读者能将微分定义用于常见近似表达。"
+          },
+          {
+            "dimension": "correctness",
+            "quote": "这个近似的保证是误差为 \\(o(h)\\)，并非误差相对于实际增量也趋于零。",
+            "reason": "准确说明近似精度的尺度，并用零点处的平方函数展示边界。文中“微分不等于实际增量”结合语境表达的是二者不能一般地等同。"
+          }
+        ],
+        "redundancy": {
+          "score": 1,
+          "reason": "双侧差商和函数值近似式分别补充反例机制与应用联系，没有明显多余展开。",
+          "quote": ""
+        }
+      }
+    ],
+    "pairs": [
+      {
+        "left": "T6c33e3c2665d",
+        "right": "T694fad839996",
+        "winner": "tie",
+        "reason": "左文先从连续进入导数，再解释可微，较便于沿已有知识推进；右文明确连接增量近似与函数值近似，应用联系更显式。两者都完整证明等价关系、解释连续性的单向边界并说明误差尺度，整体理解支持相当，均无实质准确性代价。",
+        "left_quote": "连续只要求 \\(\\Delta y\\to0\\)，即自变量变化趋于零时，函数值变化也趋于零。可导则要求变化之比有有限极限：",
+        "right_quote": "对应的函数值线性近似是\n\\[\nf(x_0+h)\\approx f(x_0)+f'(x_0)h.\n\\]"
+      },
+      {
+        "left": "T0ffa9e428d9f",
+        "right": "Tb6937a48939f",
+        "winner": "tie",
+        "reason": "左文在定义微分后立即排除它与实际增量的混同，直接切中读者困难；右文先建立三个概念的共同比较框架，再逐步区分符号。两种顺序都能降低概念混淆，且证明和例子充分，没有足以决定优劣的理解差异或准确性代价。",
+        "left_quote": "因此，微分是增量中的线性部分，不是实际增量的另一个名称。",
+        "right_quote": "连续关心实际增量是否趋于零；可导关心增量之比是否趋于一个有限值；可微关心实际增量能否分解为线性部分与足够小的误差。"
+      },
+      {
+        "left": "T0ffa9e428d9f",
+        "right": "T694fad839996",
+        "winner": "tie",
+        "reason": "左文把左右变化率不一致直接解释为不能使用同一个线性系数，反例与定义联系紧密；右文展示双侧差商的具体形式，使反例计算更直观。两者都足以说明反向关系失败，并准确限定线性近似的误差保证，整体可理解性相当，无实质准确性代价。",
+        "left_quote": "两侧变化率不一致，无法用同一个系数 \\(a\\) 给出上述线性分解。",
+        "right_quote": "\\frac{|h|}{h}=\n\\begin{cases}\n-1,&h<0,\\\\\n1,&h>0,\n\\end{cases}"
+      },
+      {
+        "left": "Tb6937a48939f",
+        "right": "T6c33e3c2665d",
+        "winner": "tie",
+        "reason": "左文在等价证明后集中说明微分并立即给出平方函数例子，定义与实例衔接紧；右文先完成连续性关系，再集中比较微分与增量，关系链更集中。两种组织都清楚且前提充分，对目标读者没有明显负担差距，均无核心错误或准确性代价。",
+        "left_quote": "这里 \\(dx\\) 就是选取的自变量增量，\\(dy\\) 则是由它得到的线性变化量。",
+        "right_quote": "最后，要把微分与实际增量分清：\\(\\Delta y\\) 是完整变化，\\(dy=f'(x_0)h\\) 是其中的线性部分，两者满足"
+      }
+    ]
+  },
+  "metadata": {
+    "key": "P0e9434d33d57",
+    "attempt": 1,
+    "started_utc": "2026-10-16T01:01:56.786337+00:00",
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "prompt_sha256": "a0abea13b1228e1a96755e5204c74790e37cf6726a0cc0b6d1866cb86d8c3e55",
+    "prompt_chars": 8085,
+    "status": "completed",
+    "usage": {
+      "input_tokens": 15482,
+      "cached_input_tokens": 4096,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2954,
+      "reasoning_output_tokens": 145
+    },
+    "adapter_model_label": "gpt-6.1-sol",
+    "server_model_identity": "not independently exposed by CLI",
+    "model_revision": "not exposed by CLI",
+    "chars": 6471,
+    "han_chars": 1646,
+    "tool_items": [],
+    "finished_utc": "2026-10-16T01:03:02.548896+00:00",
+    "elapsed_seconds": 65.763
+  }
+}

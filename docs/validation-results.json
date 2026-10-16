@@ -1,0 +1,60 @@
+{
+  "status": "pass",
+  "checked_utc": "2026-10-16T01:19:07.777970+00:00",
+  "skill_static_validation": {
+    "pedagogical-readability": {
+      "exit_code": 0
+    },
+    "reader-aware-writing": {
+      "exit_code": 0
+    }
+  },
+  "source_and_preservation": "Seven original source hashes and inverse byte reconstruction passed. Metadata byte-identical.",
+  "external_regression": {
+    "kind": "offline deterministic/mock tests, not live paid workflow",
+    "test_files": [
+      "test_readability_architecture.py",
+      "test_hidden_inference.py"
+    ],
+    "passed": 57,
+    "exit_code": 0
+  },
+  "installation": "Both README copy variants passed in temporary projects; all bytes equal. Host automatic selection not asserted.",
+  "scope_smoke_checks": {
+    "passed": 2,
+    "record": "evaluations/functional-checks.json"
+  },
+  "static_candidate_scan": {
+    "status": "passed",
+    "checked_files": 321,
+    "failed_checks": 0,
+    "limitations": [
+      "Static checks do not establish teaching-runtime behavior or model availability.",
+      "Pattern scanning cannot prove absence of secrets, privacy issues, or copyright risk.",
+      "No generated text quality, correctness, learning gain, or experimental result is evaluated.",
+      "The simple frontmatter parser supports this package's scalar fields, not general YAML."
+    ]
+  },
+  "offline_replay": {
+    "status": "pass",
+    "exit_code": 0,
+    "without_private_workflow": true,
+    "without_shared_runtime": true,
+    "summary_equal": true,
+    "results_data_bytes_equal": true,
+    "command": "python3 evaluations/analyze.py",
+    "notes": "Temporary copy excluded .workflow and .git; selected public evaluations/records automatically. No model or network call."
+  },
+  "independent_reviews": "Code/provenance gates and targeted re-review passed; final narrative checked against locked summary. Technical review/adjudication records are separate from raw primary scores.",
+  "skipped": [
+    "Full external teaching runtime model execution; existing dependency and model health not established by this package.",
+    "Human learning/retention/transfer testing.",
+    "Cross-model efficacy and automatic activation evaluation."
+  ],
+  "publication": "Local candidate only; no remote push or public release authorized.",
+  "staged_whitespace_check": {
+    "initial_exit_code": 2,
+    "final_exit_code": 0,
+    "resolution": "Two file-scoped attributes preserve valid diff context whitespace; ordinary integration doc extra EOF blank removed."
+  }
+}

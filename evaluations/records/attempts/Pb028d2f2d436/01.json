@@ -1,0 +1,26 @@
+{
+  "key": "Pb028d2f2d436",
+  "attempt": 1,
+  "started_utc": "2026-10-16T01:02:54.745995+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "682d6eafa78b09b49fea8c5b16d1fa3a53c3f7c183ac37eae9330d9537df44d8",
+  "prompt_chars": 4596,
+  "status": "completed",
+  "text": "{\n  \"texts\": [\n    {\n      \"id\": \"T2c2dea1cd8f7\",\n      \"scores\": {\n        \"correctness\": 5,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 5,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [],\n      \"evidence\": [\n        {\n          \"dimension\": \"prior_knowledge_alignment\",\n          \"quote\": \"query 用来查询，key 用来计算匹配程度，value 提供被汇总的信息。\",\n          \"reason\": \"用简短角色说明连接读者已有的矩阵运算知识与尚不熟悉的注意力概念，随后给出公式，前提负担适当。\"\n        },\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"这个结论可以逐层推导：底层旧位置的输出不变，上层收到的旧位置输入也不变，所以各层旧位置的隐状态及其 K、V 都不变。\",\n          \"reason\": \"明确建立从因果依赖到逐层结果不变、再到缓存可复用的推理链，回答了核心的计算依赖问题。\"\n        },\n        {\n          \"dimension\": \"correctness\",\n          \"quote\": \"新的 \\\\(q_t\\\\) 要与全部 \\\\(t\\\\) 个 key 计算分数，重新做 softmax，再对全部 value 加权。\",\n          \"reason\": \"准确区分可缓存的历史向量与仍需计算的当前注意力，避免将缓存误解为复用注意力权重。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"因此，固定维数时，每步的注意力计算仍随前缀长度线性增长，并未变成常数；当前位置的投影和其他网络计算也仍然需要执行。\",\n          \"reason\": \"将计算流程与长度增长联系起来，支持读者分析相近场景下的计算开销；结合缓存元素公式，也完整说明了时间与存储的交换。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"开头与结尾对缓存属于推理状态的呼应简短，各段分别承担定义、依赖证明、执行流程和成本分析，没有造成实质冗余。\",\n        \"quote\": \"\"\n      }\n    },\n    {\n      \"id\": \"T65d0b6c2482c\",\n      \"scores\": {\n        \"correctness\": 5,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 5,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [],\n      \"evidence\": [\n        {\n          \"dimension\": \"prior_knowledge_alignment\",\n          \"quote\": \"其中，query 表示当前位置用来匹配上下文的向量，key 用来与 query 计算匹配分数，value 则提供被汇总的信息。\",\n          \"reason\": \"清楚解释三个投影的作用，使掌握矩阵乘法和 softmax 的读者能够理解后续公式，无需预先熟悉注意力术语。\"\n        },\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"在第一层，旧位置的输入不变，允许读取的范围也不变，因此输出不变；下一层接收的旧位置输入随之不变，同样可得输出不变。\",\n          \"reason\": \"同时说明输入和依赖范围不变，并逐层传播这一结论，为精确复用历史 K、V 提供充分解释。\"\n        },\n        {\n          \"dimension\": \"correctness\",\n          \"quote\": \"过去的注意力权重也不能直接复用：query 变了，匹配分数和归一化后的权重通常都会变。\",\n          \"reason\": \"准确区分历史 K、V 的稳定性与当前权重的变化，并用“通常”避免声称不同 query 必然产生不同权重。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"上下文越长，新 query 要匹配的 key、要汇总的 value 就越多，所以缓存并没有让每步计算量变成与长度无关的常数。\",\n          \"reason\": \"通过操作数量解释剩余计算开销，便于读者将缓存机制用于分析其他序列长度下的推理成本。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"各段依次解释缓存对象、注意力机制、复用条件、增量流程及成本，必要的概念呼应没有形成实质重复。\",\n        \"quote\": \"\"\n      }\n    }\n  ],\n  \"pairs\": [\n    {\n      \"left\": \"T2c2dea1cd8f7\",\n      \"right\": \"T65d0b6c2482c\",\n      \"winner\": \"tie\",\n      \"reason\": \"两文都先介绍注意力计算，再由因果依赖逐层证明历史结果不变，随后区分缓存节省的计算、当前仍需执行的计算与存储成本。左文明确表述每步注意力随长度线性增长，右文更展开首层到后续层的推导；这些表达差异未造成实质理解差距。两文均交代复用前提，没有核心错误或准确性代价。\",\n      \"left_quote\": \"这个结论可以逐层推导：底层旧位置的输出不变，上层收到的旧位置输入也不变，所以各层旧位置的隐状态及其 K、V 都不变。\",\n      \"right_quote\": \"在第一层，旧位置的输入不变，允许读取的范围也不变，因此输出不变；下一层接收的旧位置输入随之不变，同样可得输出不变。\"\n    }\n  ]\n}",
+  "usage": {
+    "input_tokens": 13209,
+    "cached_input_tokens": 4096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1434,
+    "reasoning_output_tokens": 51
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 3201,
+  "han_chars": 934,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T01:03:32.173961+00:00",
+  "elapsed_seconds": 37.428
+}

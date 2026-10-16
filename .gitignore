@@ -1,0 +1,10 @@
+.workflow/
+.env
+.env.*
+!.env.example
+workers.env
+.venv/
+__pycache__/
+build/
+dist/
+*.log

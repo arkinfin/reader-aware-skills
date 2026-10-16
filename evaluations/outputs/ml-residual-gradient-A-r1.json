@@ -1,0 +1,31 @@
+{
+  "id": "ml-residual-gradient-A-r1",
+  "task": "ml-residual-gradient",
+  "domain": "machine-learning",
+  "group": "A",
+  "repeat": 1,
+  "prompt_sha256": "da73e47d0e718e834b81c6fd220a46aad9f1b23b53003f02f11c4c36d7dab37f",
+  "key": "ml-residual-gradient-A-r1",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:48:23.037800+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 855,
+  "status": "completed",
+  "text": "残差连接改变了梯度经过每一层时的变换方式：普通层用残差分支的 Jacobian 传递梯度，恒等捷径残差层则多出一个恒等项。这个结构为梯度提供了直接传播的路径，但不能保证实际梯度始终不衰减。\n\n先看普通网络。这里只讨论各层向量维数相同的可微模型，损失为标量 \\(\\ell\\)。设\n\\[\nx_{l+1}=F_l(x_l),\\qquad J_l=\\frac{\\partial F_l}{\\partial x_l}.\n\\]\n采用列梯度约定，链式法则给出\n\\[\n\\nabla_{x_l}\\ell=J_l^\\top\\nabla_{x_{l+1}}\\ell.\n\\]\n跨越 \\(m\\) 层时，梯度连续经过这些转置 Jacobian：\n\\[\n\\nabla_{x_l}\\ell\n=J_l^\\top J_{l+1}^\\top\\cdots J_{l+m-1}^\\top\n\\nabla_{x_{l+m}}\\ell.\n\\]\n因此，深度增加意味着更多矩阵相乘。若各层 Jacobian 的相容算子范数都不超过 \\(\\rho<1\\)，则前向 Jacobian 乘积满足\n\\[\n\\left\\|J_{l+m-1}\\cdots J_l\\right\\|\\le \\rho^m.\n\\]\n例如采用欧氏范数时，这也给出了反向梯度的指数衰减上界。\n\n现在加入恒等捷径，并假设加法之后没有激活、归一化或投影：\n\\[\nx_{l+1}=x_l+F_l(x_l).\n\\]\n由于恒等映射的导数是 \\(I\\)，反向传播变为\n\\[\n\\nabla_{x_l}\\ell\n=(I+J_l)^\\top\\nabla_{x_{l+1}}\\ell\n=\\nabla_{x_{l+1}}\\ell+J_l^\\top\\nabla_{x_{l+1}}\\ell.\n\\]\n第一项直接传回上游梯度，第二项是经过残差分支的贡献。与普通层相比，梯度不再必须先乘一次 \\(J_l^\\top\\)。\n\n跨越多层时，反向传播涉及的是各个 \\((I+J_l)^\\top\\) 的有序乘积。展开后，既有全程选择恒等项得到的 \\(I\\)，也有经过一个或多个残差分支的项。因此，结构上存在一条不必连续经过所有残差分支 Jacobian 的路径。特别地，若所有残差分支恒为零，各层就是恒等映射，梯度会原样传回。\n\n但“展开式里有 \\(I\\)”不等于“总梯度有非零下界”。各项最终要相加，可能相互抵消。一维例子最直接：\n\\[\nF_l(x)=-x\n\\quad\\Rightarrow\\quad\nx_{l+1}=x-x=0,\\qquad\n1+F_l'(x)=0.\n\\]\n即使有恒等捷径，这一层也会把反传梯度完全截断。甚至不必完全抵消：若每层 \\(J_l=-\\tfrac12 I\\)，则每层总 Jacobian 为 \\(\\tfrac12 I\\)，跨 \\(m\\) 层后梯度仍缩小为原来的 \\(2^{-m}\\)。\n\n所以，残差连接提供了更有利的传播结构，却不是梯度不消失的保证。真实网络中的归一化、非线性和投影还会改变上述公式；最终优化效果也受参数、数据和训练设定影响。判断时，应区分“结构上存在直接路径”与“当前训练中梯度实际传得怎样”。",
+  "usage": {
+    "input_tokens": 11099,
+    "cached_input_tokens": 4096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 992,
+    "reasoning_output_tokens": 135
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1304,
+  "han_chars": 565,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:48:56.923400+00:00",
+  "elapsed_seconds": 33.886
+}

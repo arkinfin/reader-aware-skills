@@ -1,0 +1,31 @@
+{
+  "id": "control-crossover-C-r3",
+  "task": "control-crossover",
+  "domain": "control-theory",
+  "group": "C",
+  "repeat": 3,
+  "prompt_sha256": "afbe5a1961363359a47504d6772eafcce5c7633ae90500f02869ea9879ad52f7",
+  "key": "control-crossover-C-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:57:44.782421+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 4965,
+  "status": "completed",
+  "text": "正比例增益不改变固定频率处的开环相位，却能改变相位裕度，关键在于：**相位裕度是在增益截止频率处读取的，而这个频率会随增益移动。** 因此，“同一频率的相位不变”和“相位裕度改变”并不矛盾。\n\n对单位负反馈系统\n\\[\nL(s)=\\frac{K}{s(s+1)},\\qquad K>0,\n\\]\n在任意固定的正频率处，有\n\\[\n|L(j\\omega)|=\\frac{K}{\\omega\\sqrt{1+\\omega^2}},\n\\qquad\n\\arg L(j\\omega)=-90^\\circ-\\arctan\\omega.\n\\]\n因为正实数 \\(K\\) 的幅角为零，改变它只会把Bode幅频曲线上下平移，相频曲线保持原样。但相位裕度并不是在预先固定的频率上测量的；要先找到幅值等于1，也就是幅频曲线穿过 \\(0\\,\\mathrm{dB}\\) 的位置，再读取那里的相位：\n\\[\n|L(j\\omega_c)|=1,\\qquad\nPM=180^\\circ+\\arg L(j\\omega_c).\n\\]\n这里的 \\(PM\\) 表示：在该截止频率处，开环相位距离 \\(-180^\\circ\\) 还差多少。\n\n本系统的截止条件可以写成\n\\[\nK=\\omega_c\\sqrt{1+\\omega_c^2}.\n\\]\n右侧在正频率范围内严格递增，所以每个正增益都对应唯一的截止频率，且 \\(K\\) 越大，\\(\\omega_c\\) 越高。与此同时，相位随频率升高而变得更负。因此，增大增益虽然没有改变相频曲线，却使读取相位的位置沿曲线向高频移动，得到更小的相位裕度：\n\\[\nPM=90^\\circ-\\arctan\\omega_c.\n\\]\n\n当 \\(K=\\sqrt2\\) 时，截止条件给出\n\\[\n\\omega_c=1\\ \\mathrm{rad/s},\\qquad\n\\arg L(j\\omega_c)=-135^\\circ,\\qquad PM=45^\\circ.\n\\]\n当 \\(K=\\sqrt{20}\\) 时，则有\n\\[\n\\omega_c=2\\ \\mathrm{rad/s},\\qquad\n\\arg L(j\\omega_c)\\approx-153.435^\\circ,\\qquad\nPM\\approx26.565^\\circ.\n\\]\n两种情况下，若都在 \\(\\omega=1\\) 处比较，相位仍然都是 \\(-135^\\circ\\)；区别是第二种增益对应的截止频率已经移到了 \\(\\omega=2\\)，相位裕度必须在那里计算。\n\n相位裕度减小也不等于闭环已经失稳。本系统的闭环特征多项式为\n\\[\ns^2+s+K.\n\\]\n对所有有限的 \\(K>0\\)，它都满足二阶系统的稳定条件，因此上述两个闭环均稳定。\n\n“增益增大、截止频率升高、相位裕度减小”这条变化关系，依赖本系统幅值严格递减、相位也随频率递减的特点。对其他系统，正增益仍不改变固定频率处的相位，但幅频曲线可能不单调，甚至有多个截止频率，相位曲线的变化方向也可能不同，必须重新分析，不能直接套用这里的结论。",
+  "usage": {
+    "input_tokens": 11767,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 843,
+    "reasoning_output_tokens": 37
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1262,
+  "han_chars": 537,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:58:15.752554+00:00",
+  "elapsed_seconds": 30.97
+}

@@ -1,0 +1,118 @@
+{
+  "scope": "Successful generation calls only. Subscription usage is not a bill; cached/reasoning fields may be subsets. Elapsed times include scheduling and platform overhead, not intrinsic model speed.",
+  "calculation": "Group by (domain, group); take arithmetic means of chars, han_chars, elapsed_seconds and provider numeric usage fields.",
+  "groups": {
+    "control-theory:A": {
+      "chars": 1307.8333333333333,
+      "han_chars": 534.5,
+      "elapsed_seconds": 29.996666666666666,
+      "prompt_chars": 833,
+      "usage_means": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 6912,
+        "input_tokens": 11091.666666666666,
+        "output_tokens": 908.5,
+        "reasoning_output_tokens": 78.5
+      },
+      "n": 6
+    },
+    "control-theory:C": {
+      "chars": 1336.1666666666667,
+      "han_chars": 532.1666666666666,
+      "elapsed_seconds": 30.0475,
+      "prompt_chars": 5011,
+      "usage_means": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 5525.333333333333,
+        "input_tokens": 11807.333333333334,
+        "output_tokens": 902.8333333333334,
+        "reasoning_output_tokens": 58.833333333333336
+      },
+      "n": 6
+    },
+    "machine-learning:A": {
+      "chars": 1204.5,
+      "han_chars": 592.3333333333334,
+      "elapsed_seconds": 30.372166666666665,
+      "prompt_chars": 901,
+      "usage_means": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 4842.666666666667,
+        "input_tokens": 11111.333333333334,
+        "output_tokens": 840.6666666666666,
+        "reasoning_output_tokens": 78.83333333333333
+      },
+      "n": 6
+    },
+    "machine-learning:C": {
+      "chars": 1197.6666666666667,
+      "han_chars": 616,
+      "elapsed_seconds": 31.845,
+      "prompt_chars": 5079,
+      "usage_means": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 6912,
+        "input_tokens": 11828,
+        "output_tokens": 850.6666666666666,
+        "reasoning_output_tokens": 70.66666666666667
+      },
+      "n": 6
+    },
+    "mathematics:A": {
+      "chars": 1324.7777777777778,
+      "han_chars": 449.6666666666667,
+      "elapsed_seconds": 31.53388888888889,
+      "prompt_chars": 775.6666666666666,
+      "usage_means": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 6456.888888888889,
+        "input_tokens": 11063.555555555555,
+        "output_tokens": 930,
+        "reasoning_output_tokens": 65.55555555555556
+      },
+      "n": 9
+    },
+    "mathematics:B": {
+      "chars": 1408.7777777777778,
+      "han_chars": 430.8888888888889,
+      "elapsed_seconds": 32.43388888888889,
+      "prompt_chars": 1006.6666666666666,
+      "usage_means": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 4608,
+        "input_tokens": 11238.222222222223,
+        "output_tokens": 1009.4444444444445,
+        "reasoning_output_tokens": 96.77777777777777
+      },
+      "n": 9
+    },
+    "mathematics:C": {
+      "chars": 1353.3333333333333,
+      "han_chars": 456,
+      "elapsed_seconds": 31.12622222222222,
+      "prompt_chars": 4953.666666666667,
+      "usage_means": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 6442.666666666667,
+        "input_tokens": 11781,
+        "output_tokens": 948.4444444444445,
+        "reasoning_output_tokens": 61.55555555555556
+      },
+      "n": 9
+    },
+    "mathematics:D": {
+      "chars": 1371.111111111111,
+      "han_chars": 422.55555555555554,
+      "elapsed_seconds": 30.826555555555554,
+      "prompt_chars": 5184.666666666667,
+      "usage_means": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 7850.666666666667,
+        "input_tokens": 11956.111111111111,
+        "output_tokens": 955.8888888888889,
+        "reasoning_output_tokens": 57.22222222222222
+      },
+      "n": 9
+    }
+  }
+}

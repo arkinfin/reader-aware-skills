@@ -1,0 +1,26 @@
+{
+  "key": "control-state-transfer-C-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:55:36.181187+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "cf2aee09d65103c808cdbe15d5b6822a1c8a38b224c5d86ed1934369dd516588",
+  "prompt_chars": 5057,
+  "status": "completed",
+  "text": "状态空间与传递函数可以描述同一个线性时不变系统，但保留的信息不同。状态空间描述内部状态怎样随输入和初值演化；传递函数描述零初始状态下，输入怎样影响输出。因此，输出响应看起来稳定，并不保证所有内部状态都稳定。\n\n连续时间有限维线性时不变系统的状态空间形式为\n\\[\n\\dot x=Ax+Bu,\\qquad y=Cx+Du,\\qquad x(0)=x_0。\n\\]\n其中，\\(x\\)是状态向量，\\(u\\)是输入，\\(y\\)是输出。给定输入和初值，就能由状态方程求出状态轨迹，再由输出方程得到输出。矩阵\\(A\\)描述状态自身的演化及相互作用，\\(B\\)描述输入如何作用于状态，\\(C\\)决定哪些状态组合进入输出，\\(D\\)表示输入对输出的直接作用。\n\n两种表示的联系，可以从熟悉的拉普拉斯变换得到。利用导数的变换公式，\n\\[\nsX(s)-x_0=AX(s)+BU(s),\n\\]\n所以，在\\(sI-A\\)可逆处，\n\\[\nY(s)=\\underbrace{\\left[C(sI-A)^{-1}B+D\\right]U(s)}_{\\text{零初始状态下的输入响应}}\n+\\underbrace{C(sI-A)^{-1}x_0}_{\\text{初始状态引起的响应}}。\n\\]\n令\\(x_0=0\\)，便得到传递函数\n\\[\nG(s)=C(sI-A)^{-1}B+D。\n\\]\n这说明，传递函数提取的是输入到输出的关系；初始状态引起的响应需要另行计算，不能直接包含在\\(G(s)U(s)\\)中。\n\n考虑两状态系统\n\\[\nA=\\begin{pmatrix}-1&0\\\\0&1\\end{pmatrix},\\quad\nB=\\begin{pmatrix}1\\\\0\\end{pmatrix},\\quad\nC=\\begin{pmatrix}1&0\\end{pmatrix},\\quad D=0，\n\\]\n也就是\n\\[\n\\dot x_1=-x_1+u,\\qquad \\dot x_2=x_2,\\qquad y=x_1。\n\\]\n输入只作用于\\(x_1\\)，输出也只读取\\(x_1\\)，故\n\\[\nG(s)=\n\\begin{pmatrix}1&0\\end{pmatrix}\n\\begin{pmatrix}(s+1)^{-1}&0\\\\0&(s-1)^{-1}\\end{pmatrix}\n\\begin{pmatrix}1\\\\0\\end{pmatrix}\n=\\frac1{s+1}。\n\\]\n它与稳定的一阶系统具有相同的零状态输入输出关系。然而，当\\(u=0\\)且\\(x_2(0)\\ne0\\)时，\n\\[\nx_2(t)=e^t x_2(0)，\n\\]\n内部状态会无限增长。若同时\\(x_1(0)=0\\)，输出却始终为零。原因是第二个状态既不受输入驱动，也不影响输出，它的增长不会出现在传递函数中。因此，仅凭这里的传递函数，无法判断整个内部系统是否稳定。\n\n此外，状态变量的选法也不唯一。作可逆变换\\(z=T^{-1}x\\)，有\n\\[\nA_z=T^{-1}AT,\\quad B_z=T^{-1}B,\\quad C_z=CT,\\quad D_z=D。\n\\]\n这些矩阵仍给出相同的零状态传递函数。坐标变换只是换一种方式记录状态；本例中遗漏第二个状态，则说明输入输出关系本身未必呈现全部内部动态。",
+  "usage": {
+    "input_tokens": 11849,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 899,
+    "reasoning_output_tokens": 45
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1364,
+  "han_chars": 529,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:56:08.088365+00:00",
+  "elapsed_seconds": 31.907
+}

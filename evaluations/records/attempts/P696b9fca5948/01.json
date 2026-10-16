@@ -1,0 +1,26 @@
+{
+  "key": "P696b9fca5948",
+  "attempt": 1,
+  "started_utc": "2026-10-16T01:00:10.037782+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "99c2f6cb67f84a85470b7985b443efb6265b35b7bade1a608f00770921788383",
+  "prompt_chars": 4719,
+  "status": "completed",
+  "text": "{\n  \"texts\": [\n    {\n      \"id\": \"T5f64a278cb0d\",\n      \"scores\": {\n        \"correctness\": 5,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 5,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [],\n      \"evidence\": [\n        {\n          \"dimension\": \"correctness\",\n          \"quote\": \"如果采用欧氏范数及其诱导的算子范数\",\n          \"reason\": \"明确了梯度范数不等式使用的范数条件，使转置 Jacobian 的传播界限严谨成立。\"\n        },\n        {\n          \"dimension\": \"prior_knowledge_alignment\",\n          \"quote\": \"这些矩阵的顺序由链式法则确定，不能任意交换。\",\n          \"reason\": \"利用读者已掌握的链式法则解释多层传播，并提醒矩阵乘法的顺序约束，无需额外前置知识。\"\n        },\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"右侧第一项来自捷径，第二项来自残差分支。也就是说，上游梯度可以直接传回，同时还会收到残差分支贡献的梯度。两项最终在同一个输入处相加。\",\n          \"reason\": \"将公式中的两项对应到计算图中的两条分支，并强调最终相加，为后续解释抵消建立了清楚的概念联系。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"展开式中存在恒等项，不等于最终梯度有一个正的大小下界\",\n          \"reason\": \"提出可用于分析其他残差组合的一般判断原则，再用总导数为零的例子验证，充分支持区分结构路径与实际梯度。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"公式、路径解释和反例分别完成必要步骤，首尾对核心结论的呼应没有造成实质冗余。\",\n        \"quote\": \"\"\n      }\n    },\n    {\n      \"id\": \"T79ff94c259f5\",\n      \"scores\": {\n        \"correctness\": 5,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 5,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [],\n      \"evidence\": [\n        {\n          \"dimension\": \"motivation\",\n          \"quote\": \"关键是区分：反向传播公式中有哪些项，以及这些项相加后实际得到什么。\",\n          \"reason\": \"开篇直接给出任务所需的判断框架，让读者知道后续推导要解释什么，无需额外动机铺垫。\"\n        },\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"输入通过两条分支影响输出：一条直接传递输入，另一条经过 \\\\(F_l\\\\)。求导时，两条分支的贡献相加：\",\n          \"reason\": \"先说明依赖关系，再给出求导公式，使恒等项的来源以及分支贡献相加的原因容易理解。\"\n        },\n        {\n          \"dimension\": \"conceptual_sequencing\",\n          \"quote\": \"但恒等项只是总和的一部分，不能单独充当梯度大小的下界；其他项可能与它抵消。\",\n          \"reason\": \"在多层乘积展开后立即澄清其含义和限制，自然衔接后续反例，避免读者把路径存在误解为数值保证。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"甚至不必完全抵消：若连续多层都有 \\\\(F_l(x)=-\\\\tfrac12x\\\\)，每层总导数就是 \\\\(\\\\tfrac12\\\\)，跨 \\\\(m\\\\) 层后仍会按 \\\\(2^{-m}\\\\) 衰减。\",\n          \"reason\": \"补充正确的持续收缩情形，帮助读者将结论推广到没有精确抵消、却仍会逐层衰减的残差网络。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"完全抵消与持续收缩两个例子承担不同解释功能，篇幅集中于任务要求，没有实质冗余。\",\n        \"quote\": \"\"\n      }\n    }\n  ],\n  \"pairs\": [\n    {\n      \"left\": \"T79ff94c259f5\",\n      \"right\": \"T5f64a278cb0d\",\n      \"winner\": \"tie\",\n      \"reason\": \"两文都完整建立了普通网络连乘、残差层分支相加、多层恒等路径与实际抵消之间的联系，足以满足该读者的理解目标。左文补充持续收缩情形，使限制不限于精确抵消；右文明确有序乘积，并更直接解释路径贡献为何能够抵消。两种处理各有帮助，均无核心错误，也没有以牺牲准确性换取易读性，整体可理解性相当。\",\n      \"left_quote\": \"甚至不必完全抵消：若连续多层都有 \\\\(F_l(x)=-\\\\tfrac12x\\\\)，每层总导数就是 \\\\(\\\\tfrac12\\\\)，跨 \\\\(m\\\\) 层后仍会按 \\\\(2^{-m}\\\\) 衰减。\",\n      \"right_quote\": \"各条路径贡献的是向量，相加时可能抵消。\"\n    }\n  ]\n}",
+  "usage": {
+    "input_tokens": 13412,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1481,
+    "reasoning_output_tokens": 157
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 3068,
+  "han_chars": 811,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T01:00:51.791030+00:00",
+  "elapsed_seconds": 41.753
+}

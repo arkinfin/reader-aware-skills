@@ -1,0 +1,22 @@
+{
+  "scope": "Two independent native-session compatibility smoke checks; excluded from the 60-output study. No effectiveness or learning-gain inference.",
+  "skill_sha256": "43d915c9594fb3eefdd413e251d91eee1cf730ff0121b8381ab672fccf973d67",
+  "assigned_model": "gpt-6.1-sol",
+  "assigned_reasoning_effort": "medium",
+  "backend_revision": "not exposed",
+  "cases": [
+    {
+      "request": "计算 6×7。只给最终结果，不要解释。",
+      "output": "42",
+      "check": "Final result with no added teaching text",
+      "status": "pass"
+    },
+    {
+      "request": "清单是苹果、梨、香蕉。提取项目数量，严格只输出一个 JSON 对象，唯一字段为 count，不要 Markdown 或说明。",
+      "output": "{\"count\":3}",
+      "check": "Valid JSON only, correct count, no extra fields or explanation",
+      "status": "pass"
+    }
+  ],
+  "context": "Each session read only the standalone skill and received its own request; no evaluation artifacts or development history were provided."
+}

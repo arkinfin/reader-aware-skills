@@ -1,0 +1,26 @@
+{
+  "key": "math-method-A-r2",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:54:26.022592+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "2371ef5569b64de6ab4300c840a39aba5b56020aea5b6b79f9ec000a96fdf2b8",
+  "prompt_chars": 788,
+  "status": "completed",
+  "text": "这两个极限的关键区别，在于分子的一阶项是否抵消。选择方法时，先看运算结构，再判断计算需要精确到哪一阶：整体相乘、相除时，等价替换通常能直接使用；遇到加减，则要检查替换误差会不会掩盖最后留下的量。\n\n所谓等价无穷小，是指\n\\[\n\\alpha(x)\\sim\\beta(x)\n\\quad\\Longleftrightarrow\\quad\n\\frac{\\alpha(x)}{\\beta(x)}\\to1,\n\\]\n其中分母在去心邻域内非零。它控制的是两者的相对误差，并不保证它们的差小到任意指定的阶。\n\n对第一个极限，\n\\[\nL_1=\\lim_{x\\to0}\\frac{\\sin x}{x},\n\\]\n由 \\(\\sin x\\sim x\\)，按定义就有\n\\[\n\\boxed{L_1=1}.\n\\]\n这里没有相减抵消，分母也是一阶量，一阶等价已经足够。若写成误差形式，\\(\\sin x=x+o(x)\\)，除以 \\(x\\) 后误差为 \\(o(1)\\)，确实趋于零，无需展开更多项。\n\n第二个极限则不同：\n\\[\nL_2=\\lim_{x\\to0}\\frac{\\tan x-\\sin x}{x^3}.\n\\]\n虽然 \\(\\tan x\\sim x\\)、\\(\\sin x\\sim x\\)，却不能分别换成 \\(x\\)，再由 \\(x-x=0\\) 判定极限为零。两者的一阶项恰好抵消，答案取决于被替换时丢掉的高阶部分。仅凭一阶等价，只能写出\n\\[\n\\tan x=x+o(x),\\qquad \\sin x=x+o(x).\n\\]\n相减后至多知道分子是 \\(o(x)\\)，而 \\(o(x)\\) 除以 \\(x^3\\) 未必趋于零，因此这些信息还不够。\n\n直接使用泰勒公式时，应保留到三次项，并使余项为 \\(o(x^3)\\)：\n\\[\n\\begin{aligned}\n\\tan x-\\sin x\n&=\\left(x+\\frac{x^3}{3}+o(x^3)\\right)\n-\\left(x-\\frac{x^3}{6}+o(x^3)\\right)\\\\\n&=\\frac{x^3}{2}+o(x^3).\n\\end{aligned}\n\\]\n所以\n\\[\n\\boxed{L_2=\\frac12}.\n\\]\n这里保留三次项的依据，是一次项抵消后，三次项成为首个非零项，且恰好与分母同阶。\n\n这道题还可以先用恒等式把差改写为乘积，从而安全地使用等价替换：\n\\[\n\\frac{\\tan x-\\sin x}{x^3}\n=\\frac{\\sin x}{x}\\,\n\\frac{1-\\cos x}{x^2}\\,\n\\frac1{\\cos x}\n\\longrightarrow\n1\\cdot\\frac12\\cdot1=\\frac12.\n\\]\n其中用了 \\(1-\\cos x\\sim x^2/2\\) 及 \\(\\cos x\\to1\\)。\n\n因此，“有加减就不能等价替换”过于绝对。真正的边界是：替换带来的总误差，除以原分母后是否趋于零。对第二题，若直接替换分子，就需要总误差为 \\(o(x^3)\\)；一阶等价无法提供这一保证。实际计算中，可先寻找恒等变形，将抵消显露出来；若采用展开，就保留到足以确定首个非零项，并检查余项除以分母后确实消失。",
+  "usage": {
+    "input_tokens": 11060,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 942,
+    "reasoning_output_tokens": 83
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1325,
+  "han_chars": 499,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:55:02.735807+00:00",
+  "elapsed_seconds": 36.713
+}

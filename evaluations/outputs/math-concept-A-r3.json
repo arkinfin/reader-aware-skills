@@ -1,0 +1,31 @@
+{
+  "id": "math-concept-A-r3",
+  "task": "math-concept",
+  "domain": "mathematics",
+  "group": "A",
+  "repeat": 3,
+  "prompt_sha256": "251d9b86379c637275b9ee355b77d1934af39c9a9b97676410c098e9ba39d335",
+  "key": "math-concept-A-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:58:44.436960+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 783,
+  "status": "completed",
+  "text": "理解增量、微分与线性近似，关键是区分“实际变化了多少”和“用什么简单形式描述这种变化”。\n\n设实函数 \\(f\\) 在内点 \\(x_0\\) 的一个邻域内有定义。自变量从 \\(x_0\\) 变到 \\(x_0+h\\) 时，函数的实际增量是\n\\[\n\\Delta y=f(x_0+h)-f(x_0).\n\\]\n它由函数值直接相减得到，是精确的变化量，通常不是 \\(h\\) 的线性函数。\n\n**可导考察的是增量之比是否趋于一个有限值：**\n\\[\nf'(x_0)=\\lim_{h\\to0}\\frac{\\Delta y}{h}.\n\\]\n由于 \\(x_0\\) 是内点，这里要求从左右两侧趋近时得到同一个有限极限。导数描述函数在该点的瞬时变化率。\n\n**可微考察的是实际增量能否分成一个线性部分和一个高阶小量：**\n\\[\n\\Delta y=ah+r(h),\\qquad \\frac{r(h)}h\\to0.\n\\]\n其中 \\(a\\) 是与 \\(h\\) 无关的实数，余项记作 \\(r(h)=o(h)\\)。这个条件不仅要求误差趋于零，还要求误差除以 \\(h\\) 后仍趋于零，即误差比 \\(h\\) 高阶。令 \\(dx=h\\)，线性部分便称为微分：\n\\[\ndy=a\\,dx.\n\\]\n因此，微分是增量中的线性部分，不是实际增量的另一个名称。\n\n对一元实函数，在内点处，可导与可微等价。若可导，令 \\(a=f'(x_0)\\)，则\n\\[\n\\frac{\\Delta y-f'(x_0)h}{h}\n=\\frac{\\Delta y}{h}-f'(x_0)\\to0,\n\\]\n这就得到了可微所要求的分解。反过来，若可微，把分解式除以 \\(h\\ne0\\)，便有\n\\[\n\\frac{\\Delta y}{h}=a+\\frac{r(h)}h\\to a,\n\\]\n所以导数存在，且 \\(f'(x_0)=a\\)。\n\n连续只要求 \\(\\Delta y\\to0\\)。可微时，线性项 \\(ah\\) 与余项 \\(o(h)\\) 都趋于零，因此可导、可微都能推出连续。三者的关系是\n\\[\n\\boxed{\\text{可导}\\iff\\text{可微}\\ \\Longrightarrow\\ \\text{连续}}.\n\\]\n但连续不能反推可导或可微。例如 \\(f(x)=|x|\\) 在 \\(0\\) 处连续，却有左导数 \\(-1\\)、右导数 \\(1\\)。两侧变化率不一致，无法用同一个系数 \\(a\\) 给出上述线性分解。\n\n以 \\(f(x)=x^2\\) 为例，\n\\[\n\\Delta y=2x_0h+h^2,\\qquad dy=2x_0h,\n\\qquad \\Delta y-dy=h^2=o(h).\n\\]\n这里，\\(\\Delta y=dy+h^2\\) 是精确等式，而 \\(\\Delta y\\approx dy\\) 才是线性近似。尤其在 \\(x_0=0\\) 时，微分为零，实际增量却是 \\(h^2\\)。这说明微分为零不代表函数没有变化；可微保证的是忽略部分相对于 \\(h\\) 足够小，并不保证它相对于实际增量也很小。",
+  "usage": {
+    "input_tokens": 11066,
+    "cached_input_tokens": 4096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 875,
+    "reasoning_output_tokens": 46
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1261,
+  "han_chars": 487,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:59:15.345812+00:00",
+  "elapsed_seconds": 30.909
+}

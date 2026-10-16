@@ -1,0 +1,26 @@
+{
+  "key": "ml-kv-cache-A-r2",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:52:29.189560+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "1fb45883f91cf1e5334cf4483e39dfdfd0fe4dd84d4eabcc5e19992a5cb9a558",
+  "prompt_chars": 947,
+  "status": "completed",
+  "text": "KV cache 是语言模型逐 token 生成时，按注意力层保存的历史 key（键）和 value（值）。它让模型在处理新位置时复用过去的计算结果。这里讨论参数固定、关闭 dropout 的标准 decoder 推理，并假定已有 token、位置和此前上下文都不改变。\n\n先看单层单头注意力。位置 \\(i\\) 的输入隐向量 \\(h_i\\) 经三组矩阵投影，得到 query（查询）、key 和 value：\n\n\\[\nq_i=h_iW_Q,\\qquad k_i=h_iW_K,\\qquad v_i=h_iW_V.\n\\]\n\nquery 用来与 key 计算匹配分数，value 则提供要汇总的信息。因果掩码规定：位置 \\(t\\) 只能访问自身及此前位置。因此，其注意力输出为\n\n\\[\na_{t,i}=\n\\frac{\\exp(q_t\\cdot k_i/\\sqrt{d_k})}\n{\\sum_{j=1}^{t}\\exp(q_t\\cdot k_j/\\sqrt{d_k})},\n\\qquad\no_t=\\sum_{i=1}^{t}a_{t,i}v_i.\n\\]\n\n过去的 \\(k_i,v_i\\) 为什么可以复用？关键在于计算依赖：旧位置看不到后来追加的 token，所以新增位置不会改变旧位置的注意力输出。在上述固定条件下，第一层的旧位置输入不变，输出也不变；这些输出进入下一层后，同样不受未来位置影响。逐层推下去，各层旧位置的隐状态及其 key、value 都保持不变。这是精确复用，并非近似。\n\n因此，每层只需保存历史 \\(k_i,v_i\\)。处理位置 \\(t\\) 时，该层计算当前的 \\(q_t,k_t,v_t\\)，把 \\(k_t,v_t\\) 追加到缓存，再完成当前注意力计算。历史 query 不需要为后续注意力保留，因为新位置使用的是自己的 query。\n\n但缓存历史 key、value，并不意味着能复用历史注意力权重。新的 \\(q_t\\) 必须与全部历史及当前 key 重新计算分数，对这些分数重新做 softmax，再对全部相应 value 加权。即使 key、value 没变，query 变了，匹配关系与归一化分母也会变化。\n\n相比每次都重新计算整个前缀，KV cache 省去了各层旧位置的重复前向计算，包括历史 key、value 投影及旧位置的注意力等。当前位置在各层的计算仍要完成，且仍须读取历史 KV。因此，单步注意力计算量仍随上下文长度增长，不能把每步生成理解为恒定成本。\n\n代价是额外存储。单层单头缓存 \\(t\\) 个位置，需要的 KV 元素数为\n\n\\[\nt(d_k+d_v).\n\\]\n\n多层、多头都需各自保存，长上下文会持续增加缓存占用。KV cache 是一次推理过程中随序列增长的状态，并不更新模型参数。",
+  "usage": {
+    "input_tokens": 11121,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 739,
+    "reasoning_output_tokens": 53
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1165,
+  "han_chars": 576,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:52:57.202678+00:00",
+  "elapsed_seconds": 28.013
+}

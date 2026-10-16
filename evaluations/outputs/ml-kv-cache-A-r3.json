@@ -1,0 +1,31 @@
+{
+  "id": "ml-kv-cache-A-r3",
+  "task": "ml-kv-cache",
+  "domain": "machine-learning",
+  "group": "A",
+  "repeat": 3,
+  "prompt_sha256": "1fb45883f91cf1e5334cf4483e39dfdfd0fe4dd84d4eabcc5e19992a5cb9a558",
+  "key": "ml-kv-cache-A-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:58:14.983061+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 947,
+  "status": "completed",
+  "text": "语言模型逐 token 生成时，每一步都会面对更长的前缀。KV cache 的作用，是保存过去位置已经算好的 key 和 value，供后续生成复用。它不保存一套可以直接沿用的注意力权重，也不改变模型参数。\n\n先看单层、单头的因果自注意力。第 \\(i\\) 个位置的输入隐向量 \\(h_i\\) 经过三个线性变换：\n\n\\[\nq_i=h_iW_Q,\\qquad k_i=h_iW_K,\\qquad v_i=h_iW_V.\n\\]\n\nquery 用来查询，key 用来计算匹配程度，value 提供被汇总的信息。位置 \\(t\\) 的输出为：\n\n\\[\na_{t,i}=\n\\frac{\\exp(q_tk_i^\\top/\\sqrt{d_k})}\n{\\sum_{j=1}^{t}\\exp(q_tk_j^\\top/\\sqrt{d_k})},\n\\qquad\no_t=\\sum_{i=1}^{t}a_{t,i}v_i.\n\\]\n\n因果掩码限制位置 \\(t\\) 只能访问自己及此前的位置，不能访问未来。\n\n**过去的 K、V 为什么能复用？** 关键在于计算依赖的方向。追加新 token 后，旧位置仍然只能读取原先那些位置，新 token 不会进入它们的注意力计算。因此，只要模型参数固定、关闭 dropout，且旧 token 的位置和此前上下文不变，旧位置的计算结果就不变。这个结论可以逐层推导：底层旧位置的输出不变，上层收到的旧位置输入也不变，所以各层旧位置的隐状态及其 K、V 都不变。\n\n实际推理时，缓存需要**按层保存**。处理当前位置时，每层从当前隐状态计算 \\(q_t,k_t,v_t\\)，把新的 \\(k_t,v_t\\) 追加到该层缓存，再用 \\(q_t\\) 查询全部过去及当前的 key，汇总相应的 value。旧 query 无需留在 KV cache 中，因为当前输出使用的是当前 query。\n\n这也说明了它节省什么：若每一步都对整个前缀重新前向计算，旧位置的隐状态、Q/K/V 投影以及旧位置的注意力等计算都会重复。使用缓存后，只需推进当前位置在各层的计算，过去位置的结果可以直接复用。\n\n但**当前 token 对整个前缀的注意力仍要重算**。新的 \\(q_t\\) 要与全部 \\(t\\) 个 key 计算分数，重新做 softmax，再对全部 value 加权。过去某个 query 算出的权重不适用于当前 query。因此，固定维数时，每步的注意力计算仍随前缀长度线性增长，并未变成常数；当前位置的投影和其他网络计算也仍然需要执行。\n\n代价是额外存储。单层单头缓存 \\(t\\) 个位置，需要保存：\n\n\\[\nt(d_k+d_v)\n\\]\n\n个元素，其中 \\(d_v\\) 是 value 维数。多层、多头还要累加各自的缓存，因此存储量随序列长度线性增长。KV cache 本质上是用不断增长的推理状态，换取对历史计算的复用；它不是训练，也不会更新模型参数。",
+  "usage": {
+    "input_tokens": 11125,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 781,
+    "reasoning_output_tokens": 38
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1227,
+  "han_chars": 643,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:58:44.409233+00:00",
+  "elapsed_seconds": 29.426
+}

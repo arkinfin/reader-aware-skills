@@ -1,0 +1,32 @@
+{
+  "selection_time": "before any evaluation and before reading output prose",
+  "seed": 20261019,
+  "blocks": [
+    {
+      "task": "math-derivation",
+      "repeat": 3,
+      "domain": "mathematics"
+    },
+    {
+      "task": "control-state-transfer",
+      "repeat": 3,
+      "domain": "control-theory"
+    },
+    {
+      "task": "ml-kv-cache",
+      "repeat": 1,
+      "domain": "machine-learning"
+    },
+    {
+      "task": "math-concept",
+      "repeat": 2,
+      "domain": "mathematics"
+    },
+    {
+      "task": "ml-residual-gradient",
+      "repeat": 1,
+      "domain": "machine-learning"
+    }
+  ],
+  "scope": "Independent anonymous technical review of these five packets; primary flags adjudicated separately, no primary scores overwritten."
+}

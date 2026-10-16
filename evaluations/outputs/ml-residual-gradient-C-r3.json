@@ -1,0 +1,31 @@
+{
+  "id": "ml-residual-gradient-C-r3",
+  "task": "ml-residual-gradient",
+  "domain": "machine-learning",
+  "group": "C",
+  "repeat": 3,
+  "prompt_sha256": "4ea1a698adf92816dace846982707fbea7cca30a4cb9cea32c26670d857ca942",
+  "key": "ml-residual-gradient-C-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:58:43.485578+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 5033,
+  "status": "completed",
+  "text": "残差连接改变了反向传播中每层的梯度变换：梯度除了经过残差分支，还能沿恒等捷径传回。但存在这条路径，并不意味着合并后的梯度一定非零。\n\n先看普通网络。只考虑各层向量维数相同的可微模型，令损失为标量 \\(\\ell\\)，并采用列梯度。对于普通层\n\\[\nx_{l+1}=F_l(x_l),\\qquad J_l=\\frac{\\partial F_l}{\\partial x_l},\n\\]\n链式法则给出\n\\[\n\\nabla_{x_l}\\ell=J_l^\\top\\nabla_{x_{l+1}}\\ell.\n\\]\n跨越多层，梯度便连续乘上各层的转置 Jacobian，次序由网络连接决定。如果每层 Jacobian 的相容算子范数都不超过同一个 \\(\\rho<1\\)，跨越 \\(m\\) 层的乘积范数就不超过 \\(\\rho^m\\)。因此，传回的梯度范数至多是上游梯度范数的 \\(\\rho^m\\) 倍，随深度增加而衰减。这个结论依赖给定的范数条件，不能仅凭“网络很深”就断定。\n\n恒等捷径残差层则写成\n\\[\nx_{l+1}=x_l+F_l(x_l).\n\\]\n这里不含加法后的激活、归一化或投影。加法两项分别贡献 \\(I\\) 和 \\(J_l\\)，所以\n\\[\n\\nabla_{x_l}\\ell\n=(I+J_l)^\\top\\nabla_{x_{l+1}}\\ell\n=\\nabla_{x_{l+1}}\\ell+J_l^\\top\\nabla_{x_{l+1}}\\ell.\n\\]\n右边第一项就是捷径传回的梯度，第二项来自残差分支。普通层要求梯度经过 \\(J_l^\\top\\)；残差层增加了一份直接传回的梯度。因此，即使残差分支的 Jacobian 很小，也不会仅因这一点就把整层梯度压小。\n\n跨多层时，反向传播涉及的是各个 \\((I+J_l)^\\top\\) 的有序乘积。将乘积展开，其中包含每层都选择 \\(I\\) 的项，对应贯穿这些层的恒等路径。若所有残差分支恒为零，则各层都是恒等映射，梯度原样传回。这说明了残差结构提供的传播通道。\n\n关键限制在于：展开式的各项最终要相加，恒等项并不构成总梯度大小的下界。不同路径的贡献可能相互抵消。例如一维残差分支为\n\\[\nF_l(x)=-x,\n\\]\n则该层输出为零，总导数为\n\\[\n1+F_l'(x)=1-1=0.\n\\]\n无论传入怎样的上游梯度，通过该层后都变成零。捷径确实存在，但它的贡献被残差分支恰好抵消。\n\n因此，残差连接提供了绕过残差分支 Jacobian 的梯度路径，却不保证总梯度永不消失。实际网络还可能包含归一化、非线性和投影，优化表现也受参数、数据及训练设定影响。结构上有传播路径，与训练中梯度是否足够大、能否有效更新参数，是需要区分的两件事。",
+  "usage": {
+    "input_tokens": 11814,
+    "cached_input_tokens": 4096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 863,
+    "reasoning_output_tokens": 64
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1134,
+  "han_chars": 617,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:59:14.808586+00:00",
+  "elapsed_seconds": 31.323
+}

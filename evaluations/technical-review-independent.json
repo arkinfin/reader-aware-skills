@@ -1,0 +1,103 @@
+{
+  "assigned_model": "gpt-6.1-sol",
+  "assigned_effort": "medium",
+  "coverage": [
+    {
+      "packet": "P7ebcf42dd587",
+      "text_id": "Tdbd7301a8d17",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "P7ebcf42dd587",
+      "text_id": "T18ae7525d0b3",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "P7ebcf42dd587",
+      "text_id": "T9538c361f6ba",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "P7ebcf42dd587",
+      "text_id": "Ta31b872fd72a",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "P00dbd37432b3",
+      "text_id": "T8e8b81adba16",
+      "correctness": "minor_issue",
+      "findings": [
+        {
+          "severity": "minor",
+          "quote": "只有在 \\(x_0=0\\) 时，才直接得到",
+          "reason": "The exclusive wording makes a zero initial state sound necessary for Y(s)=G(s)U(s). It is sufficient, but the actual necessary condition for a specified initial state is that C(sI-A)^{-1}x_0 vanish. The explanation’s own example has this property for x_0=(0,c)^T with c nonzero: its unobservable second state grows while the initial-condition output term remains zero. The subsequent definition of the transfer function as a zero-state relation remains correct.",
+          "correction_or_clarification": "Replace the exclusive wording with “当 x_0=0 时，可直接得到”. Optionally add that some nonzero initial states also produce no output contribution, without changing the zero-state definition of the transfer function."
+        }
+      ]
+    },
+    {
+      "packet": "P00dbd37432b3",
+      "text_id": "T997ef7df8bf6",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "Pd055d4bf9d38",
+      "text_id": "Tf5be20f1a7c3",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "Pd055d4bf9d38",
+      "text_id": "T3482cb51e27e",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "Pf0e8a5a34794",
+      "text_id": "T1fbbddc51c51",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "Pf0e8a5a34794",
+      "text_id": "T46f50914fa5d",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "Pf0e8a5a34794",
+      "text_id": "T8c8abaecf9ab",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "Pf0e8a5a34794",
+      "text_id": "T9af5634ecbd7",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "P72dd69aaa766",
+      "text_id": "T0d5c5e1ce0a1",
+      "correctness": "no_material_error_found",
+      "findings": []
+    },
+    {
+      "packet": "P72dd69aaa766",
+      "text_id": "T38bdcda57da4",
+      "correctness": "no_material_error_found",
+      "findings": []
+    }
+  ],
+  "limitations": [
+    "Read only the supplied anonymous input file. Judgments are independent of other evaluations, provenance, prompts, mappings, or development context.",
+    "Checked the algebra, matrix multiplication order and numerical example, differentiability equivalence and remainder arguments, state-space/transfer-function identities and hidden mode, causal-cache dependency and storage counts, and residual-gradient product order, norm bounds and cancellation examples within the stated simplified models. No other material technical error or sufficiently concrete comprehension gap was identified; empty findings do not establish optimal pedagogy.",
+    "This is a textual mathematical review, not an empirical implementation, training, timing, or reader-comprehension experiment. Conclusions about cache work and memory assume the stated standard dense causal inference setting and fixed dimensions; conclusions about gradients concern the stated activation gradients and simplified residual architecture.",
+    "The reviewer uses the same model family that may have produced other materials, so a fresh independent session cannot eliminate correlated model-family blind spots."
+  ]
+}

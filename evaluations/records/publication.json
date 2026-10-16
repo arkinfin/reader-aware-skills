@@ -1,0 +1,7 @@
+{
+  "copied_successful_attempts": 81,
+  "redaction": "Removed transport objects containing CLI events, diagnostic streams, thread IDs, command temporary paths. Final texts, status, model request labels, timestamps, usage and prompt hashes retained. Preflight logs and context probes are private and excluded.",
+  "source_manifest_sha256": "86d0568dae8b160ffcdd93f6449e79545c9550dd566f45f64f4e4bf0fb165106",
+  "published_manifest_identical": true,
+  "provenance_notice": "Original local source/workspace paths are retained in preservation/manifest records to permit exact hash and adaptation verification; these are not runtime installation defaults for the standalone skill."
+}

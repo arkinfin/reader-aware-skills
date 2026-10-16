@@ -1,0 +1,31 @@
+{
+  "id": "math-concept-A-r1",
+  "task": "math-concept",
+  "domain": "mathematics",
+  "group": "A",
+  "repeat": 1,
+  "prompt_sha256": "251d9b86379c637275b9ee355b77d1934af39c9a9b97676410c098e9ba39d335",
+  "key": "math-concept-A-r1",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:51:27.867525+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 783,
+  "status": "completed",
+  "text": "对一元实函数，**增量是函数值的实际变化，微分是其中关于自变量增量的线性部分**。可导、可微与连续的联系，就建立在这两种变化的比较上。\n\n设 \\(f\\) 在内点 \\(x_0\\) 的一个邻域内有定义，自变量从 \\(x_0\\) 变为 \\(x_0+h\\)，实际增量为\n\\[\n\\Delta y=f(x_0+h)-f(x_0).\n\\]\n连续只要求当 \\(h\\to0\\) 时，\\(\\Delta y\\to0\\)，即自变量变化趋于零，函数值的变化也趋于零。它并未要求二者的比值有极限。\n\n可导进一步要求变化率趋于一个有限值：\n\\[\nf'(x_0)=\\lim_{h\\to0}\\frac{\\Delta y}{h}.\n\\]\n这里 \\(h\\) 可以从正、负两个方向趋于零，两侧必须得到同一个有限极限。\n\n可微则从“能否用线性部分描述实际变化”的角度提出要求：存在与 \\(h\\) 无关的实数 \\(a\\)，使\n\\[\n\\Delta y=ah+r(h),\\qquad \\frac{r(h)}h\\to0.\n\\]\n余项记作 \\(o(h)\\)。它不仅趋于零，而且相对于 \\(h\\) 也可以忽略。令 \\(dx=h\\)，便把线性部分定义为微分：\n\\[\ndy=a\\,dx.\n\\]\n因此，微分不是实际增量的另一种记号；两者相差余项 \\(r(h)\\)。\n\n**一元函数在内点处，可导与可微等价。** 若可导，令 \\(a=f'(x_0)\\)，则\n\\[\n\\frac{\\Delta y-ah}{h}=\\frac{\\Delta y}{h}-a\\to0,\n\\]\n恰好得到可微所要求的余项。反过来，若可微，将分解式除以非零的 \\(h\\)，就有\n\\[\n\\frac{\\Delta y}{h}=a+\\frac{r(h)}h\\to a.\n\\]\n所以导数存在，且 \\(a=f'(x_0)\\)。导数是一个数，微分则是这个数乘以自变量增量。\n\n例如 \\(f(x)=x^2\\)，在 \\(x_0\\) 处，\n\\[\n\\Delta y=2x_0h+h^2,\\qquad dy=2x_0h.\n\\]\n实际增量包含 \\(h^2\\)，微分只保留线性项。由于 \\(h^2/h\\to0\\)，当 \\(h\\) 很小时，可用 \\(dy\\) 近似 \\(\\Delta y\\)，相应地，\n\\[\nf(x_0+h)\\approx f(x_0)+f'(x_0)h.\n\\]\n这是线性近似，不是一般成立的精确等式。特别在 \\(x_0=0\\) 时，\\(dy=0\\)，而 \\(\\Delta y=h^2\\)：微分为零，并不表示实际变化为零。\n\n由可微的分解式可知，线性项和余项都趋于零，故可导必连续。但连续不能反推可导或可微：\\(f(x)=|x|\\) 在零点连续，左导数为 \\(-1\\)，右导数为 \\(1\\)，无法得到统一的线性系数。因此关系是\n\\[\n\\boxed{\\text{可导}\\iff\\text{可微}\\ \\Longrightarrow\\ \\text{连续}},\n\\]\n其中最后一个箭头不能反向。",
+  "usage": {
+    "input_tokens": 11062,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 877,
+    "reasoning_output_tokens": 53
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1240,
+  "han_chars": 478,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:51:57.779133+00:00",
+  "elapsed_seconds": 29.912
+}

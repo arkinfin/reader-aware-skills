@@ -1,0 +1,26 @@
+{
+  "key": "math-method-B-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:56:40.787437+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "9c7f8515372940ab88e3b0799e458ac421d0f38d0c0d0dcff4ec437e472f21d3",
+  "prompt_chars": 1019,
+  "status": "completed",
+  "text": "这两个极限的关键区别，在于分子的一阶项是否抵消。选择方法前，先看式子的结构：是一整个因子的乘除，还是几个趋于零的量相减；若有相减，还要判断抵消后剩下的量与分母是否同阶。\n\n等价无穷小的定义是\n\\[\n\\alpha(x)\\sim\\beta(x)\n\\quad\\Longleftrightarrow\\quad\n\\frac{\\alpha(x)}{\\beta(x)}\\to1,\n\\]\n其中分母在足够小的去心邻域内非零。它描述的是相对误差趋于零，并不表示两者可以在任何运算中直接互换。\n\n对第一个极限，\n\\[\nL_1=\\lim_{x\\to0}\\frac{\\sin x}{x},\n\\]\n已知的 \\(\\sin x\\sim x\\) 恰好就是这个比值趋于 \\(1\\)，因此\n\\[\n\\boxed{L_1=1}.\n\\]\n这里没有加减抵消，一阶等价已经提供了所需信息，不必继续展开。\n\n第二个极限则不同：\n\\[\nL_2=\\lim_{x\\to0}\\frac{\\tan x-\\sin x}{x^3}.\n\\]\n虽然 \\(\\tan x\\sim x\\)、\\(\\sin x\\sim x\\)，却不能把分子直接换成 \\(x-x=0\\)。一阶等价只能说明\n\\[\n\\tan x=x+o(x),\\qquad \\sin x=x+o(x),\n\\]\n所以相减后只能确定分子是 \\(o(x)\\)。这不足以判断它除以 \\(x^3\\) 后的极限：比 \\(x\\) 高阶，并不意味着比 \\(x^3\\) 高阶。被忽略的误差，恰好可能决定答案。\n\n既然分母是 \\(x^3\\)，就需要把分子算到三阶，并使余项除以 \\(x^3\\) 后趋于零。使用已知展开式，\n\\[\n\\begin{aligned}\n\\tan x-\\sin x\n&=\\left(x+\\frac{x^3}{3}+o(x^3)\\right)\n-\\left(x-\\frac{x^3}{6}+o(x^3)\\right)\\\\\n&=\\frac{x^3}{2}+o(x^3).\n\\end{aligned}\n\\]\n两个 \\(o(x^3)\\) 之差仍是 \\(o(x^3)\\)，故\n\\[\nL_2=\\lim_{x\\to0}\\left(\\frac12+\\frac{o(x^3)}{x^3}\\right)\n=\\boxed{\\frac12}.\n\\]\n\n这道题也可以先变形，再安全地使用等价关系。由恒等式\n\\[\n\\tan x-\\sin x=\\frac{\\sin x(1-\\cos x)}{\\cos x},\n\\]\n可得\n\\[\n\\frac{\\tan x-\\sin x}{x^3}\n=\\frac{\\sin x}{x}\\cdot\n\\frac{1-\\cos x}{x^2}\\cdot\\frac1{\\cos x}.\n\\]\n取 \\(0<|x|\\) 足够小，\\(\\cos x\\ne0\\)，变形成立。三个因子依次趋于 \\(1,\\frac12,1\\)，乘积仍为 \\(\\frac12\\)。\n\n因此，判断“一阶是否够用”，要看它能否确定整个表达式的首个非零项。整体乘除因子可以作等价替换；加减中的各项则不能仅凭各自等价就分别替换。遇到抵消，可继续展开，也可用恒等变形消除相减结构。“展开到分母的阶数”是本题有效的选择，并非通用保证：若该阶仍然抵消，就需要进一步分析余项或更高阶项。",
+  "usage": {
+    "input_tokens": 11236,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 927,
+    "reasoning_output_tokens": 72
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1358,
+  "han_chars": 468,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:57:12.744589+00:00",
+  "elapsed_seconds": 31.957
+}

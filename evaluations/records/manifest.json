@@ -1,0 +1,541 @@
+{
+  "run_id": "experiment-v1",
+  "frozen_utc": "2026-10-16T00:48:00.859070+00:00",
+  "seed": 20261016,
+  "cells": [
+    {
+      "id": "math-derivation-C-r1",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "1585583fcd0e48af29f065820bd8d618f41532648b694122c99f198808b1fbc3"
+    },
+    {
+      "id": "math-concept-B-r1",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 1,
+      "prompt_sha256": "260fbeb53fa1449adccebc4b35f583602c22c0540960f6a7551eddf35df9ccf1"
+    },
+    {
+      "id": "ml-residual-gradient-A-r1",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "da73e47d0e718e834b81c6fd220a46aad9f1b23b53003f02f11c4c36d7dab37f"
+    },
+    {
+      "id": "math-method-C-r1",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "2a2596bb40e9e476e209568e09cca41aea08c53dfde467c3bb32660f92835e0e"
+    },
+    {
+      "id": "math-concept-C-r1",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "1f7672db72691f9089f58a377f38e634b9f3cdbe67df17224982bce9c0dcb591"
+    },
+    {
+      "id": "math-method-A-r1",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "2371ef5569b64de6ab4300c840a39aba5b56020aea5b6b79f9ec000a96fdf2b8"
+    },
+    {
+      "id": "control-crossover-A-r1",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "a205b8ac44bf4224859991b0638f49c9f41e1ecfb4674ab4c881903fda817aba"
+    },
+    {
+      "id": "ml-residual-gradient-C-r1",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "4ea1a698adf92816dace846982707fbea7cca30a4cb9cea32c26670d857ca942"
+    },
+    {
+      "id": "control-state-transfer-C-r1",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "cf2aee09d65103c808cdbe15d5b6822a1c8a38b224c5d86ed1934369dd516588"
+    },
+    {
+      "id": "math-derivation-A-r1",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "18853bf6828fe22a9c606a70d8b83287ec80e5d9af75f605b753afd243bbbfce"
+    },
+    {
+      "id": "math-method-D-r1",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 1,
+      "prompt_sha256": "103415c71e6323537a6f8f9adb701d6606771e3ef5dfcebb9ca8f9f846a9447c"
+    },
+    {
+      "id": "math-derivation-D-r1",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 1,
+      "prompt_sha256": "88be41e785999e28f6162f67480dc986d265dec176eef91c688938fcff4eacbc"
+    },
+    {
+      "id": "control-crossover-C-r1",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "afbe5a1961363359a47504d6772eafcce5c7633ae90500f02869ea9879ad52f7"
+    },
+    {
+      "id": "control-state-transfer-A-r1",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "fabe880d1c6b7fe448fc20e004580a3241dbc8fc9520ca2ac46decb1842497ab"
+    },
+    {
+      "id": "math-concept-D-r1",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 1,
+      "prompt_sha256": "ccd049afbf52a875bfb6a6b20987873243bedfa70c75f5d83483dd33058bee5d"
+    },
+    {
+      "id": "math-derivation-B-r1",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 1,
+      "prompt_sha256": "b3997f449344a62a896bb1450fc0b5fdf0fc548485ec06bc31cf7bb5ec9a1f10"
+    },
+    {
+      "id": "math-method-B-r1",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 1,
+      "prompt_sha256": "9c7f8515372940ab88e3b0799e458ac421d0f38d0c0d0dcff4ec437e472f21d3"
+    },
+    {
+      "id": "ml-kv-cache-A-r1",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "1fb45883f91cf1e5334cf4483e39dfdfd0fe4dd84d4eabcc5e19992a5cb9a558"
+    },
+    {
+      "id": "ml-kv-cache-C-r1",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "1cf820a9f9cbf9a6eb913f6c58099c472de3382a978841e4d67551dcdab4e70c"
+    },
+    {
+      "id": "math-concept-A-r1",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "251d9b86379c637275b9ee355b77d1934af39c9a9b97676410c098e9ba39d335"
+    },
+    {
+      "id": "control-state-transfer-A-r2",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "fabe880d1c6b7fe448fc20e004580a3241dbc8fc9520ca2ac46decb1842497ab"
+    },
+    {
+      "id": "ml-kv-cache-C-r2",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "1cf820a9f9cbf9a6eb913f6c58099c472de3382a978841e4d67551dcdab4e70c"
+    },
+    {
+      "id": "math-concept-A-r2",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "251d9b86379c637275b9ee355b77d1934af39c9a9b97676410c098e9ba39d335"
+    },
+    {
+      "id": "math-method-C-r2",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "2a2596bb40e9e476e209568e09cca41aea08c53dfde467c3bb32660f92835e0e"
+    },
+    {
+      "id": "math-derivation-A-r2",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "18853bf6828fe22a9c606a70d8b83287ec80e5d9af75f605b753afd243bbbfce"
+    },
+    {
+      "id": "ml-kv-cache-A-r2",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "1fb45883f91cf1e5334cf4483e39dfdfd0fe4dd84d4eabcc5e19992a5cb9a558"
+    },
+    {
+      "id": "math-derivation-B-r2",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 2,
+      "prompt_sha256": "b3997f449344a62a896bb1450fc0b5fdf0fc548485ec06bc31cf7bb5ec9a1f10"
+    },
+    {
+      "id": "control-state-transfer-C-r2",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "cf2aee09d65103c808cdbe15d5b6822a1c8a38b224c5d86ed1934369dd516588"
+    },
+    {
+      "id": "control-crossover-A-r2",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "a205b8ac44bf4224859991b0638f49c9f41e1ecfb4674ab4c881903fda817aba"
+    },
+    {
+      "id": "math-concept-B-r2",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 2,
+      "prompt_sha256": "260fbeb53fa1449adccebc4b35f583602c22c0540960f6a7551eddf35df9ccf1"
+    },
+    {
+      "id": "math-method-D-r2",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 2,
+      "prompt_sha256": "103415c71e6323537a6f8f9adb701d6606771e3ef5dfcebb9ca8f9f846a9447c"
+    },
+    {
+      "id": "math-derivation-C-r2",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "1585583fcd0e48af29f065820bd8d618f41532648b694122c99f198808b1fbc3"
+    },
+    {
+      "id": "math-concept-C-r2",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "1f7672db72691f9089f58a377f38e634b9f3cdbe67df17224982bce9c0dcb591"
+    },
+    {
+      "id": "control-crossover-C-r2",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "afbe5a1961363359a47504d6772eafcce5c7633ae90500f02869ea9879ad52f7"
+    },
+    {
+      "id": "math-concept-D-r2",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 2,
+      "prompt_sha256": "ccd049afbf52a875bfb6a6b20987873243bedfa70c75f5d83483dd33058bee5d"
+    },
+    {
+      "id": "math-method-A-r2",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "2371ef5569b64de6ab4300c840a39aba5b56020aea5b6b79f9ec000a96fdf2b8"
+    },
+    {
+      "id": "ml-residual-gradient-C-r2",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "4ea1a698adf92816dace846982707fbea7cca30a4cb9cea32c26670d857ca942"
+    },
+    {
+      "id": "math-method-B-r2",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 2,
+      "prompt_sha256": "9c7f8515372940ab88e3b0799e458ac421d0f38d0c0d0dcff4ec437e472f21d3"
+    },
+    {
+      "id": "ml-residual-gradient-A-r2",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "da73e47d0e718e834b81c6fd220a46aad9f1b23b53003f02f11c4c36d7dab37f"
+    },
+    {
+      "id": "math-derivation-D-r2",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 2,
+      "prompt_sha256": "88be41e785999e28f6162f67480dc986d265dec176eef91c688938fcff4eacbc"
+    },
+    {
+      "id": "math-concept-B-r3",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 3,
+      "prompt_sha256": "260fbeb53fa1449adccebc4b35f583602c22c0540960f6a7551eddf35df9ccf1"
+    },
+    {
+      "id": "math-derivation-B-r3",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 3,
+      "prompt_sha256": "b3997f449344a62a896bb1450fc0b5fdf0fc548485ec06bc31cf7bb5ec9a1f10"
+    },
+    {
+      "id": "control-state-transfer-C-r3",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "cf2aee09d65103c808cdbe15d5b6822a1c8a38b224c5d86ed1934369dd516588"
+    },
+    {
+      "id": "control-state-transfer-A-r3",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "fabe880d1c6b7fe448fc20e004580a3241dbc8fc9520ca2ac46decb1842497ab"
+    },
+    {
+      "id": "math-derivation-D-r3",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 3,
+      "prompt_sha256": "88be41e785999e28f6162f67480dc986d265dec176eef91c688938fcff4eacbc"
+    },
+    {
+      "id": "control-crossover-A-r3",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "a205b8ac44bf4224859991b0638f49c9f41e1ecfb4674ab4c881903fda817aba"
+    },
+    {
+      "id": "ml-kv-cache-C-r3",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "1cf820a9f9cbf9a6eb913f6c58099c472de3382a978841e4d67551dcdab4e70c"
+    },
+    {
+      "id": "math-method-D-r3",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 3,
+      "prompt_sha256": "103415c71e6323537a6f8f9adb701d6606771e3ef5dfcebb9ca8f9f846a9447c"
+    },
+    {
+      "id": "math-method-B-r3",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 3,
+      "prompt_sha256": "9c7f8515372940ab88e3b0799e458ac421d0f38d0c0d0dcff4ec437e472f21d3"
+    },
+    {
+      "id": "math-derivation-C-r3",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "1585583fcd0e48af29f065820bd8d618f41532648b694122c99f198808b1fbc3"
+    },
+    {
+      "id": "math-concept-D-r3",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 3,
+      "prompt_sha256": "ccd049afbf52a875bfb6a6b20987873243bedfa70c75f5d83483dd33058bee5d"
+    },
+    {
+      "id": "math-concept-C-r3",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "1f7672db72691f9089f58a377f38e634b9f3cdbe67df17224982bce9c0dcb591"
+    },
+    {
+      "id": "math-method-C-r3",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "2a2596bb40e9e476e209568e09cca41aea08c53dfde467c3bb32660f92835e0e"
+    },
+    {
+      "id": "control-crossover-C-r3",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "afbe5a1961363359a47504d6772eafcce5c7633ae90500f02869ea9879ad52f7"
+    },
+    {
+      "id": "math-method-A-r3",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "2371ef5569b64de6ab4300c840a39aba5b56020aea5b6b79f9ec000a96fdf2b8"
+    },
+    {
+      "id": "ml-residual-gradient-A-r3",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "da73e47d0e718e834b81c6fd220a46aad9f1b23b53003f02f11c4c36d7dab37f"
+    },
+    {
+      "id": "ml-kv-cache-A-r3",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "1fb45883f91cf1e5334cf4483e39dfdfd0fe4dd84d4eabcc5e19992a5cb9a558"
+    },
+    {
+      "id": "math-derivation-A-r3",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "18853bf6828fe22a9c606a70d8b83287ec80e5d9af75f605b753afd243bbbfce"
+    },
+    {
+      "id": "ml-residual-gradient-C-r3",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "4ea1a698adf92816dace846982707fbea7cca30a4cb9cea32c26670d857ca942"
+    },
+    {
+      "id": "math-concept-A-r3",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "251d9b86379c637275b9ee355b77d1934af39c9a9b97676410c098e9ba39d335"
+    }
+  ],
+  "config": {
+    "workspace": "/home/samsa/projects",
+    "generation_model": "gpt-6.1-sol",
+    "generation_effort": "medium",
+    "generation_escalation_reason": "Uniform technical tasks include nontrivial derivations and knowledge dependencies.",
+    "judge_model": "gpt-6.1-sol",
+    "judge_effort": "medium",
+    "source_registry_sha256": "b572f16dea8776002dac41136ff85455dc80067a3dce6c897e9161e7c9894ab8",
+    "cli_version": "codex-cli 0.162.1",
+    "temperature": "not controllable",
+    "sampling_seed": "not controllable",
+    "fallback": "disabled",
+    "isolation_overrides": {
+      "project_doc_max_bytes": "0",
+      "web_search": "\"disabled\"",
+      "features.skip_host_skill_discovery": "true",
+      "features.skill_search": "false",
+      "features.plugins": "false",
+      "features.apps": "false",
+      "features.multi_agent": "false",
+      "features.shell_tool": "false",
+      "features.unified_exec": "false",
+      "features.code_mode_host": "false",
+      "features.browser_use": "false",
+      "features.computer_use": "false",
+      "features.image_generation": "false",
+      "features.hooks": "false",
+      "features.view_image": "false",
+      "skills.config": "[{path=\"/home/samsa/.codex/skills/.system/imagegen\",enabled=false},{path=\"/home/samsa/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/home/samsa/.codex/skills/.system/review-agent\",enabled=false},{path=\"/home/samsa/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/home/samsa/.codex/skills/.system/skill-installer\",enabled=false},{path=\"/home/samsa/.codex/skills/dual-lane-agent-workflow\",enabled=false},{path=\"/home/samsa/.codex/skills/technical-educational-pdf\",enabled=false}]"
+    }
+  },
+  "input_hashes": {
+    "evaluations/tasks/control-crossover.json": "ff6d3f9a39b74e3e23c386d1297a9fee86d56c14b0195f8959663f4a1780929e",
+    "evaluations/tasks/control-state-transfer.json": "d7b333a2816d4ee8538a44572a6546a2283bb46942b956c9434220f1ed169f9c",
+    "evaluations/tasks/math-concept.json": "ba284a5317bc5bdf4f7614202d7b193f2041fd1d2c416ec61681597b2f9de8df",
+    "evaluations/tasks/math-derivation.json": "a9a11e4b6cb322f78990bcfdb3312170e5117b27384b6109c79be16612ee62c7",
+    "evaluations/tasks/math-method.json": "c6fcae5b016d4be7df30dbaeadf85aafcc7effc41dfae559a7969abee92cefe0",
+    "evaluations/tasks/ml-kv-cache.json": "b08bcd853068042aaac5760bf4f2a677f16fd24075e9f755cac429e9bb318ff0",
+    "evaluations/tasks/ml-residual-gradient.json": "7a9079ab3f828d242af4a35147cd9d92fe7d170eb48c4330ffeddfe5f721f9b8",
+    "evaluations/prompts/common.txt": "39457be4c815c123ce95eca3dae05f2982d17c42ad073d14a13d374c00bf59f4",
+    "evaluations/prompts/judge.txt": "967a26185e5204b4a84e9917d6522a5feaed0454ad7ce0a4549ece2bc095429a",
+    "evaluations/prompts/rigor.txt": "9078fb947b9b6650250f462bd5822436a53ba25f57240570f8e04913a2d3a318",
+    "skills/reader-aware-writing/SKILL.md": "43d915c9594fb3eefdd413e251d91eee1cf730ff0121b8381ab672fccf973d67",
+    "evaluations/run.py": "14815481525be0e3e9121ce11eb1b4b21035ef368cb34210531486fefc1cf7d7"
+  },
+  "infrastructure_amendment": {
+    "original_manifest_path": "infrastructure/generation-manifest.json",
+    "original_manifest_sha256": "ea19c8c16c3c7982aeac4ad6245a2803904282a8a53d32127ff64e189b3657a1",
+    "generation_runner_path": "infrastructure/generation-runner.py",
+    "generation_runner_sha256": "b1c5089bf8f7639a8dadd2f9159668428a3b9d69ec5d3325d3188bd56358133e",
+    "evaluation_runner_sha256": "14815481525be0e3e9121ce11eb1b4b21035ef368cb34210531486fefc1cf7d7",
+    "reason": "Independent read-only code review found fail-open cached judgment, output provenance, and redundancy-evidence validation. Fix deterministic gates before any judging; generation prompts/config/schedule remain unchanged.",
+    "applied_utc": "2026-10-16T00:59:54.600184+00:00"
+  }
+}

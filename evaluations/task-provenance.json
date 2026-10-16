@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-16T00:42:14.455318+00:00",
+  "purpose": "Public provenance and analytical checks; never included in generation prompts.",
+  "neutrality": "Facts are an unordered knowledge inventory, not a prescribed exposition order. All conditions receive exactly the same task JSON. Goals identify the problem, not intervention strategy.",
+  "copyright": "Task prose and simple worked data are newly authored. Math source is used to select subjects and verify facts only. Third-party prose, diagrams and full handbook files are excluded.",
+  "limitations": [
+    "Technical checks are prepared analytically by the task author; they do not constitute independent output review.",
+    "Swarthmore source was verified via search excerpt; full page open failed. Its standard formula and original example were checked by direct algebra.",
+    "CTMS full pages returned Internal Error; no facts depend on inaccessible CTMS pages.",
+    "No runtime library, current implementation API, empirical learning or speedup claim is included."
+  ],
+  "tasks": {
+    "math-concept": {
+      "public_task": "evaluations/tasks/math-concept.json",
+      "task_sha256": "ba284a5317bc5bdf4f7614202d7b193f2041fd1d2c416ec61681597b2f9de8df",
+      "sources": [
+        {
+          "kind": "local_handbook",
+          "path": "SOURCE_WORKSPACE/math1-handbook/src/calculus/chapters/single_variable_differential.tex",
+          "lines": [
+            26,
+            60
+          ],
+          "file_sha256": "3ad99fc5f1ce691557ceba147dab24bd2c1d23efa1e275b4115b0ec7b416fb53",
+          "excerpt_sha256": "6ebc45bc257065d79fcab4a7add090e51c50f3b50f7d75ad999439657b284423",
+          "git_commit": "029e8b52b5175dd825a86a94da32426a57bda3a4",
+          "publication": "Original fact restatement only; manuscript prose is not redistributed."
+        }
+      ],
+      "technical_checks": [
+        "限定一元内点且导数有限；不推广为多元偏导存在即可微。",
+        "由差商极限得到余项o(h)，反向除以h得到导数。",
+        "dy不是总与Δy相等；误差为h²的例子正确。",
+        "连续不蕴含可导，左右导数方向正确。"
+      ]
+    },
+    "math-method": {
+      "public_task": "evaluations/tasks/math-method.json",
+      "task_sha256": "c6fcae5b016d4be7df30dbaeadf85aafcc7effc41dfae559a7969abee92cefe0",
+      "sources": [
+        {
+          "kind": "local_handbook",
+          "path": "SOURCE_WORKSPACE/math1-handbook/src/calculus/chapters/limits_continuity.tex",
+          "lines": [
+            515,
+            565
+          ],
+          "file_sha256": "ab3816e8fb61ef86eb6b14570c49f62e4e45391d9aac5f8d831db6ab8766770e",
+          "excerpt_sha256": "cb53b8a269fc0ac16d2b88d6f9aed42c030b562190baec272b5b63b8a8b102b4",
+          "git_commit": "029e8b52b5175dd825a86a94da32426a57bda3a4",
+          "publication": "Original fact restatement only; manuscript prose is not redistributed."
+        }
+      ],
+      "technical_checks": [
+        "L1=1，L2=1/2。",
+        "不能从tan x∼x且sin x∼x推得差为0或差为o(x³)。",
+        "若用泰勒，明确余项相减仍为o(x³)；恒等分解法也有效。",
+        "不把“加减绝对不能替换”当无条件定理，指出一般不成立即可。"
+      ]
+    },
+    "math-derivation": {
+      "public_task": "evaluations/tasks/math-derivation.json",
+      "task_sha256": "a9a11e4b6cb322f78990bcfdb3312170e5117b27384b6109c79be16612ee62c7",
+      "sources": [
+        {
+          "kind": "local_handbook",
+          "path": "SOURCE_WORKSPACE/math1-handbook/src/chapters/vectors.tex",
+          "lines": [
+            384,
+            412
+          ],
+          "file_sha256": "18a0d4369e35623669435ebc06a69d61ee06410cadfdf7d463f2ee843fc179e9",
+          "excerpt_sha256": "66bd07e3dc1cc703cdd9bec1f434c7367caa82ea1263a9d9e770b6a68dc9fd71",
+          "git_commit": "029e8b52b5175dd825a86a94da32426a57bda3a4",
+          "publication": "Original fact restatement only; manuscript prose is not redistributed."
+        },
+        {
+          "kind": "local_handbook",
+          "path": "SOURCE_WORKSPACE/math1-handbook/src/chapters/eigen.tex",
+          "lines": [
+            188,
+            219
+          ],
+          "file_sha256": "6ef1c97d5dd8cd17c81e1e6f0cfc0156f768bd341ca0088d748becb3444fac05",
+          "excerpt_sha256": "09160b7d351748dba1de16c07adfd507ba8600d2bce2b43d586e759247e96a2a",
+          "git_commit": "029e8b52b5175dd825a86a94da32426a57bda3a4",
+          "publication": "Original fact restatement only; manuscript prose is not redistributed."
+        }
+      ],
+      "technical_checks": [
+        "从F=EP正确得到[v]E=P[v]F，不颠倒。",
+        "利用任意v建立AP=PB，再得到B=P⁻¹AP。",
+        "二维B应为[[2,0],[1,3]]，不是[[2,0],[-1,3]]。",
+        "区分抽象向量、坐标列以及线性变换本身。"
+      ]
+    },
+    "control-crossover": {
+      "public_task": "evaluations/tasks/control-crossover.json",
+      "task_sha256": "ff6d3f9a39b74e3e23c386d1297a9fee86d56c14b0195f8959663f4a1780929e",
+      "sources": [
+        {
+          "kind": "primary_web",
+          "url": "https://courses.physics.illinois.edu/ece486/fa2026/documentation/handbook/lec17.html",
+          "title": "ECE 486 Lecture 17: gain choice, crossover and phase margin",
+          "checked_date": "2026-10-16",
+          "access_status": "opened",
+          "publication": "Facts restated independently; no source prose, tables or figures copied."
+        },
+        {
+          "kind": "analytic_check",
+          "method": "Substitute s=jω; solve ω²(1+ω²)=K². All numerical examples and polynomial are original elementary calculations."
+        }
+      ],
+      "technical_checks": [
+        "K=√2时ωc=1，PM=45°；K=√20时ωc=2，PM≈26.565°。",
+        "正实K不改变固定ω处相位；裕度在随K改变的ωc处测量。",
+        "不宣称PM下降等价于本例闭环已经不稳定；s²+s+K在K>0时Hurwitz。",
+        "不将本例ωc和PM的单调关系泛化至所有系统。"
+      ]
+    },
+    "control-state-transfer": {
+      "public_task": "evaluations/tasks/control-state-transfer.json",
+      "task_sha256": "d7b333a2816d4ee8538a44572a6546a2283bb46942b956c9434220f1ed169f9c",
+      "sources": [
+        {
+          "kind": "primary_web",
+          "url": "https://lpsa.swarthmore.edu/Representations/SysRepTransformations/TF2SS.html",
+          "title": "Erik Cheever, Transfer Function ↔ State Space",
+          "checked_date": "2026-10-16",
+          "access_status": "search_result_verified; full-page open returned Internal Error",
+          "publication": "Facts restated independently; no source prose, tables or figures copied."
+        },
+        {
+          "kind": "analytic_check",
+          "method": "Direct Laplace transformation, diagonal inverse and ẋ2=x2 solution; original example independent of source prose."
+        }
+      ],
+      "technical_checks": [
+        "写出初值项，不把一般Y/U都称G。",
+        "不认为所有A的特征值一定保留为化简后G的极点。",
+        "例子中x2不受输入驱动且不被输出观察，其增长不出现在y中。",
+        "稳定的零状态输入输出映射不保证该非最小实现内部渐近稳定。"
+      ]
+    },
+    "ml-kv-cache": {
+      "public_task": "evaluations/tasks/ml-kv-cache.json",
+      "task_sha256": "b08bcd853068042aaac5760bf4f2a677f16fd24075e9f755cac429e9bb318ff0",
+      "sources": [
+        {
+          "kind": "primary_web",
+          "url": "https://arxiv.org/html/1706.03762v7",
+          "title": "Vaswani et al., Attention Is All You Need, §3.2",
+          "checked_date": "2026-10-16",
+          "access_status": "opened",
+          "publication": "Facts restated independently; no source prose, tables or figures copied."
+        },
+        {
+          "kind": "primary_web",
+          "url": "https://huggingface.co/docs/transformers/cache_explanation",
+          "title": "Hugging Face Transformers: How caching works",
+          "checked_date": "2026-10-16",
+          "access_status": "opened",
+          "publication": "Facts restated independently; no source prose, tables or figures copied."
+        }
+      ],
+      "technical_checks": [
+        "区分缓存k/v与缓存注意力权重、最终答案或模型参数。",
+        "明确过去表示不变依赖因果结构、参数固定及位置上下文不变。",
+        "当前query仍需与过去keys算分数，并读取values，不能声称生成每步常数时间。",
+        "精确缓存不增加知识或扩大有效上下文窗口；存储随保留token数线性增长。"
+      ]
+    },
+    "ml-residual-gradient": {
+      "public_task": "evaluations/tasks/ml-residual-gradient.json",
+      "task_sha256": "7a9079ab3f828d242af4a35147cd9d92fe7d170eb48c4330ffeddfe5f721f9b8",
+      "sources": [
+        {
+          "kind": "primary_web",
+          "url": "https://arxiv.org/html/1603.05027",
+          "title": "He et al., Identity Mappings in Deep Residual Networks, §2",
+          "checked_date": "2026-10-16",
+          "access_status": "opened",
+          "publication": "Facts restated independently; no source prose, tables or figures copied."
+        },
+        {
+          "kind": "analytic_check",
+          "method": "Chain rule, submultiplicativity and scalar counterexample; no empirical claims copied from paper."
+        }
+      ],
+      "technical_checks": [
+        "链式法则和转置方向正确；不把逐层乘积偷换为单纯相加。",
+        "单位项提供直接路径，但可与分支导数抵消。",
+        "Fl(x)=−x反例总导数0；Fl=0层总导数1。",
+        "不宣称所有普通深层网络必然消失或所有残差网络训练必然成功。"
+      ]
+    }
+  },
+  "deterministic_validation": {
+    "status": "pass",
+    "task_count": 7,
+    "checks": [
+      "Exact seven-field task schema and IDs",
+      "All task SHA-256 hashes",
+      "Local source file and selected line-range hashes",
+      "Common length instruction",
+      "No condition labels or reviewer technical_checks in generator tasks",
+      "Matrix sample gives B=[[2,0],[1,3]]",
+      "Crossover samples give (ωc,PM)=(1,45°),(2,26.565051°)"
+    ],
+    "command_exit_code": 0,
+    "note": "git diff --check returned 0; untracked files are additionally covered by JSON parsing. Formula correctness beyond these deterministic checks still requires output review."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "math-method-B-r1",
+  "task": "math-method",
+  "domain": "mathematics",
+  "group": "B",
+  "repeat": 1,
+  "prompt_sha256": "9c7f8515372940ab88e3b0799e458ac421d0f38d0c0d0dcff4ec437e472f21d3",
+  "key": "math-method-B-r1",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:50:55.895584+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 1019,
+  "status": "completed",
+  "text": "判断一阶等价替换是否足够，关键是看：替换丢掉的误差，会不会影响所求极限，尤其要留意加减后低阶项是否抵消。以下都取 \\(0<|x|\\) 足够小，使各分母非零。\n\n等价无穷小的定义是\n\\[\n\\alpha(x)\\sim\\beta(x)\n\\quad\\Longleftrightarrow\\quad\n\\frac{\\alpha(x)}{\\beta(x)}\\to1.\n\\]\n因此，\\(\\sin x\\sim x\\) 表示两者的比值趋于 \\(1\\)，也可以写成\n\\[\n\\sin x=x+o(x).\n\\]\n这里的误差除以 \\(x\\) 趋于零，但并未说明误差除以 \\(x^3\\) 后怎样变化。“一阶等价”不能直接当作精确相等使用。\n\n对第一个极限，\n\\[\nL_1=\\lim_{x\\to0}\\frac{\\sin x}{x}=1,\n\\]\n这正是 \\(\\sin x\\sim x\\) 的定义所给出的结论。也可以将上面的误差表达式代入：\n\\[\n\\frac{\\sin x}{x}=1+\\frac{o(x)}x\\to1.\n\\]\n分母是一阶的 \\(x\\)，一阶等价已能控制所需误差，无须展开更多项。\n\n第二个极限则不同：\n\\[\nL_2=\\lim_{x\\to0}\\frac{\\tan x-\\sin x}{x^3}.\n\\]\n虽然 \\(\\tan x\\sim x\\)、\\(\\sin x\\sim x\\)，但分别替换后得到 \\(x-x=0\\)，只是把共同的一阶项消掉了，并没有确定原差值的大小。仅由这两个等价关系，我们只能推出\n\\[\n\\tan x-\\sin x=o(x),\n\\]\n而 \\(o(x)/x^3\\) 未必趋于零，所以不能据此判定 \\(L_2=0\\)。\n\n若用泰勒公式，应保留到三次项，使相减后的余项仍能被分母控制：\n\\[\n\\begin{aligned}\n\\tan x-\\sin x\n&=\\left(x+\\frac{x^3}{3}+o(x^3)\\right)\n-\\left(x-\\frac{x^3}{6}+o(x^3)\\right)\\\\\n&=\\frac{x^3}{2}+o(x^3).\n\\end{aligned}\n\\]\n两个 \\(o(x^3)\\) 的差仍是 \\(o(x^3)\\)，因为除以 \\(x^3\\) 后，两者都趋于零。于是\n\\[\nL_2=\\lim_{x\\to0}\\left(\\frac12+\\frac{o(x^3)}{x^3}\\right)\n=\\frac12.\n\\]\n\n本题还有更简便的办法：先用恒等式把差改写成乘积，\n\\[\n\\tan x-\\sin x=\\frac{\\sin x(1-\\cos x)}{\\cos x},\n\\]\n从而\n\\[\n\\frac{\\tan x-\\sin x}{x^3}\n=\\frac{\\sin x}{x}\\cdot\\frac{1-\\cos x}{x^2}\n\\cdot\\frac1{\\cos x}\n\\longrightarrow1\\cdot\\frac12\\cdot1=\\frac12.\n\\]\n这里使用了 \\(1-\\cos x\\sim x^2/2\\) 和 \\(\\cos x\\to1\\)；后者也保证了附近的 \\(\\cos x\\ne0\\)。\n\n因此，选方法时先看结构：整体乘除中的因子可作等价替换；遇到加减，先检查首项是否抵消。抵消后，可以继续展开，直到找出首个非零项且余项除以分母趋于零；也可以先恒等变形，转成便于取极限的乘积。“本题展开到三次即可”来自分母与抵消情况，并不意味着所有差式都只需保留三次项。",
+  "usage": {
+    "input_tokens": 11234,
+    "cached_input_tokens": 4096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1017,
+    "reasoning_output_tokens": 117
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1442,
+  "han_chars": 455,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:51:27.840226+00:00",
+  "elapsed_seconds": 31.945
+}

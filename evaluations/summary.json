@@ -1,0 +1,4577 @@
+{
+  "run_id": "experiment-v1",
+  "infrastructure_amendment": {
+    "original_manifest_path": "infrastructure/generation-manifest.json",
+    "original_manifest_sha256": "ea19c8c16c3c7982aeac4ad6245a2803904282a8a53d32127ff64e189b3657a1",
+    "generation_runner_path": "infrastructure/generation-runner.py",
+    "generation_runner_sha256": "b1c5089bf8f7639a8dadd2f9159668428a3b9d69ec5d3325d3188bd56358133e",
+    "evaluation_runner_sha256": "14815481525be0e3e9121ce11eb1b4b21035ef368cb34210531486fefc1cf7d7",
+    "reason": "Independent read-only code review found fail-open cached judgment, output provenance, and redundancy-evidence validation. Fix deterministic gates before any judging; generation prompts/config/schedule remain unchanged.",
+    "applied_utc": "2026-10-16T00:59:54.600184+00:00"
+  },
+  "generation_config": {
+    "generation_model": "gpt-6.1-sol",
+    "generation_effort": "medium",
+    "judge_model": "gpt-6.1-sol",
+    "judge_effort": "medium"
+  },
+  "integrity": {
+    "status": "pass",
+    "outputs": 60,
+    "validated_packets": 21,
+    "pairs": 48,
+    "manifest_sha256": "86d0568dae8b160ffcdd93f6449e79545c9550dd566f45f64f4e4bf0fb165106",
+    "blind_freeze_sha256": "b01eb79baaed368ca12edccf411d8a769646ee5488d74400f26b48dc0d2bc367",
+    "judgment_sha256": {
+      "P00dbd37432b3": "0577c8d01bf8af8cc7b18ad8413f51e9443bb49996d0cdbd9d9d53b79366deb2",
+      "P0e2cda331d4e": "e1bc00adb99b75d7a3b2b79309e26421dbfa37c145ce486a96677ad49626cbd5",
+      "P0e9434d33d57": "7f9ce2e21852885d8910a0d3737e9b39872568ce58ff922e1a486c2abc047497",
+      "P37f26dfe7613": "b88f859f38e2f68c82d06a3e65ede247a8fd20fab850b611814d4a8ed3e69e04",
+      "P696b9fca5948": "0f363c84ba015ac58d4f877eb8366efd89861d9dfc36416082dfc05de25b97e9",
+      "P7003d8027c26": "62580be91596379c12cd693e61ca661e2b7f45b0d1fa45fe04a984f20864e078",
+      "P72dd69aaa766": "b2efd983a6b8496ec280ac2744fc1d1696d85ea4d79fcc0f68faedbfc52f9ea3",
+      "P741985557667": "e346c22e58381a68e1001836826137fc86fcb94f1c0c413d0700e422a545845b",
+      "P7ebcf42dd587": "9f77a08184c6aefe3a717ea1e3bebc2f4d6fb294854a152d48224c0be27fa479",
+      "P90fe9471e424": "474978a3afbd7d252effcb43b173b6e38ad3f4f3a82094060717daf027b0113f",
+      "P9dee20d5ef6f": "7b112bc62f4f3192758906f43aa6830260766a7c04a25431f9a34c91bcefffc6",
+      "P9e472b536526": "1f114298ab253e891213ecb9ff0a32967664fca88639dafc85f89c421e752380",
+      "Pb028d2f2d436": "71183171059d53390531d8bcf9257a6875e31bb638842f7da0b30e38623e1e44",
+      "Pb8af36a6613d": "8368883a3bec79e8aa19c0bea18939dc358ad0fcb01d3f51231839993732a407",
+      "Pb9d19c76c137": "827f1afc608dd0d4dbce3132e62f8018a18fb11219cd94b561085f0e2833ff4c",
+      "Pc587fc356541": "730af2ef86684fcabb564716de3fade2c39ee62ea87d7351d0089209330c18bc",
+      "Pd055d4bf9d38": "52e7b511e55dd8a22bcd78f57e2e2d162e55c3a76277c0ba6207cc8aa1fba821",
+      "Pd2332eef3275": "def8e0c3e5beeb0cec897e8355468d28a6578cfabdbc082b2fabadd4285cba27",
+      "Pde7e335addee": "5d7ca01268b32380459a5fb13ca01bbe59824c8358aebaf82deb1f9dab29287e",
+      "Pf0e8a5a34794": "1d0f1fb1b46114baaa264aa616cdf373e8df858de601142be61a59f4798d024f",
+      "Pf9eedfc09a69": "aa06c1678977d0af3dd71f7ca710f0598d2bf2415c1accfac411f39f04fd9981"
+    },
+    "output_sha256": {
+      "control-crossover-A-r1": "0d485a09558622d11108170b9c307a429dcc8683ea1ae912a9008ae4bac02f74",
+      "control-crossover-A-r2": "e9b06d5810110fc2b1c52108880e4eddd580a2a8f6632959dbfc512c14853284",
+      "control-crossover-A-r3": "b37fd19d3f874622339a20b5c408cbb0893a367234fe8a062823d51bf504431a",
+      "control-crossover-C-r1": "07ed0d31f5054004fb290765f1465dde8fe2c7a9c2c83e31a7f76c669300633a",
+      "control-crossover-C-r2": "864d5887909065aa43422c7d67894f9564767226b324cfc91fc26d9c7120bf70",
+      "control-crossover-C-r3": "e88ec86bfd60528377ca1fb4ba0d62536b1bf762621108617e5348e928ffb5ef",
+      "control-state-transfer-A-r1": "d07c846f3975ce2506ffb57aebfa2720580fe1173b1ae35619ee41d2141756d6",
+      "control-state-transfer-A-r2": "d837910abea3d301ed6fa07a2c668e868b8e0a46435a8203e9b3deb335f5cc31",
+      "control-state-transfer-A-r3": "978769a0e66e49d2dff3cb21a9b6cd2b4f4b6216cad11ce8a34df26f9f30ff0d",
+      "control-state-transfer-C-r1": "6a02110926bf24a9f07b1aceef1df918ac32f48391a1fe0355e3d6f6bc3175c1",
+      "control-state-transfer-C-r2": "13291ef1a9014d0ec0fa771878abeb93c97e822180db41678c87bb9144d9b66a",
+      "control-state-transfer-C-r3": "5377e813b41d9d0414411fcf2fc203a641b2a6cc76b16b79012deff7f2d207a5",
+      "math-concept-A-r1": "c2615587f046b8b236b5d6ddadfc94875458fc65d2b4e93f1a51bcf271c037ce",
+      "math-concept-A-r2": "72c3b71ddb79ab166f6c074e379569a481a4102b0ff3f5396aaef3b6ab5c3c45",
+      "math-concept-A-r3": "7ed5bde8998c37063912d2498f6a6417a51b2def1e9832ff711da41a8a995e1d",
+      "math-concept-B-r1": "a6871835920201a49f2cb03acef09e8634aa7fd1a65da0807239c8e034e74f5c",
+      "math-concept-B-r2": "0f8a3ccbe1a0fce98370e31baf579d0808e706032c7318ae6e477e7791a778ca",
+      "math-concept-B-r3": "c87e129f232fd33138a9a80d99c950e0844e45538955c244a48d0e6a3bffcd57",
+      "math-concept-C-r1": "1717b4c8c06ba9a2c62742ba20d48c906a6c5ba6fbdddbbede5a964b675e2d37",
+      "math-concept-C-r2": "d0c54677592f88e36e5c1e4229d9664d0a9824bff2b94e9a90e12b771254884c",
+      "math-concept-C-r3": "d5138f402b82c6285c69f39719bf9ff0843b2e3f0fc8d659842205a810bf3820",
+      "math-concept-D-r1": "020b8373d18934f05e40afc69452c13214f55c362ec5a69f1c0621f91822b6b3",
+      "math-concept-D-r2": "1b3feb4c8043b1b1e1ee359e982258ea2f15bd31ac00bae5a48683557357a866",
+      "math-concept-D-r3": "c10be24b1b5ab7de0fdfb5ec7b7287dd9bed7b86a0b7be62f3272b78db567712",
+      "math-derivation-A-r1": "28913f7e83d39f70440f792b1160d6ce3b4cfaf174b82fb09460232dea6a906c",
+      "math-derivation-A-r2": "a0572afcd998fe84dbe58a1bf77b49a8807e0afe175dd52bf0a91c47c1925e3e",
+      "math-derivation-A-r3": "b307e12673cef58616688c1e385829aca1cfb204a188368f4c60759790d00579",
+      "math-derivation-B-r1": "6071e0f23cf60cdf0ef2ebfeb7971f8e2fd300f1c1330e4d07fffbde25029f2b",
+      "math-derivation-B-r2": "a6a9576d360866e036bd7f8bfb4cdcffa2089273d43af984e5096b92485352d9",
+      "math-derivation-B-r3": "f202ca3594d74ea4d326492b2c629031fac46839e62187b64be6c4c86712783c",
+      "math-derivation-C-r1": "f26881c30b5659bdf0256200e753f60b1e721637f483de20ec61809f4fd63fbd",
+      "math-derivation-C-r2": "abf988bbdd3d22c0ae2624e711bd3a7f7396973860ea4e5c7d9c9a67153c559b",
+      "math-derivation-C-r3": "90220ae0b7a3c7bbe88fe33e65a085023d99de0cf25e07be736b17bfdb35871a",
+      "math-derivation-D-r1": "bf2b375a53113494a4a12294f2dbd2bb2253ff6fa609a8095ae796739927fdcb",
+      "math-derivation-D-r2": "d4cae2653bc5b14dfbbc7c558795d71fa7a5b39ec69fbc249022815dcecead20",
+      "math-derivation-D-r3": "7675ce7ef65de741cd7e1251a6c4b2281f35de412143604fb9444577e4ea80b8",
+      "math-method-A-r1": "17cbf51122cb1efced76f6b818d9e917692a2b41b03d563e91db15fb04f9e088",
+      "math-method-A-r2": "0cf895655879e429d696208479807b4b4d80d8b4c0922456a23ac471e21c193b",
+      "math-method-A-r3": "ff58cac156c53146f2e62415cabd09622bb4d58e9c743067556f36c2820a5ec4",
+      "math-method-B-r1": "824d69188908bed87570a3c981fe4ed8af439f7ab8a84f9f2d31bd0a42f8be27",
+      "math-method-B-r2": "ea387226e0f971cf8e2d6f185f2b0962f70ffef498a128c432d89d9e528283b1",
+      "math-method-B-r3": "8b40e86ed9b364ec9972d823f9ac680832e1db56248f67fdf0a4cbdee83604fd",
+      "math-method-C-r1": "10aec5f2e50ecf612bfb6299152e3a0716c2a30583522ecbe2ae27b0836eae01",
+      "math-method-C-r2": "7c2d93677c3c512ad653779cdb7c3fb7ab6487a8e8983e8fe67b0e574a06b834",
+      "math-method-C-r3": "a7222165621ab74dd3f337404f37fce7d9a2e11beabd5044332119678ea232fb",
+      "math-method-D-r1": "4dfafd45679b3901aeb2a7671dd04586f4e61db89d53c3d7762ee5e6ebeee353",
+      "math-method-D-r2": "d4fd40bce4e6bfe06bdc83c3f37b6edf85fc53670eaaf7ec89bca3e18100aac4",
+      "math-method-D-r3": "379cbf12b5e816e6f2f65e895ff15bf4edcd72ca6513a4fadbbbd0a88851c730",
+      "ml-kv-cache-A-r1": "91c10910e5d350f8313b4bb7d5030693961cb1cb10963465f3189c4e7997885f",
+      "ml-kv-cache-A-r2": "9d9d396ed68187bfc7d256e5ac49a3421cb890cb908ae7d2ccc7513c866947eb",
+      "ml-kv-cache-A-r3": "7ff686dab1fd552f744b3de6a6e3e2a4ab87750f9ad827655350102c89a00471",
+      "ml-kv-cache-C-r1": "d90d4bb06986a757e1e9ae435a885786a1a76972e8bbe2faa2bc37b291c48c8a",
+      "ml-kv-cache-C-r2": "c3a35784516f9ffc59f9e0f1f8f68feb66d90bdbbb10e6fb34ae64f77f5e7065",
+      "ml-kv-cache-C-r3": "04b3b828b38ea4329332704901981268097f3c32b0252ddef29523a1ce189ece",
+      "ml-residual-gradient-A-r1": "62f3e7c52d2e561e5665b5e1a4c13fd794af9188956a216a3ddaf4ceeca58a4c",
+      "ml-residual-gradient-A-r2": "690886d7db01f95bdcc7d98f6a68b4a74110b3326e0b769637bea6df62e5df43",
+      "ml-residual-gradient-A-r3": "4b3d20b6b37a05972626d3d12601c31d688226cb97c368b2aba963276e71aa9d",
+      "ml-residual-gradient-C-r1": "5c5fd7fee172ffec34575d314a0640f0d0a317c589cc71c692ed3371493c6171",
+      "ml-residual-gradient-C-r2": "fc5704d7010f22e7fbe14fc69566a3fdfb02563a7abf065384e96d2b86bdf0aa",
+      "ml-residual-gradient-C-r3": "ff906ace5989781ed82dde2b716603bc7ec657987aea76987ab2b240e7206d8e"
+    }
+  },
+  "limitations": [
+    "Exploratory single-model-family study; no population causal or statistical significance claim.",
+    "Scores are ordinal. Means and factorial contrasts are descriptive only; within-packet observations are correlated.",
+    "LLM judgments may favor model style; quotes establish traceability, not semantic correctness.",
+    "Error counts are judge flags pending independent technical adjudication, not accepted findings.",
+    "No human learning gain, retention or actual transfer has been measured.",
+    "Reported duration is successful-call elapsed time, not total wall-clock or full retry cost; usage sums exclude failed attempts and preflight.",
+    "Generation/skill prompt salience, residual shared platform instructions and unexposed backend revision limit generalization."
+  ],
+  "per_text": [
+    {
+      "id": "control-crossover-A-r1",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "a205b8ac44bf4224859991b0638f49c9f41e1ecfb4674ab4c881903fda817aba",
+      "packet": "Pc587fc356541",
+      "anonymous_id": "T021e88cfd97f",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1294,
+      "han_chars": 534,
+      "elapsed_seconds": 32.851
+    },
+    {
+      "id": "control-crossover-C-r1",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "afbe5a1961363359a47504d6772eafcce5c7633ae90500f02869ea9879ad52f7",
+      "packet": "Pc587fc356541",
+      "anonymous_id": "T69224ec2d520",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1305,
+      "han_chars": 510,
+      "elapsed_seconds": 26.496
+    },
+    {
+      "id": "control-crossover-A-r2",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "a205b8ac44bf4224859991b0638f49c9f41e1ecfb4674ab4c881903fda817aba",
+      "packet": "P7003d8027c26",
+      "anonymous_id": "Tefd20fd79e9c",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1230,
+      "han_chars": 557,
+      "elapsed_seconds": 28.894
+    },
+    {
+      "id": "control-crossover-C-r2",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "afbe5a1961363359a47504d6772eafcce5c7633ae90500f02869ea9879ad52f7",
+      "packet": "P7003d8027c26",
+      "anonymous_id": "Tc23dfa8d74ac",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1322,
+      "han_chars": 539,
+      "elapsed_seconds": 29.481
+    },
+    {
+      "id": "control-crossover-A-r3",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "a205b8ac44bf4224859991b0638f49c9f41e1ecfb4674ab4c881903fda817aba",
+      "packet": "Pb9d19c76c137",
+      "anonymous_id": "T0a0d4a5568cb",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1340,
+      "han_chars": 538,
+      "elapsed_seconds": 30.733
+    },
+    {
+      "id": "control-crossover-C-r3",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "afbe5a1961363359a47504d6772eafcce5c7633ae90500f02869ea9879ad52f7",
+      "packet": "Pb9d19c76c137",
+      "anonymous_id": "T1a262814298c",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1262,
+      "han_chars": 537,
+      "elapsed_seconds": 30.97
+    },
+    {
+      "id": "control-state-transfer-A-r1",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "fabe880d1c6b7fe448fc20e004580a3241dbc8fc9520ca2ac46decb1842497ab",
+      "packet": "P37f26dfe7613",
+      "anonymous_id": "Tdbe66442e6a7",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1357,
+      "han_chars": 521,
+      "elapsed_seconds": 28.46
+    },
+    {
+      "id": "control-state-transfer-C-r1",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "cf2aee09d65103c808cdbe15d5b6822a1c8a38b224c5d86ed1934369dd516588",
+      "packet": "P37f26dfe7613",
+      "anonymous_id": "T264cef2c65ad",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1389,
+      "han_chars": 565,
+      "elapsed_seconds": 31.536
+    },
+    {
+      "id": "control-state-transfer-A-r2",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "fabe880d1c6b7fe448fc20e004580a3241dbc8fc9520ca2ac46decb1842497ab",
+      "packet": "P9dee20d5ef6f",
+      "anonymous_id": "T028c177c36fe",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1341,
+      "han_chars": 530,
+      "elapsed_seconds": 31.081
+    },
+    {
+      "id": "control-state-transfer-C-r2",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "cf2aee09d65103c808cdbe15d5b6822a1c8a38b224c5d86ed1934369dd516588",
+      "packet": "P9dee20d5ef6f",
+      "anonymous_id": "Ta853f954a77b",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1375,
+      "han_chars": 513,
+      "elapsed_seconds": 29.895
+    },
+    {
+      "id": "control-state-transfer-A-r3",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "fabe880d1c6b7fe448fc20e004580a3241dbc8fc9520ca2ac46decb1842497ab",
+      "packet": "P00dbd37432b3",
+      "anonymous_id": "T8e8b81adba16",
+      "scores": {
+        "correctness": 4,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 4,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 4
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 1
+      },
+      "chars": 1285,
+      "han_chars": 527,
+      "elapsed_seconds": 27.961
+    },
+    {
+      "id": "control-state-transfer-C-r3",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "cf2aee09d65103c808cdbe15d5b6822a1c8a38b224c5d86ed1934369dd516588",
+      "packet": "P00dbd37432b3",
+      "anonymous_id": "T997ef7df8bf6",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1364,
+      "han_chars": 529,
+      "elapsed_seconds": 31.907
+    },
+    {
+      "id": "math-concept-A-r1",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "251d9b86379c637275b9ee355b77d1934af39c9a9b97676410c098e9ba39d335",
+      "packet": "P741985557667",
+      "anonymous_id": "T090c9b0b6026",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1240,
+      "han_chars": 478,
+      "elapsed_seconds": 29.912
+    },
+    {
+      "id": "math-concept-B-r1",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 1,
+      "prompt_sha256": "260fbeb53fa1449adccebc4b35f583602c22c0540960f6a7551eddf35df9ccf1",
+      "packet": "P741985557667",
+      "anonymous_id": "T7769a073287c",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1361,
+      "han_chars": 443,
+      "elapsed_seconds": 31.438
+    },
+    {
+      "id": "math-concept-C-r1",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "1f7672db72691f9089f58a377f38e634b9f3cdbe67df17224982bce9c0dcb591",
+      "packet": "P741985557667",
+      "anonymous_id": "Tea30e8e73556",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1304,
+      "han_chars": 455,
+      "elapsed_seconds": 28.404
+    },
+    {
+      "id": "math-concept-D-r1",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 1,
+      "prompt_sha256": "ccd049afbf52a875bfb6a6b20987873243bedfa70c75f5d83483dd33058bee5d",
+      "packet": "P741985557667",
+      "anonymous_id": "T87338c586957",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1384,
+      "han_chars": 428,
+      "elapsed_seconds": 29.466
+    },
+    {
+      "id": "math-concept-A-r2",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "251d9b86379c637275b9ee355b77d1934af39c9a9b97676410c098e9ba39d335",
+      "packet": "Pf0e8a5a34794",
+      "anonymous_id": "T46f50914fa5d",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1233,
+      "han_chars": 464,
+      "elapsed_seconds": 25.794
+    },
+    {
+      "id": "math-concept-B-r2",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 2,
+      "prompt_sha256": "260fbeb53fa1449adccebc4b35f583602c22c0540960f6a7551eddf35df9ccf1",
+      "packet": "Pf0e8a5a34794",
+      "anonymous_id": "T1fbbddc51c51",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1334,
+      "han_chars": 425,
+      "elapsed_seconds": 30.482
+    },
+    {
+      "id": "math-concept-C-r2",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "1f7672db72691f9089f58a377f38e634b9f3cdbe67df17224982bce9c0dcb591",
+      "packet": "Pf0e8a5a34794",
+      "anonymous_id": "T9af5634ecbd7",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1288,
+      "han_chars": 482,
+      "elapsed_seconds": 28.331
+    },
+    {
+      "id": "math-concept-D-r2",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 2,
+      "prompt_sha256": "ccd049afbf52a875bfb6a6b20987873243bedfa70c75f5d83483dd33058bee5d",
+      "packet": "Pf0e8a5a34794",
+      "anonymous_id": "T8c8abaecf9ab",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1278,
+      "han_chars": 462,
+      "elapsed_seconds": 30.37
+    },
+    {
+      "id": "math-concept-A-r3",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "251d9b86379c637275b9ee355b77d1934af39c9a9b97676410c098e9ba39d335",
+      "packet": "P0e9434d33d57",
+      "anonymous_id": "T0ffa9e428d9f",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1261,
+      "han_chars": 487,
+      "elapsed_seconds": 30.909
+    },
+    {
+      "id": "math-concept-B-r3",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 3,
+      "prompt_sha256": "260fbeb53fa1449adccebc4b35f583602c22c0540960f6a7551eddf35df9ccf1",
+      "packet": "P0e9434d33d57",
+      "anonymous_id": "T694fad839996",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1263,
+      "han_chars": 421,
+      "elapsed_seconds": 29.492
+    },
+    {
+      "id": "math-concept-C-r3",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "1f7672db72691f9089f58a377f38e634b9f3cdbe67df17224982bce9c0dcb591",
+      "packet": "P0e9434d33d57",
+      "anonymous_id": "Tb6937a48939f",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1312,
+      "han_chars": 508,
+      "elapsed_seconds": 32.09
+    },
+    {
+      "id": "math-concept-D-r3",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 3,
+      "prompt_sha256": "ccd049afbf52a875bfb6a6b20987873243bedfa70c75f5d83483dd33058bee5d",
+      "packet": "P0e9434d33d57",
+      "anonymous_id": "T6c33e3c2665d",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1332,
+      "han_chars": 456,
+      "elapsed_seconds": 34.028
+    },
+    {
+      "id": "math-derivation-A-r1",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "18853bf6828fe22a9c606a70d8b83287ec80e5d9af75f605b753afd243bbbfce",
+      "packet": "Pb8af36a6613d",
+      "anonymous_id": "T4186571f88b6",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1476,
+      "han_chars": 430,
+      "elapsed_seconds": 33.108
+    },
+    {
+      "id": "math-derivation-B-r1",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 1,
+      "prompt_sha256": "b3997f449344a62a896bb1450fc0b5fdf0fc548485ec06bc31cf7bb5ec9a1f10",
+      "packet": "Pb8af36a6613d",
+      "anonymous_id": "Tf33cbbbe2f6a",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1509,
+      "han_chars": 415,
+      "elapsed_seconds": 34.248
+    },
+    {
+      "id": "math-derivation-C-r1",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "1585583fcd0e48af29f065820bd8d618f41532648b694122c99f198808b1fbc3",
+      "packet": "Pb8af36a6613d",
+      "anonymous_id": "T6e559149617a",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1368,
+      "han_chars": 434,
+      "elapsed_seconds": 32.772
+    },
+    {
+      "id": "math-derivation-D-r1",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 1,
+      "prompt_sha256": "88be41e785999e28f6162f67480dc986d265dec176eef91c688938fcff4eacbc",
+      "packet": "Pb8af36a6613d",
+      "anonymous_id": "Tec94e23d3cfa",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1354,
+      "han_chars": 345,
+      "elapsed_seconds": 30.134
+    },
+    {
+      "id": "math-derivation-A-r2",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "18853bf6828fe22a9c606a70d8b83287ec80e5d9af75f605b753afd243bbbfce",
+      "packet": "Pf9eedfc09a69",
+      "anonymous_id": "Tce4e202a1a36",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1482,
+      "han_chars": 413,
+      "elapsed_seconds": 32.525
+    },
+    {
+      "id": "math-derivation-B-r2",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 2,
+      "prompt_sha256": "b3997f449344a62a896bb1450fc0b5fdf0fc548485ec06bc31cf7bb5ec9a1f10",
+      "packet": "Pf9eedfc09a69",
+      "anonymous_id": "T5c82e39159b9",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1604,
+      "han_chars": 379,
+      "elapsed_seconds": 36.699
+    },
+    {
+      "id": "math-derivation-C-r2",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "1585583fcd0e48af29f065820bd8d618f41532648b694122c99f198808b1fbc3",
+      "packet": "Pf9eedfc09a69",
+      "anonymous_id": "T004259620ad6",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1587,
+      "han_chars": 434,
+      "elapsed_seconds": 34.43
+    },
+    {
+      "id": "math-derivation-D-r2",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 2,
+      "prompt_sha256": "88be41e785999e28f6162f67480dc986d265dec176eef91c688938fcff4eacbc",
+      "packet": "Pf9eedfc09a69",
+      "anonymous_id": "Ta3d415edc9cc",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1531,
+      "han_chars": 386,
+      "elapsed_seconds": 31.912
+    },
+    {
+      "id": "math-derivation-A-r3",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "18853bf6828fe22a9c606a70d8b83287ec80e5d9af75f605b753afd243bbbfce",
+      "packet": "P7ebcf42dd587",
+      "anonymous_id": "Ta31b872fd72a",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1394,
+      "han_chars": 376,
+      "elapsed_seconds": 34.11
+    },
+    {
+      "id": "math-derivation-B-r3",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 3,
+      "prompt_sha256": "b3997f449344a62a896bb1450fc0b5fdf0fc548485ec06bc31cf7bb5ec9a1f10",
+      "packet": "P7ebcf42dd587",
+      "anonymous_id": "T18ae7525d0b3",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1511,
+      "han_chars": 449,
+      "elapsed_seconds": 33.835
+    },
+    {
+      "id": "math-derivation-C-r3",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "1585583fcd0e48af29f065820bd8d618f41532648b694122c99f198808b1fbc3",
+      "packet": "P7ebcf42dd587",
+      "anonymous_id": "T9538c361f6ba",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1448,
+      "han_chars": 425,
+      "elapsed_seconds": 32.801
+    },
+    {
+      "id": "math-derivation-D-r3",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 3,
+      "prompt_sha256": "88be41e785999e28f6162f67480dc986d265dec176eef91c688938fcff4eacbc",
+      "packet": "P7ebcf42dd587",
+      "anonymous_id": "Tdbd7301a8d17",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1448,
+      "han_chars": 368,
+      "elapsed_seconds": 32.164
+    },
+    {
+      "id": "math-method-A-r1",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "2371ef5569b64de6ab4300c840a39aba5b56020aea5b6b79f9ec000a96fdf2b8",
+      "packet": "P9e472b536526",
+      "anonymous_id": "T089e538cdc31",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 4,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1245,
+      "han_chars": 472,
+      "elapsed_seconds": 30.671
+    },
+    {
+      "id": "math-method-B-r1",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 1,
+      "prompt_sha256": "9c7f8515372940ab88e3b0799e458ac421d0f38d0c0d0dcff4ec437e472f21d3",
+      "packet": "P9e472b536526",
+      "anonymous_id": "Tc481633d6e8e",
+      "scores": {
+        "correctness": 4,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 4,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 1
+      },
+      "chars": 1442,
+      "han_chars": 455,
+      "elapsed_seconds": 31.945
+    },
+    {
+      "id": "math-method-C-r1",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "2a2596bb40e9e476e209568e09cca41aea08c53dfde467c3bb32660f92835e0e",
+      "packet": "P9e472b536526",
+      "anonymous_id": "T71265177cdaa",
+      "scores": {
+        "correctness": 4,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 4,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 1
+      },
+      "chars": 1268,
+      "han_chars": 453,
+      "elapsed_seconds": 29.054
+    },
+    {
+      "id": "math-method-D-r1",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 1,
+      "prompt_sha256": "103415c71e6323537a6f8f9adb701d6606771e3ef5dfcebb9ca8f9f846a9447c",
+      "packet": "P9e472b536526",
+      "anonymous_id": "Tbdd62cf5bf42",
+      "scores": {
+        "correctness": 4,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 4,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 1
+      },
+      "chars": 1389,
+      "han_chars": 437,
+      "elapsed_seconds": 29.58
+    },
+    {
+      "id": "math-method-A-r2",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "2371ef5569b64de6ab4300c840a39aba5b56020aea5b6b79f9ec000a96fdf2b8",
+      "packet": "Pde7e335addee",
+      "anonymous_id": "T0963cea0d90b",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1325,
+      "han_chars": 499,
+      "elapsed_seconds": 36.713
+    },
+    {
+      "id": "math-method-B-r2",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 2,
+      "prompt_sha256": "9c7f8515372940ab88e3b0799e458ac421d0f38d0c0d0dcff4ec437e472f21d3",
+      "packet": "Pde7e335addee",
+      "anonymous_id": "Tcf276dfe2d79",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1297,
+      "han_chars": 423,
+      "elapsed_seconds": 31.809
+    },
+    {
+      "id": "math-method-C-r2",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "2a2596bb40e9e476e209568e09cca41aea08c53dfde467c3bb32660f92835e0e",
+      "packet": "Pde7e335addee",
+      "anonymous_id": "T617ecc1649bb",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1306,
+      "han_chars": 432,
+      "elapsed_seconds": 29.703
+    },
+    {
+      "id": "math-method-D-r2",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 2,
+      "prompt_sha256": "103415c71e6323537a6f8f9adb701d6606771e3ef5dfcebb9ca8f9f846a9447c",
+      "packet": "Pde7e335addee",
+      "anonymous_id": "Tdf80c701d129",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1300,
+      "han_chars": 431,
+      "elapsed_seconds": 29.396
+    },
+    {
+      "id": "math-method-A-r3",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "2371ef5569b64de6ab4300c840a39aba5b56020aea5b6b79f9ec000a96fdf2b8",
+      "packet": "Pd2332eef3275",
+      "anonymous_id": "T515a78d56890",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1267,
+      "han_chars": 428,
+      "elapsed_seconds": 30.063
+    },
+    {
+      "id": "math-method-B-r3",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "B",
+      "repeat": 3,
+      "prompt_sha256": "9c7f8515372940ab88e3b0799e458ac421d0f38d0c0d0dcff4ec437e472f21d3",
+      "packet": "Pd2332eef3275",
+      "anonymous_id": "T47c9e417e855",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1358,
+      "han_chars": 468,
+      "elapsed_seconds": 31.957
+    },
+    {
+      "id": "math-method-C-r3",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "2a2596bb40e9e476e209568e09cca41aea08c53dfde467c3bb32660f92835e0e",
+      "packet": "Pd2332eef3275",
+      "anonymous_id": "Tee75cdfb1e7f",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1299,
+      "han_chars": 481,
+      "elapsed_seconds": 32.551
+    },
+    {
+      "id": "math-method-D-r3",
+      "task": "math-method",
+      "domain": "mathematics",
+      "group": "D",
+      "repeat": 3,
+      "prompt_sha256": "103415c71e6323537a6f8f9adb701d6606771e3ef5dfcebb9ca8f9f846a9447c",
+      "packet": "Pd2332eef3275",
+      "anonymous_id": "T41a2952ca90b",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1324,
+      "han_chars": 490,
+      "elapsed_seconds": 30.389
+    },
+    {
+      "id": "ml-kv-cache-A-r1",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "1fb45883f91cf1e5334cf4483e39dfdfd0fe4dd84d4eabcc5e19992a5cb9a558",
+      "packet": "Pd055d4bf9d38",
+      "anonymous_id": "T3482cb51e27e",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 4,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1106,
+      "han_chars": 606,
+      "elapsed_seconds": 29.203
+    },
+    {
+      "id": "ml-kv-cache-C-r1",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "1cf820a9f9cbf9a6eb913f6c58099c472de3382a978841e4d67551dcdab4e70c",
+      "packet": "Pd055d4bf9d38",
+      "anonymous_id": "Tf5be20f1a7c3",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1188,
+      "han_chars": 632,
+      "elapsed_seconds": 31.102
+    },
+    {
+      "id": "ml-kv-cache-A-r2",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "1fb45883f91cf1e5334cf4483e39dfdfd0fe4dd84d4eabcc5e19992a5cb9a558",
+      "packet": "P90fe9471e424",
+      "anonymous_id": "T04fa69f889da",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 4,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1165,
+      "han_chars": 576,
+      "elapsed_seconds": 28.013
+    },
+    {
+      "id": "ml-kv-cache-C-r2",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "1cf820a9f9cbf9a6eb913f6c58099c472de3382a978841e4d67551dcdab4e70c",
+      "packet": "P90fe9471e424",
+      "anonymous_id": "Tc63bb7929ccd",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 4,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1234,
+      "han_chars": 592,
+      "elapsed_seconds": 30.303
+    },
+    {
+      "id": "ml-kv-cache-A-r3",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "1fb45883f91cf1e5334cf4483e39dfdfd0fe4dd84d4eabcc5e19992a5cb9a558",
+      "packet": "Pb028d2f2d436",
+      "anonymous_id": "T2c2dea1cd8f7",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1227,
+      "han_chars": 643,
+      "elapsed_seconds": 29.426
+    },
+    {
+      "id": "ml-kv-cache-C-r3",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "1cf820a9f9cbf9a6eb913f6c58099c472de3382a978841e4d67551dcdab4e70c",
+      "packet": "Pb028d2f2d436",
+      "anonymous_id": "T65d0b6c2482c",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1194,
+      "han_chars": 651,
+      "elapsed_seconds": 33.073
+    },
+    {
+      "id": "ml-residual-gradient-A-r1",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 1,
+      "prompt_sha256": "da73e47d0e718e834b81c6fd220a46aad9f1b23b53003f02f11c4c36d7dab37f",
+      "packet": "P72dd69aaa766",
+      "anonymous_id": "T38bdcda57da4",
+      "scores": {
+        "correctness": 4,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 1
+      },
+      "chars": 1304,
+      "han_chars": 565,
+      "elapsed_seconds": 33.886
+    },
+    {
+      "id": "ml-residual-gradient-C-r1",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 1,
+      "prompt_sha256": "4ea1a698adf92816dace846982707fbea7cca30a4cb9cea32c26670d857ca942",
+      "packet": "P72dd69aaa766",
+      "anonymous_id": "T0d5c5e1ce0a1",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1156,
+      "han_chars": 579,
+      "elapsed_seconds": 29.942
+    },
+    {
+      "id": "ml-residual-gradient-A-r2",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 2,
+      "prompt_sha256": "da73e47d0e718e834b81c6fd220a46aad9f1b23b53003f02f11c4c36d7dab37f",
+      "packet": "P696b9fca5948",
+      "anonymous_id": "T79ff94c259f5",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1261,
+      "han_chars": 567,
+      "elapsed_seconds": 30.455
+    },
+    {
+      "id": "ml-residual-gradient-C-r2",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 2,
+      "prompt_sha256": "4ea1a698adf92816dace846982707fbea7cca30a4cb9cea32c26670d857ca942",
+      "packet": "P696b9fca5948",
+      "anonymous_id": "T5f64a278cb0d",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1280,
+      "han_chars": 625,
+      "elapsed_seconds": 35.327
+    },
+    {
+      "id": "ml-residual-gradient-A-r3",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "A",
+      "repeat": 3,
+      "prompt_sha256": "da73e47d0e718e834b81c6fd220a46aad9f1b23b53003f02f11c4c36d7dab37f",
+      "packet": "P0e2cda331d4e",
+      "anonymous_id": "T77c4e0597759",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1164,
+      "han_chars": 597,
+      "elapsed_seconds": 31.25
+    },
+    {
+      "id": "ml-residual-gradient-C-r3",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "group": "C",
+      "repeat": 3,
+      "prompt_sha256": "4ea1a698adf92816dace846982707fbea7cca30a4cb9cea32c26670d857ca942",
+      "packet": "P0e2cda331d4e",
+      "anonymous_id": "T1d0ca44260e8",
+      "scores": {
+        "correctness": 5,
+        "prior_knowledge_alignment": 5,
+        "conceptual_sequencing": 5,
+        "motivation": 5,
+        "explanatory_coherence": 5,
+        "cognitive_load": 5,
+        "transfer_support": 5,
+        "overall_comprehensibility": 5
+      },
+      "redundancy": 1,
+      "errors": {
+        "major": 0,
+        "minor": 0
+      },
+      "chars": 1134,
+      "han_chars": 617,
+      "elapsed_seconds": 31.323
+    }
+  ],
+  "mathematics": {
+    "groups": {
+      "A": {
+        "n": 9,
+        "score_means": {
+          "correctness": 5,
+          "prior_knowledge_alignment": 5,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 4.888888888888889,
+          "overall_comprehensibility": 5
+        },
+        "redundancy": {
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "sum": 9
+        },
+        "chars": {
+          "mean": 1324.7777777777778,
+          "min": 1233,
+          "max": 1482,
+          "sum": 11923
+        },
+        "han_chars": {
+          "mean": 449.6666666666667,
+          "min": 376,
+          "max": 499,
+          "sum": 4047
+        },
+        "elapsed_seconds": {
+          "mean": 31.53388888888889,
+          "min": 25.794,
+          "max": 36.713,
+          "sum": 283.805
+        },
+        "judge_flagged_errors": {
+          "major": 0,
+          "minor": 0
+        },
+        "texts_with_major_flags": 0
+      },
+      "B": {
+        "n": 9,
+        "score_means": {
+          "correctness": 4.888888888888889,
+          "prior_knowledge_alignment": 5,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 4.888888888888889,
+          "overall_comprehensibility": 5
+        },
+        "redundancy": {
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "sum": 9
+        },
+        "chars": {
+          "mean": 1408.7777777777778,
+          "min": 1263,
+          "max": 1604,
+          "sum": 12679
+        },
+        "han_chars": {
+          "mean": 430.8888888888889,
+          "min": 379,
+          "max": 468,
+          "sum": 3878
+        },
+        "elapsed_seconds": {
+          "mean": 32.43388888888889,
+          "min": 29.492,
+          "max": 36.699,
+          "sum": 291.905
+        },
+        "judge_flagged_errors": {
+          "major": 0,
+          "minor": 1
+        },
+        "texts_with_major_flags": 0
+      },
+      "C": {
+        "n": 9,
+        "score_means": {
+          "correctness": 4.888888888888889,
+          "prior_knowledge_alignment": 5,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 4.888888888888889,
+          "overall_comprehensibility": 5
+        },
+        "redundancy": {
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "sum": 9
+        },
+        "chars": {
+          "mean": 1353.3333333333333,
+          "min": 1268,
+          "max": 1587,
+          "sum": 12180
+        },
+        "han_chars": {
+          "mean": 456,
+          "min": 425,
+          "max": 508,
+          "sum": 4104
+        },
+        "elapsed_seconds": {
+          "mean": 31.12622222222222,
+          "min": 28.331,
+          "max": 34.43,
+          "sum": 280.136
+        },
+        "judge_flagged_errors": {
+          "major": 0,
+          "minor": 1
+        },
+        "texts_with_major_flags": 0
+      },
+      "D": {
+        "n": 9,
+        "score_means": {
+          "correctness": 4.888888888888889,
+          "prior_knowledge_alignment": 5,
+          "conceptual_sequencing": 5,
+          "motivation": 5,
+          "explanatory_coherence": 5,
+          "cognitive_load": 5,
+          "transfer_support": 4.888888888888889,
+          "overall_comprehensibility": 5
+        },
+        "redundancy": {
+          "mean": 1,
+          "min": 1,
+          "max": 1,
+          "sum": 9
+        },
+        "chars": {
+          "mean": 1371.111111111111,
+          "min": 1278,
+          "max": 1531,
+          "sum": 12340
+        },
+        "han_chars": {
+          "mean": 422.55555555555554,
+          "min": 345,
+          "max": 490,
+          "sum": 3803
+        },
+        "elapsed_seconds": {
+          "mean": 30.826555555555554,
+          "min": 29.396,
+          "max": 34.028,
+          "sum": 277.439
+        },
+        "judge_flagged_errors": {
+          "major": 0,
+          "minor": 1
+        },
+        "texts_with_major_flags": 0
+      }
+    },
+    "contrasts": {
+      "correctness": {
+        "delta_R": -0.05555555555555536,
+        "delta_C": -0.05555555555555536,
+        "interaction": 0.11111111111111072
+      },
+      "prior_knowledge_alignment": {
+        "delta_R": 0.0,
+        "delta_C": 0.0,
+        "interaction": 0
+      },
+      "conceptual_sequencing": {
+        "delta_R": 0.0,
+        "delta_C": 0.0,
+        "interaction": 0
+      },
+      "motivation": {
+        "delta_R": 0.0,
+        "delta_C": 0.0,
+        "interaction": 0
+      },
+      "explanatory_coherence": {
+        "delta_R": 0.0,
+        "delta_C": 0.0,
+        "interaction": 0
+      },
+      "cognitive_load": {
+        "delta_R": 0.0,
+        "delta_C": 0.0,
+        "interaction": 0
+      },
+      "transfer_support": {
+        "delta_R": 0.0,
+        "delta_C": 0.0,
+        "interaction": 0.0
+      },
+      "overall_comprehensibility": {
+        "delta_R": 0.0,
+        "delta_C": 0.0,
+        "interaction": 0
+      }
+    }
+  },
+  "mathematics_by_task": {
+    "math-concept": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1244.6666666666667,
+            "min": 1233,
+            "max": 1261,
+            "sum": 3734
+          },
+          "han_chars": {
+            "mean": 476.3333333333333,
+            "min": 464,
+            "max": 487,
+            "sum": 1429
+          },
+          "elapsed_seconds": {
+            "mean": 28.871666666666666,
+            "min": 25.794,
+            "max": 30.909,
+            "sum": 86.61500000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "B": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1319.3333333333333,
+            "min": 1263,
+            "max": 1361,
+            "sum": 3958
+          },
+          "han_chars": {
+            "mean": 429.6666666666667,
+            "min": 421,
+            "max": 443,
+            "sum": 1289
+          },
+          "elapsed_seconds": {
+            "mean": 30.470666666666666,
+            "min": 29.492,
+            "max": 31.438,
+            "sum": 91.412
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1301.3333333333333,
+            "min": 1288,
+            "max": 1312,
+            "sum": 3904
+          },
+          "han_chars": {
+            "mean": 481.6666666666667,
+            "min": 455,
+            "max": 508,
+            "sum": 1445
+          },
+          "elapsed_seconds": {
+            "mean": 29.608333333333334,
+            "min": 28.331,
+            "max": 32.09,
+            "sum": 88.825
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "D": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1331.3333333333333,
+            "min": 1278,
+            "max": 1384,
+            "sum": 3994
+          },
+          "han_chars": {
+            "mean": 448.6666666666667,
+            "min": 428,
+            "max": 462,
+            "sum": 1346
+          },
+          "elapsed_seconds": {
+            "mean": 31.288,
+            "min": 29.466,
+            "max": 34.028,
+            "sum": 93.864
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "contrasts": {
+        "correctness": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "prior_knowledge_alignment": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "conceptual_sequencing": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "motivation": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "explanatory_coherence": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "cognitive_load": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "transfer_support": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "overall_comprehensibility": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        }
+      }
+    },
+    "math-derivation": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1450.6666666666667,
+            "min": 1394,
+            "max": 1482,
+            "sum": 4352
+          },
+          "han_chars": {
+            "mean": 406.3333333333333,
+            "min": 376,
+            "max": 430,
+            "sum": 1219
+          },
+          "elapsed_seconds": {
+            "mean": 33.24766666666667,
+            "min": 32.525,
+            "max": 34.11,
+            "sum": 99.743
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "B": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1541.3333333333333,
+            "min": 1509,
+            "max": 1604,
+            "sum": 4624
+          },
+          "han_chars": {
+            "mean": 414.3333333333333,
+            "min": 379,
+            "max": 449,
+            "sum": 1243
+          },
+          "elapsed_seconds": {
+            "mean": 34.92733333333333,
+            "min": 33.835,
+            "max": 36.699,
+            "sum": 104.78200000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1467.6666666666667,
+            "min": 1368,
+            "max": 1587,
+            "sum": 4403
+          },
+          "han_chars": {
+            "mean": 431,
+            "min": 425,
+            "max": 434,
+            "sum": 1293
+          },
+          "elapsed_seconds": {
+            "mean": 33.33433333333333,
+            "min": 32.772,
+            "max": 34.43,
+            "sum": 100.003
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "D": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1444.3333333333333,
+            "min": 1354,
+            "max": 1531,
+            "sum": 4333
+          },
+          "han_chars": {
+            "mean": 366.3333333333333,
+            "min": 345,
+            "max": 386,
+            "sum": 1099
+          },
+          "elapsed_seconds": {
+            "mean": 31.403333333333332,
+            "min": 30.134,
+            "max": 32.164,
+            "sum": 94.21000000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "contrasts": {
+        "correctness": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "prior_knowledge_alignment": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "conceptual_sequencing": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "motivation": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "explanatory_coherence": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "cognitive_load": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "transfer_support": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "overall_comprehensibility": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        }
+      }
+    },
+    "math-method": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 4.666666666666667,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1279,
+            "min": 1245,
+            "max": 1325,
+            "sum": 3837
+          },
+          "han_chars": {
+            "mean": 466.3333333333333,
+            "min": 428,
+            "max": 499,
+            "sum": 1399
+          },
+          "elapsed_seconds": {
+            "mean": 32.48233333333333,
+            "min": 30.063,
+            "max": 36.713,
+            "sum": 97.447
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "B": {
+          "n": 3,
+          "score_means": {
+            "correctness": 4.666666666666667,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 4.666666666666667,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1365.6666666666667,
+            "min": 1297,
+            "max": 1442,
+            "sum": 4097
+          },
+          "han_chars": {
+            "mean": 448.6666666666667,
+            "min": 423,
+            "max": 468,
+            "sum": 1346
+          },
+          "elapsed_seconds": {
+            "mean": 31.903666666666666,
+            "min": 31.809,
+            "max": 31.957,
+            "sum": 95.71100000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 4.666666666666667,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 4.666666666666667,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1291,
+            "min": 1268,
+            "max": 1306,
+            "sum": 3873
+          },
+          "han_chars": {
+            "mean": 455.3333333333333,
+            "min": 432,
+            "max": 481,
+            "sum": 1366
+          },
+          "elapsed_seconds": {
+            "mean": 30.436,
+            "min": 29.054,
+            "max": 32.551,
+            "sum": 91.30799999999999
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        },
+        "D": {
+          "n": 3,
+          "score_means": {
+            "correctness": 4.666666666666667,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 4.666666666666667,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1337.6666666666667,
+            "min": 1300,
+            "max": 1389,
+            "sum": 4013
+          },
+          "han_chars": {
+            "mean": 452.6666666666667,
+            "min": 431,
+            "max": 490,
+            "sum": 1358
+          },
+          "elapsed_seconds": {
+            "mean": 29.788333333333334,
+            "min": 29.396,
+            "max": 30.389,
+            "sum": 89.365
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "contrasts": {
+        "correctness": {
+          "delta_R": -0.16666666666666652,
+          "delta_C": -0.16666666666666652,
+          "interaction": 0.33333333333333304
+        },
+        "prior_knowledge_alignment": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "conceptual_sequencing": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "motivation": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "explanatory_coherence": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "cognitive_load": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "transfer_support": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0.0
+        },
+        "overall_comprehensibility": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        }
+      }
+    }
+  },
+  "mathematics_by_repeat": {
+    "1": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 4.666666666666667,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1320.3333333333333,
+            "min": 1240,
+            "max": 1476,
+            "sum": 3961
+          },
+          "han_chars": {
+            "mean": 460,
+            "min": 430,
+            "max": 478,
+            "sum": 1380
+          },
+          "elapsed_seconds": {
+            "mean": 31.23033333333333,
+            "min": 29.912,
+            "max": 33.108,
+            "sum": 93.691
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "B": {
+          "n": 3,
+          "score_means": {
+            "correctness": 4.666666666666667,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 4.666666666666667,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1437.3333333333333,
+            "min": 1361,
+            "max": 1509,
+            "sum": 4312
+          },
+          "han_chars": {
+            "mean": 437.6666666666667,
+            "min": 415,
+            "max": 455,
+            "sum": 1313
+          },
+          "elapsed_seconds": {
+            "mean": 32.54366666666667,
+            "min": 31.438,
+            "max": 34.248,
+            "sum": 97.631
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 4.666666666666667,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 4.666666666666667,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1313.3333333333333,
+            "min": 1268,
+            "max": 1368,
+            "sum": 3940
+          },
+          "han_chars": {
+            "mean": 447.3333333333333,
+            "min": 434,
+            "max": 455,
+            "sum": 1342
+          },
+          "elapsed_seconds": {
+            "mean": 30.076666666666664,
+            "min": 28.404,
+            "max": 32.772,
+            "sum": 90.23
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        },
+        "D": {
+          "n": 3,
+          "score_means": {
+            "correctness": 4.666666666666667,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 4.666666666666667,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1375.6666666666667,
+            "min": 1354,
+            "max": 1389,
+            "sum": 4127
+          },
+          "han_chars": {
+            "mean": 403.3333333333333,
+            "min": 345,
+            "max": 437,
+            "sum": 1210
+          },
+          "elapsed_seconds": {
+            "mean": 29.726666666666667,
+            "min": 29.466,
+            "max": 30.134,
+            "sum": 89.18
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "contrasts": {
+        "correctness": {
+          "delta_R": -0.16666666666666652,
+          "delta_C": -0.16666666666666652,
+          "interaction": 0.33333333333333304
+        },
+        "prior_knowledge_alignment": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "conceptual_sequencing": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "motivation": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "explanatory_coherence": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "cognitive_load": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "transfer_support": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0.0
+        },
+        "overall_comprehensibility": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        }
+      }
+    },
+    "2": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1346.6666666666667,
+            "min": 1233,
+            "max": 1482,
+            "sum": 4040
+          },
+          "han_chars": {
+            "mean": 458.6666666666667,
+            "min": 413,
+            "max": 499,
+            "sum": 1376
+          },
+          "elapsed_seconds": {
+            "mean": 31.677333333333333,
+            "min": 25.794,
+            "max": 36.713,
+            "sum": 95.03200000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "B": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1411.6666666666667,
+            "min": 1297,
+            "max": 1604,
+            "sum": 4235
+          },
+          "han_chars": {
+            "mean": 409,
+            "min": 379,
+            "max": 425,
+            "sum": 1227
+          },
+          "elapsed_seconds": {
+            "mean": 32.99666666666667,
+            "min": 30.482,
+            "max": 36.699,
+            "sum": 98.99
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1393.6666666666667,
+            "min": 1288,
+            "max": 1587,
+            "sum": 4181
+          },
+          "han_chars": {
+            "mean": 449.3333333333333,
+            "min": 432,
+            "max": 482,
+            "sum": 1348
+          },
+          "elapsed_seconds": {
+            "mean": 30.82133333333333,
+            "min": 28.331,
+            "max": 34.43,
+            "sum": 92.464
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "D": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1369.6666666666667,
+            "min": 1278,
+            "max": 1531,
+            "sum": 4109
+          },
+          "han_chars": {
+            "mean": 426.3333333333333,
+            "min": 386,
+            "max": 462,
+            "sum": 1279
+          },
+          "elapsed_seconds": {
+            "mean": 30.559333333333335,
+            "min": 29.396,
+            "max": 31.912,
+            "sum": 91.678
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "contrasts": {
+        "correctness": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "prior_knowledge_alignment": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "conceptual_sequencing": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "motivation": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "explanatory_coherence": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "cognitive_load": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "transfer_support": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "overall_comprehensibility": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        }
+      }
+    },
+    "3": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1307.3333333333333,
+            "min": 1261,
+            "max": 1394,
+            "sum": 3922
+          },
+          "han_chars": {
+            "mean": 430.3333333333333,
+            "min": 376,
+            "max": 487,
+            "sum": 1291
+          },
+          "elapsed_seconds": {
+            "mean": 31.694,
+            "min": 30.063,
+            "max": 34.11,
+            "sum": 95.08200000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "B": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1377.3333333333333,
+            "min": 1263,
+            "max": 1511,
+            "sum": 4132
+          },
+          "han_chars": {
+            "mean": 446,
+            "min": 421,
+            "max": 468,
+            "sum": 1338
+          },
+          "elapsed_seconds": {
+            "mean": 31.761333333333333,
+            "min": 29.492,
+            "max": 33.835,
+            "sum": 95.28399999999999
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1353,
+            "min": 1299,
+            "max": 1448,
+            "sum": 4059
+          },
+          "han_chars": {
+            "mean": 471.3333333333333,
+            "min": 425,
+            "max": 508,
+            "sum": 1414
+          },
+          "elapsed_seconds": {
+            "mean": 32.48066666666667,
+            "min": 32.09,
+            "max": 32.801,
+            "sum": 97.44200000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "D": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1368,
+            "min": 1324,
+            "max": 1448,
+            "sum": 4104
+          },
+          "han_chars": {
+            "mean": 438,
+            "min": 368,
+            "max": 490,
+            "sum": 1314
+          },
+          "elapsed_seconds": {
+            "mean": 32.193666666666665,
+            "min": 30.389,
+            "max": 34.028,
+            "sum": 96.581
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "contrasts": {
+        "correctness": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "prior_knowledge_alignment": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "conceptual_sequencing": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "motivation": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "explanatory_coherence": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "cognitive_load": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "transfer_support": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        },
+        "overall_comprehensibility": {
+          "delta_R": 0.0,
+          "delta_C": 0.0,
+          "interaction": 0
+        }
+      }
+    }
+  },
+  "cross_domain": {
+    "control-theory": {
+      "groups": {
+        "A": {
+          "n": 6,
+          "score_means": {
+            "correctness": 4.833333333333333,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 4.833333333333333,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 4.833333333333333
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 6
+          },
+          "chars": {
+            "mean": 1307.8333333333333,
+            "min": 1230,
+            "max": 1357,
+            "sum": 7847
+          },
+          "han_chars": {
+            "mean": 534.5,
+            "min": 521,
+            "max": 557,
+            "sum": 3207
+          },
+          "elapsed_seconds": {
+            "mean": 29.996666666666666,
+            "min": 27.961,
+            "max": 32.851,
+            "sum": 179.97999999999996
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 6,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 6
+          },
+          "chars": {
+            "mean": 1336.1666666666667,
+            "min": 1262,
+            "max": 1389,
+            "sum": 8017
+          },
+          "han_chars": {
+            "mean": 532.1666666666666,
+            "min": 510,
+            "max": 565,
+            "sum": 3193
+          },
+          "elapsed_seconds": {
+            "mean": 30.0475,
+            "min": 26.496,
+            "max": 31.907,
+            "sum": 180.28500000000003
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "C_minus_A": {
+        "correctness": 0.16666666666666696,
+        "prior_knowledge_alignment": 0,
+        "conceptual_sequencing": 0,
+        "motivation": 0,
+        "explanatory_coherence": 0.16666666666666696,
+        "cognitive_load": 0,
+        "transfer_support": 0,
+        "overall_comprehensibility": 0.16666666666666696
+      }
+    },
+    "machine-learning": {
+      "groups": {
+        "A": {
+          "n": 6,
+          "score_means": {
+            "correctness": 4.833333333333333,
+            "prior_knowledge_alignment": 4.833333333333333,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 4.833333333333333,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 6
+          },
+          "chars": {
+            "mean": 1204.5,
+            "min": 1106,
+            "max": 1304,
+            "sum": 7227
+          },
+          "han_chars": {
+            "mean": 592.3333333333334,
+            "min": 565,
+            "max": 643,
+            "sum": 3554
+          },
+          "elapsed_seconds": {
+            "mean": 30.372166666666665,
+            "min": 28.013,
+            "max": 33.886,
+            "sum": 182.233
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 6,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 4.833333333333333,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 6
+          },
+          "chars": {
+            "mean": 1197.6666666666667,
+            "min": 1134,
+            "max": 1280,
+            "sum": 7186
+          },
+          "han_chars": {
+            "mean": 616,
+            "min": 579,
+            "max": 651,
+            "sum": 3696
+          },
+          "elapsed_seconds": {
+            "mean": 31.845,
+            "min": 29.942,
+            "max": 35.327,
+            "sum": 191.07000000000002
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "C_minus_A": {
+        "correctness": 0.16666666666666696,
+        "prior_knowledge_alignment": 0.0,
+        "conceptual_sequencing": 0,
+        "motivation": 0,
+        "explanatory_coherence": 0,
+        "cognitive_load": 0.16666666666666696,
+        "transfer_support": 0,
+        "overall_comprehensibility": 0
+      }
+    }
+  },
+  "cross_by_task": {
+    "control-crossover": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1288,
+            "min": 1230,
+            "max": 1340,
+            "sum": 3864
+          },
+          "han_chars": {
+            "mean": 543,
+            "min": 534,
+            "max": 557,
+            "sum": 1629
+          },
+          "elapsed_seconds": {
+            "mean": 30.826,
+            "min": 28.894,
+            "max": 32.851,
+            "sum": 92.478
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1296.3333333333333,
+            "min": 1262,
+            "max": 1322,
+            "sum": 3889
+          },
+          "han_chars": {
+            "mean": 528.6666666666666,
+            "min": 510,
+            "max": 539,
+            "sum": 1586
+          },
+          "elapsed_seconds": {
+            "mean": 28.982333333333333,
+            "min": 26.496,
+            "max": 30.97,
+            "sum": 86.947
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "C_minus_A": {
+        "correctness": 0,
+        "prior_knowledge_alignment": 0,
+        "conceptual_sequencing": 0,
+        "motivation": 0,
+        "explanatory_coherence": 0,
+        "cognitive_load": 0,
+        "transfer_support": 0,
+        "overall_comprehensibility": 0
+      }
+    },
+    "control-state-transfer": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 4.666666666666667,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 4.666666666666667,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 4.666666666666667
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1327.6666666666667,
+            "min": 1285,
+            "max": 1357,
+            "sum": 3983
+          },
+          "han_chars": {
+            "mean": 526,
+            "min": 521,
+            "max": 530,
+            "sum": 1578
+          },
+          "elapsed_seconds": {
+            "mean": 29.167333333333332,
+            "min": 27.961,
+            "max": 31.081,
+            "sum": 87.502
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1376,
+            "min": 1364,
+            "max": 1389,
+            "sum": 4128
+          },
+          "han_chars": {
+            "mean": 535.6666666666666,
+            "min": 513,
+            "max": 565,
+            "sum": 1607
+          },
+          "elapsed_seconds": {
+            "mean": 31.112666666666666,
+            "min": 29.895,
+            "max": 31.907,
+            "sum": 93.338
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "C_minus_A": {
+        "correctness": 0.33333333333333304,
+        "prior_knowledge_alignment": 0,
+        "conceptual_sequencing": 0,
+        "motivation": 0,
+        "explanatory_coherence": 0.33333333333333304,
+        "cognitive_load": 0,
+        "transfer_support": 0,
+        "overall_comprehensibility": 0.33333333333333304
+      }
+    },
+    "ml-kv-cache": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 4.666666666666667,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 4.666666666666667,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1166,
+            "min": 1106,
+            "max": 1227,
+            "sum": 3498
+          },
+          "han_chars": {
+            "mean": 608.3333333333334,
+            "min": 576,
+            "max": 643,
+            "sum": 1825
+          },
+          "elapsed_seconds": {
+            "mean": 28.880666666666666,
+            "min": 28.013,
+            "max": 29.426,
+            "sum": 86.642
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 4.666666666666667,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1205.3333333333333,
+            "min": 1188,
+            "max": 1234,
+            "sum": 3616
+          },
+          "han_chars": {
+            "mean": 625,
+            "min": 592,
+            "max": 651,
+            "sum": 1875
+          },
+          "elapsed_seconds": {
+            "mean": 31.49266666666667,
+            "min": 30.303,
+            "max": 33.073,
+            "sum": 94.47800000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "C_minus_A": {
+        "correctness": 0,
+        "prior_knowledge_alignment": 0.0,
+        "conceptual_sequencing": 0,
+        "motivation": 0,
+        "explanatory_coherence": 0,
+        "cognitive_load": 0.33333333333333304,
+        "transfer_support": 0,
+        "overall_comprehensibility": 0
+      }
+    },
+    "ml-residual-gradient": {
+      "groups": {
+        "A": {
+          "n": 3,
+          "score_means": {
+            "correctness": 4.666666666666667,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1243,
+            "min": 1164,
+            "max": 1304,
+            "sum": 3729
+          },
+          "han_chars": {
+            "mean": 576.3333333333334,
+            "min": 565,
+            "max": 597,
+            "sum": 1729
+          },
+          "elapsed_seconds": {
+            "mean": 31.863666666666667,
+            "min": 30.455,
+            "max": 33.886,
+            "sum": 95.59100000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 1
+          },
+          "texts_with_major_flags": 0
+        },
+        "C": {
+          "n": 3,
+          "score_means": {
+            "correctness": 5,
+            "prior_knowledge_alignment": 5,
+            "conceptual_sequencing": 5,
+            "motivation": 5,
+            "explanatory_coherence": 5,
+            "cognitive_load": 5,
+            "transfer_support": 5,
+            "overall_comprehensibility": 5
+          },
+          "redundancy": {
+            "mean": 1,
+            "min": 1,
+            "max": 1,
+            "sum": 3
+          },
+          "chars": {
+            "mean": 1190,
+            "min": 1134,
+            "max": 1280,
+            "sum": 3570
+          },
+          "han_chars": {
+            "mean": 607,
+            "min": 579,
+            "max": 625,
+            "sum": 1821
+          },
+          "elapsed_seconds": {
+            "mean": 32.19733333333333,
+            "min": 29.942,
+            "max": 35.327,
+            "sum": 96.59200000000001
+          },
+          "judge_flagged_errors": {
+            "major": 0,
+            "minor": 0
+          },
+          "texts_with_major_flags": 0
+        }
+      },
+      "C_minus_A": {
+        "correctness": 0.33333333333333304,
+        "prior_knowledge_alignment": 0,
+        "conceptual_sequencing": 0,
+        "motivation": 0,
+        "explanatory_coherence": 0,
+        "cognitive_load": 0,
+        "transfer_support": 0,
+        "overall_comprehensibility": 0
+      }
+    }
+  },
+  "pair_counts": {
+    "mathematics:A_vs_B": {
+      "n": 9,
+      "first_wins": 0,
+      "ties": 9,
+      "second_wins": 0
+    },
+    "mathematics:A_vs_C": {
+      "n": 9,
+      "first_wins": 0,
+      "ties": 9,
+      "second_wins": 0
+    },
+    "mathematics:B_vs_D": {
+      "n": 9,
+      "first_wins": 0,
+      "ties": 8,
+      "second_wins": 1
+    },
+    "mathematics:C_vs_D": {
+      "n": 9,
+      "first_wins": 0,
+      "ties": 9,
+      "second_wins": 0
+    },
+    "control-theory:A_vs_C": {
+      "n": 6,
+      "first_wins": 0,
+      "ties": 5,
+      "second_wins": 1
+    },
+    "machine-learning:A_vs_C": {
+      "n": 6,
+      "first_wins": 0,
+      "ties": 6,
+      "second_wins": 0
+    }
+  },
+  "pairs": [
+    {
+      "packet": "P7003d8027c26",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "repeat": 2,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pb9d19c76c137",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "repeat": 3,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P696b9fca5948",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "repeat": 2,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P7ebcf42dd587",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "B",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "P7ebcf42dd587",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P7ebcf42dd587",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "A",
+      "second": "B",
+      "winner": "tie"
+    },
+    {
+      "packet": "P7ebcf42dd587",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "C",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pde7e335addee",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pde7e335addee",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "B",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pde7e335addee",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "A",
+      "second": "B",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pde7e335addee",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "C",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pd2332eef3275",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "A",
+      "second": "B",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pd2332eef3275",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "B",
+      "second": "D",
+      "winner": "D"
+    },
+    {
+      "packet": "Pd2332eef3275",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "C",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pd2332eef3275",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pf9eedfc09a69",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pf9eedfc09a69",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "C",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pf9eedfc09a69",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "A",
+      "second": "B",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pf9eedfc09a69",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "B",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pf0e8a5a34794",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pf0e8a5a34794",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "B",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pf0e8a5a34794",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "C",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pf0e8a5a34794",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 2,
+      "first": "A",
+      "second": "B",
+      "winner": "tie"
+    },
+    {
+      "packet": "P0e9434d33d57",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "B",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "P0e9434d33d57",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P0e9434d33d57",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "A",
+      "second": "B",
+      "winner": "tie"
+    },
+    {
+      "packet": "P0e9434d33d57",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 3,
+      "first": "C",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pb028d2f2d436",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "repeat": 3,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pd055d4bf9d38",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "repeat": 1,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P9e472b536526",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P9e472b536526",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "B",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "P9e472b536526",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "C",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "P9e472b536526",
+      "task": "math-method",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "A",
+      "second": "B",
+      "winner": "tie"
+    },
+    {
+      "packet": "P90fe9471e424",
+      "task": "ml-kv-cache",
+      "domain": "machine-learning",
+      "repeat": 2,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P0e2cda331d4e",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "repeat": 3,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P72dd69aaa766",
+      "task": "ml-residual-gradient",
+      "domain": "machine-learning",
+      "repeat": 1,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P9dee20d5ef6f",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "repeat": 2,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P741985557667",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P741985557667",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "A",
+      "second": "B",
+      "winner": "tie"
+    },
+    {
+      "packet": "P741985557667",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "B",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "P741985557667",
+      "task": "math-concept",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "C",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "P00dbd37432b3",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "repeat": 3,
+      "first": "A",
+      "second": "C",
+      "winner": "C"
+    },
+    {
+      "packet": "Pc587fc356541",
+      "task": "control-crossover",
+      "domain": "control-theory",
+      "repeat": 1,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "P37f26dfe7613",
+      "task": "control-state-transfer",
+      "domain": "control-theory",
+      "repeat": 1,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pb8af36a6613d",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "C",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pb8af36a6613d",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "B",
+      "second": "D",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pb8af36a6613d",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "A",
+      "second": "C",
+      "winner": "tie"
+    },
+    {
+      "packet": "Pb8af36a6613d",
+      "task": "math-derivation",
+      "domain": "mathematics",
+      "repeat": 1,
+      "first": "A",
+      "second": "B",
+      "winner": "tie"
+    }
+  ],
+  "usage": {
+    "generation_successful_calls": {
+      "calls": 60,
+      "calls_with_nonempty_usage": 60,
+      "reported_field_sums": {
+        "cache_write_input_tokens": 0.0,
+        "cached_input_tokens": 373376.0,
+        "input_tokens": 689380.0,
+        "output_tokens": 55610.0,
+        "reasoning_output_tokens": 4251.0
+      },
+      "interpretation": "Reported fields retain their names; nested/cached fields may overlap. No billing estimate."
+    },
+    "judgment_successful_calls": {
+      "calls": 21,
+      "calls_with_nonempty_usage": 21,
+      "reported_field_sums": {
+        "cache_write_input_tokens": 0.0,
+        "cached_input_tokens": 124544.0,
+        "input_tokens": 300674.0,
+        "output_tokens": 43069.0,
+        "reasoning_output_tokens": 2593.0
+      },
+      "interpretation": "Reported fields retain their names; nested/cached fields may overlap. No billing estimate."
+    }
+  },
+  "judge_elapsed_seconds_sum": 1075.492,
+  "examples": {
+    "fixed_before_scoring": [
+      {
+        "task": "math-concept",
+        "repeat": 1,
+        "A": "math-concept-A-r1",
+        "C": "math-concept-C-r1",
+        "overall_C_minus_A": 0
+      },
+      {
+        "task": "control-crossover",
+        "repeat": 1,
+        "A": "control-crossover-A-r1",
+        "C": "control-crossover-C-r1",
+        "overall_C_minus_A": 0
+      },
+      {
+        "task": "ml-kv-cache",
+        "repeat": 1,
+        "A": "ml-kv-cache-A-r1",
+        "C": "ml-kv-cache-C-r1",
+        "overall_C_minus_A": 0
+      }
+    ],
+    "weakest_overall_AC": {
+      "task": "control-crossover",
+      "repeat": 1,
+      "A": "control-crossover-A-r1",
+      "C": "control-crossover-C-r1",
+      "overall_C_minus_A": 0
+    },
+    "selection_rule": "minimum C-A overall score, then task ID, then repeat; no output excerpts generated"
+  },
+  "all_AC_differences": [
+    {
+      "task": "control-crossover",
+      "repeat": 1,
+      "A": "control-crossover-A-r1",
+      "C": "control-crossover-C-r1",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "control-crossover",
+      "repeat": 2,
+      "A": "control-crossover-A-r2",
+      "C": "control-crossover-C-r2",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "control-crossover",
+      "repeat": 3,
+      "A": "control-crossover-A-r3",
+      "C": "control-crossover-C-r3",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "control-state-transfer",
+      "repeat": 1,
+      "A": "control-state-transfer-A-r1",
+      "C": "control-state-transfer-C-r1",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "control-state-transfer",
+      "repeat": 2,
+      "A": "control-state-transfer-A-r2",
+      "C": "control-state-transfer-C-r2",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "control-state-transfer",
+      "repeat": 3,
+      "A": "control-state-transfer-A-r3",
+      "C": "control-state-transfer-C-r3",
+      "overall_C_minus_A": 1
+    },
+    {
+      "task": "math-concept",
+      "repeat": 1,
+      "A": "math-concept-A-r1",
+      "C": "math-concept-C-r1",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "math-concept",
+      "repeat": 2,
+      "A": "math-concept-A-r2",
+      "C": "math-concept-C-r2",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "math-concept",
+      "repeat": 3,
+      "A": "math-concept-A-r3",
+      "C": "math-concept-C-r3",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "math-derivation",
+      "repeat": 1,
+      "A": "math-derivation-A-r1",
+      "C": "math-derivation-C-r1",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "math-derivation",
+      "repeat": 2,
+      "A": "math-derivation-A-r2",
+      "C": "math-derivation-C-r2",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "math-derivation",
+      "repeat": 3,
+      "A": "math-derivation-A-r3",
+      "C": "math-derivation-C-r3",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "math-method",
+      "repeat": 1,
+      "A": "math-method-A-r1",
+      "C": "math-method-C-r1",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "math-method",
+      "repeat": 2,
+      "A": "math-method-A-r2",
+      "C": "math-method-C-r2",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "math-method",
+      "repeat": 3,
+      "A": "math-method-A-r3",
+      "C": "math-method-C-r3",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "ml-kv-cache",
+      "repeat": 1,
+      "A": "ml-kv-cache-A-r1",
+      "C": "ml-kv-cache-C-r1",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "ml-kv-cache",
+      "repeat": 2,
+      "A": "ml-kv-cache-A-r2",
+      "C": "ml-kv-cache-C-r2",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "ml-kv-cache",
+      "repeat": 3,
+      "A": "ml-kv-cache-A-r3",
+      "C": "ml-kv-cache-C-r3",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "ml-residual-gradient",
+      "repeat": 1,
+      "A": "ml-residual-gradient-A-r1",
+      "C": "ml-residual-gradient-C-r1",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "ml-residual-gradient",
+      "repeat": 2,
+      "A": "ml-residual-gradient-A-r2",
+      "C": "ml-residual-gradient-C-r2",
+      "overall_C_minus_A": 0
+    },
+    {
+      "task": "ml-residual-gradient",
+      "repeat": 3,
+      "A": "ml-residual-gradient-A-r3",
+      "C": "ml-residual-gradient-C-r3",
+      "overall_C_minus_A": 0
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "math-derivation-D-r3",
+  "task": "math-derivation",
+  "domain": "mathematics",
+  "group": "D",
+  "repeat": 3,
+  "prompt_sha256": "88be41e785999e28f6162f67480dc986d265dec176eef91c688938fcff4eacbc",
+  "key": "math-derivation-D-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:56:08.119629+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 5165,
+  "status": "completed",
+  "text": "设 \\(V\\) 是 \\(n\\) 维实向量空间，\\(E=(e_1,\\ldots,e_n)\\)、\\(F=(f_1,\\ldots,f_n)\\) 是两组有序基。线性变换 \\(T:V\\to V\\) 在这两组基下的矩阵分别为 \\(A、B\\)。推导相似公式，关键是明确：同一个向量的两套坐标怎样转换，以及矩阵作用时使用哪套坐标。\n\n约定\n\\[\nF=EP.\n\\]\n这里 \\(E、F\\) 是基向量组成的有序组，等式表示\n\\[\nf_j=\\sum_{i=1}^n e_i p_{ij}.\n\\]\n因此，\\(P\\) 的第 \\(j\\) 列就是 \\([f_j]_E\\)。由于 \\(E、F\\) 都是基，\\(P\\) 可逆。\n\n对任意 \\(v\\in V\\)，有\n\\[\nv=E[v]_E=F[v]_F=EP[v]_F.\n\\]\n根据向量在基 \\(E\\) 下坐标的唯一性，\n\\[\n[v]_E=P[v]_F,\\qquad [v]_F=P^{-1}[v]_E.\n\\]\n所以，在当前约定下，\\(P\\) 把 **\\(F\\) 坐标转换为 \\(E\\) 坐标**，\\(P^{-1}\\) 则反向转换。判断方向应依据这两个等式，不能只凭“从 \\(E\\) 到 \\(F\\) 的过渡矩阵”这样的名称。\n\n接着，从输入的 \\(F\\) 坐标出发：先乘 \\(P\\) 得到 \\(E\\) 坐标，再乘 \\(A\\) 得到像向量的 \\(E\\) 坐标，最后乘 \\(P^{-1}\\) 转回 \\(F\\) 坐标。写成等式就是\n\\[\n[T(v)]_F\n=P^{-1}[T(v)]_E\n=P^{-1}A[v]_E\n=P^{-1}AP[v]_F.\n\\]\n而 \\(B\\) 的定义给出\n\\[\n[T(v)]_F=B[v]_F.\n\\]\n任意列向量都可以作为某个 \\(v\\) 的 \\(F\\) 坐标，因此两个矩阵对所有列向量的作用相同，从而\n\\[\n\\boxed{B=P^{-1}AP}.\n\\]\n乘积从右往左作用，左右次序正由坐标转换的方向决定。同阶方阵满足这一关系且 \\(P\\) 可逆，就称它们相似；这里的 \\(A、B\\) 表示同一个线性变换。\n\n用给定二维数据检验。此时 \\(E\\) 为标准基，且\n\\[\nf_1=\\binom11,\\quad f_2=\\binom01,\\quad\nP=\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\\quad\nP^{-1}=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}.\n\\]\n于是\n\\[\nB=\n\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}\n\\begin{pmatrix}2&0\\\\0&3\\end{pmatrix}\n\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix}\n=\n\\begin{pmatrix}2&0\\\\1&3\\end{pmatrix}.\n\\]\n\n还可以直接核对它的两列。因为 \\(E\\) 是标准基，\\(T\\) 在通常坐标下把 \\((x,y)^{\\mathsf T}\\) 变为 \\((2x,3y)^{\\mathsf T}\\)，所以\n\\[\nT(f_1)=\\binom23=2f_1+f_2,\\qquad\nT(f_2)=\\binom03=3f_2.\n\\]\n因此 \\([T(f_1)]_F=(2,1)^{\\mathsf T}\\)、\\([T(f_2)]_F=(0,3)^{\\mathsf T}\\)，恰好是所得 \\(B\\) 的第一、第二列，验证了公式及坐标方向。",
+  "usage": {
+    "input_tokens": 11959,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1035,
+    "reasoning_output_tokens": 83
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1448,
+  "han_chars": 368,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:56:40.283477+00:00",
+  "elapsed_seconds": 32.164
+}

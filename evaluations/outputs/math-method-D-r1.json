@@ -1,0 +1,31 @@
+{
+  "id": "math-method-D-r1",
+  "task": "math-method",
+  "domain": "mathematics",
+  "group": "D",
+  "repeat": 1,
+  "prompt_sha256": "103415c71e6323537a6f8f9adb701d6606771e3ef5dfcebb9ca8f9f846a9447c",
+  "key": "math-method-D-r1",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:49:56.499555+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 5197,
+  "status": "completed",
+  "text": "判断一阶等价替换是否够用，关键是看：替换误差除以分母后是否趋于零，尤其要留意加减中的抵消。以下均取 \\(0<|x|\\) 足够小，使所用分母非零。\n\n等价关系 \\(\\alpha(x)\\sim\\beta(x)\\) 的含义是\n\\[\n\\frac{\\alpha(x)}{\\beta(x)}\\to1.\n\\]\n因此，\\(\\sin x\\sim x\\) 直接给出\n\\[\nL_1=\\lim_{x\\to0}\\frac{\\sin x}{x}=1.\n\\]\n也可以从误差看：\\(\\sin x=x+o(x)\\)，其中 \\(o(x)\\) 表示除以 \\(x\\) 后趋于零的余项。于是\n\\[\n\\frac{\\sin x}{x}=1+\\frac{o(x)}x\\to1.\n\\]\n这里分母就是 \\(x\\)，一阶近似的误差已足够小，无需展开更多项。\n\n对第二个极限，若把 \\(\\tan x\\) 和 \\(\\sin x\\) 分别换成 \\(x\\)，分子就成了 \\(x-x=0\\)。这不能推出极限为零，因为被舍去的误差可能正是决定结果的部分。一阶等价只告诉我们\n\\[\n\\tan x=x+o(x),\\qquad \\sin x=x+o(x),\n\\]\n所以两者之差是 \\(o(x)\\)。但 \\(o(x)\\) 除以 \\(x^3\\) 未必趋于零：例如 \\(x^3=o(x)\\)，而 \\(x^3/x^3=1\\)。因此，一阶信息不足以确定 \\(L_2\\)。\n\n选择泰勒展开时，要让相减后保留的项能够确定分子与 \\(x^3\\) 的比例，同时让余项除以 \\(x^3\\) 后趋于零。利用\n\\[\n\\sin x=x-\\frac{x^3}{6}+o(x^3),\\qquad\n\\tan x=x+\\frac{x^3}{3}+o(x^3),\n\\]\n相减得\n\\[\n\\tan x-\\sin x\n=\\left(\\frac13+\\frac16\\right)x^3+o(x^3)\n=\\frac12x^3+o(x^3).\n\\]\n两个 \\(o(x^3)\\) 之差仍是 \\(o(x^3)\\)，因而\n\\[\nL_2=\\lim_{x\\to0}\\left(\\frac12+\\frac{o(x^3)}{x^3}\\right)=\\frac12.\n\\]\n这里保留到三次项已经足够，因为三次项系数非零，且余项满足所需条件。\n\n本题还可先用恒等式消除作差结构：\n\\[\n\\tan x-\\sin x\n=\\frac{\\sin x(1-\\cos x)}{\\cos x},\n\\]\n于是\n\\[\n\\frac{\\tan x-\\sin x}{x^3}\n=\\frac{\\sin x}{x}\\cdot\\frac{1-\\cos x}{x^2}\\cdot\\frac1{\\cos x}\n\\longrightarrow1\\cdot\\frac12\\cdot1=\\frac12.\n\\]\n这里分别用了 \\(\\sin x\\sim x\\)、\\(1-\\cos x\\sim x^2/2\\) 和 \\(\\cos x\\to1\\)；最后一个关系也保证附近的 \\(\\cos x\\) 非零。\n\n方法的边界是：等价替换适用于整体乘除因子，不能仅凭各项等价就逐项替换后作差。加减中若主项抵消，应继续寻找首个非零项，并核实余项相对于分母足够小；若能先恒等变形为乘除结构，也可直接使用等价关系。本题的三次展开足够，但不能据此认为所有相减的极限都只需保留到三次项。",
+  "usage": {
+    "input_tokens": 11955,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 935,
+    "reasoning_output_tokens": 51
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1389,
+  "han_chars": 437,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:50:26.079315+00:00",
+  "elapsed_seconds": 29.58
+}

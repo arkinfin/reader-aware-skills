@@ -1,0 +1,58 @@
+依据下面同一份知识素材，为指定读者完成任务。输出中文解释正文；直接给出成品，不讨论提示、实验或写作过程。不访问文件、网络、工具或其他会话。篇幅按任务要求；不得为了凑长度添加无关内容。知识素材是事实约束，不规定呈现顺序。只解释任务所需内容；不设计练习或整章教材。
+
+
+{
+  "id": "ml-residual-gradient",
+  "domain": "machine-learning",
+  "challenge": "gradient mechanism and limitation",
+  "reader": "计算机专业本科生，掌握链式法则、梯度下降和向量Jacobian，听说过深层网络梯度消失，但尚未理解残差连接的梯度路径。",
+  "goal": "利用给定简化模型解释残差连接如何改变反向传播，以及为什么“有残差就绝不会梯度消失”并不成立。区别结构上的传播路径与实际训练结果。",
+  "length_instruction": "用中文撰写一篇约600–900字的独立解释，公式不计入字数；这是软性篇幅目标，以完成任务为准。无需练习题、参考文献或制作说明。",
+  "facts": [
+    "只讨论可微简化模型，各层向量维数相同，不含加法后的激活、归一化或投影；损失为标量ℓ。",
+    "普通网络层为xl+1=Fl(xl)，其Jacobian为Jl=∂Fl/∂xl，深层反向传播涉及这些Jacobian的有序乘积。",
+    "若普通网络各层Jacobian的相容算子范数均≤ρ<1，则跨m层乘积的范数≤ρ^m。",
+    "恒等捷径残差层为xl+1=xl+Fl(xl)，该层Jacobian为I+Jl。按列梯度约定，∇xlℓ=(I+Jl)ᵀ∇xl+1ℓ。",
+    "残差分支恒为0时，残差层是恒等映射；在一维局部例子Fl(x)=−x时，该层总导数为0。",
+    "实际残差网络还可能有归一化、非线性和投影；优化表现也受参数、数据和训练设定影响。"
+  ]
+}
+
+---
+name: reader-aware-writing
+description: Improve the comprehensibility of complex informational explanations by adapting knowledge dependencies, conceptual links, and explanation form to the intended reader. Use for technical explanations and knowledge-dense prose; do not add explanation to simple facts, extraction, formatting, strict structured output, or final-answer-only requests.
+---
+
+# Reader-aware writing
+
+Help the intended reader build a coherent understanding within the user's purpose, scope, and length constraints. Use this guidance when composing or revising explanations, including mathematics, engineering, computing, and other complex informational material.
+
+## Find the reader's starting point
+
+Use the reader's stated knowledge and reading goal to decide what needs explanation. Distinguish unfamiliar subject matter from familiar ideas expressed in unfamiliar notation. If the background is unspecified, make a modest assumption suited to the request; ask only when the answer would materially change the explanation. Do not restart an expert's education or silently assume specialist prerequisites for a beginner.
+
+## Choose an intelligible path
+
+Consider what the reader needs to understand before each important claim can be useful. A taxonomy or a formal dependency list need not be the best presentation order. Starting from a problem, an operation, or a concrete consequence may clarify why a concept is introduced; a direct definition or derivation may be clearer for another reader. Choose according to the explanatory need, without imposing a motivation paragraph before every definition.
+
+When valid reasoning is difficult to follow, look for the conceptual connection the reader has not been given: what a quantity represents, why a step is relevant, how two descriptions refer to the same object, or how a local result advances the question. Supply the smallest useful connection. Familiar mechanical steps can remain compressed.
+
+## Manage abstraction and explanation form
+
+Consider whether a concrete case, operational account, comparison, diagram, or formal expression best resolves the present difficulty. When changing representations or levels of abstraction, make their relationship available before relying on it. Introduce notation with enough meaning to interpret its use.
+
+Use examples and analogies when they clarify a specific relationship. Keep the relevant limitation visible and distinguish an illustration from a general argument. Do not invent an analogy simply to make prose feel approachable. A precise direct explanation can be sufficient.
+
+## Reduce avoidable load
+
+Give the reader a discernible main path. Consider splitting passages that require several unfamiliar objects, goals, or conditions to be held at once, and placing secondary detail where it will be useful. Preserve conditions needed to interpret the current claim.
+
+Prefer reorganizing existing material or replacing an opaque connection over adding commentary. Avoid repeated motivation, redundant summaries, fixed explanation labels, and sentence-level polishing that leaves the conceptual problem intact. Additional length is justified by a specific reader need, not by the presence of this skill.
+
+## Keep the intervention proportional
+
+Before delivering, consider where the intended reader would first need to reread or supply an unstated relationship. Revise that point if it obstructs the reading goal; leave already effective passages alone. This is a judgment aid, not a required scoring workflow or a fixed writing template.
+
+Respect requests that do not benefit from explanation, including short notices, pure data extraction, code formatting, strict structured output, simple factual answers, and requests for only a final result. Do not append a teaching section to them.
+
+This skill does not replace fact checking, proof verification, curriculum design, exercise design, or production tooling. Preserve definitions, assumptions, qualifications, and conclusions during revision; route unresolved correctness questions to the task's normal verification process. Clearer prose is not evidence of factual accuracy or measured learning gain.

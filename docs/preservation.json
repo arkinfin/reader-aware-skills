@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "skill": "skills/pedagogical-readability/SKILL.md",
+  "metadata": "skills/pedagogical-readability/agents/openai.yaml",
+  "source_skill_sha256": "2d066e9c57d5b5270901ff8807dc89aea8159ead95e7f42d1ca2ac4d0fcdfe7f",
+  "metadata_sha256": "8a2a46743c931836fe9f4f673f56efdd87b60dff40f90fc2f1629eed2049cef8",
+  "notice_exact": "\n本发布副本保留原共享工作流依赖。使用前将 `SHARED_WORKFLOW_ROOT` 指向已安装的外部\nshared workflow 根目录；本文中的 `${SHARED_WORKFLOW_ROOT}` 是路径约定，不是 Agent\n自动展开的配置项。本包不附带该运行时，也没有公共下载地址；仅安装 Skill 不会安装或\n执行审查门禁。首次使用或外部安装变更时，先读随包的\n[工作流接入说明](references/workflow-integration.md)并完成依赖检查，再执行教学任务。\n",
+  "notice_original_replacement": "",
+  "replacements": [
+    {
+      "original": "/home/samsa/projects/bin/workflow",
+      "packaged": "${SHARED_WORKFLOW_ROOT}/../bin/workflow"
+    },
+    {
+      "original": "先读共享 workspace 的 AGENTS.md、workflow/README.md 与项目 AGENTS.md。",
+      "packaged": "先读外部 `${SHARED_WORKFLOW_ROOT}/../AGENTS.md`、`${SHARED_WORKFLOW_ROOT}/README.md` 与项目 AGENTS.md。"
+    },
+    {
+      "original": "`workflow/config/models.example.yaml`",
+      "packaged": "`${SHARED_WORKFLOW_ROOT}/config/models.example.yaml`"
+    },
+    {
+      "original": "`../../src/lanes/pedagogical.py`",
+      "packaged": "`${SHARED_WORKFLOW_ROOT}/src/lanes/pedagogical.py`"
+    },
+    {
+      "original": "`../../docs/PEDAGOGICAL_READABILITY.md`",
+      "packaged": "`${SHARED_WORKFLOW_ROOT}/docs/PEDAGOGICAL_READABILITY.md`"
+    },
+    {
+      "original": "`../../tests/test_readability_architecture.py`",
+      "packaged": "`${SHARED_WORKFLOW_ROOT}/tests/test_readability_architecture.py`"
+    },
+    {
+      "original": "`../../tests/test_hidden_inference.py`",
+      "packaged": "`${SHARED_WORKFLOW_ROOT}/tests/test_hidden_inference.py`"
+    }
+  ],
+  "sources": [
+    {
+      "path": "workflow/skills/pedagogical-readability/SKILL.md",
+      "sha256": "2d066e9c57d5b5270901ff8807dc89aea8159ead95e7f42d1ca2ac4d0fcdfe7f"
+    },
+    {
+      "path": "workflow/skills/pedagogical-readability/agents/openai.yaml",
+      "sha256": "8a2a46743c931836fe9f4f673f56efdd87b60dff40f90fc2f1629eed2049cef8"
+    },
+    {
+      "path": "workflow/src/lanes/pedagogical.py",
+      "sha256": "cdf6e275fe4063af877529e10ac86cc5228ed478563e74bb5048dbf30ea7ed99"
+    },
+    {
+      "path": "workflow/docs/PEDAGOGICAL_READABILITY.md",
+      "sha256": "8fe5f81bffaa288e19605baeb9219145f5ad10bc29e3adf34169ddced7fda9ce"
+    },
+    {
+      "path": "workflow/config/models.example.yaml",
+      "sha256": "b572f16dea8776002dac41136ff85455dc80067a3dce6c897e9161e7c9894ab8"
+    },
+    {
+      "path": "workflow/tests/test_readability_architecture.py",
+      "sha256": "deecded165412062090084eb4f78bd09d9d274b65e3ff38fc0672598936080fd"
+    },
+    {
+      "path": "workflow/tests/test_hidden_inference.py",
+      "sha256": "fa5e113b052e1353479a12c4bfe9539241ac705b60db8a9a4a7509d1a8305379"
+    }
+  ],
+  "external_paths": [
+    "AGENTS.md",
+    "bin/workflow",
+    "workflow/README.md",
+    "workflow/src/lanes/pedagogical.py",
+    "workflow/docs/PEDAGOGICAL_READABILITY.md",
+    "workflow/config/models.example.yaml",
+    "workflow/tests/test_readability_architecture.py",
+    "workflow/tests/test_hidden_inference.py"
+  ],
+  "limits": [
+    "This record proves byte preservation against recorded hashes, not runtime behavior.",
+    "The shared workflow is external, is not distributed here, and has no public download URL.",
+    "Original skill text copyright was confirmed by its owner on 2026-10-16; runtime code is not relicensed."
+  ]
+}

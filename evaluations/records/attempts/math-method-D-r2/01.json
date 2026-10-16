@@ -1,0 +1,26 @@
+{
+  "key": "math-method-D-r2",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:53:29.900265+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "103415c71e6323537a6f8f9adb701d6606771e3ef5dfcebb9ca8f9f846a9447c",
+  "prompt_chars": 5197,
+  "status": "completed",
+  "text": "这两个极限的关键区别，在于分子的一次项是否抵消。判断一阶等价替换是否够用，要看替换后舍去的误差，除以原分母后是否趋于零。\n\n等价关系 \\(\\alpha(x)\\sim\\beta(x)\\) 表示\n\\[\n\\frac{\\alpha(x)}{\\beta(x)}\\to1,\n\\]\n其中分母在零点的某个去心邻域内非零。它说明两者的相对误差趋于零，却不保证误差小到足以应付后续的减法。\n\n对第一个极限，已知 \\(\\sin x\\sim x\\)，按定义便有\n\\[\nL_1=\\lim_{x\\to0}\\frac{\\sin x}{x}=1.\n\\]\n也可以写成 \\(\\sin x=x+o(x)\\)：误差除以分母 \\(x\\) 后趋于零，因此保留一次项就足够。\n\n对第二个极限，若分别用 \\(x\\) 替换 \\(\\tan x\\) 和 \\(\\sin x\\)，就会把分子变成零。但这只能说明两者的一次项抵消，不能说明原来的差相对于 \\(x^3\\) 也可忽略。事实上，一阶等价仅给出\n\\[\n\\tan x=x+o(x),\\qquad \\sin x=x+o(x),\n\\]\n所以差为 \\(o(x)\\)。而 \\(o(x)\\) 除以 \\(x^3\\) 未必趋于零；例如 \\(x^3=o(x)\\)，但 \\(x^3/x^3=1\\)。因此，一阶信息不足以确定 \\(L_2\\)。\n\n这里需要追踪抵消后留下的三次项。利用泰勒展开，\n\\[\n\\begin{aligned}\n\\tan x-\\sin x\n&=\\left(x+\\frac{x^3}{3}+o(x^3)\\right)\n-\\left(x-\\frac{x^3}{6}+o(x^3)\\right)\\\\\n&=\\frac{x^3}{2}+o(x^3).\n\\end{aligned}\n\\]\n两个 \\(o(x^3)\\) 的差仍是 \\(o(x^3)\\)，于是\n\\[\nL_2=\\lim_{x\\to0}\\left(\\frac12+\\frac{o(x^3)}{x^3}\\right)=\\frac12.\n\\]\n展开到三次项已足够，因为剩余误差除以分母后趋于零，无需再算更高次项。\n\n本题还有一种更省计算的方法：先用恒等式将差化为乘积，\n\\[\n\\tan x-\\sin x=\\frac{\\sin x(1-\\cos x)}{\\cos x},\n\\]\n从而\n\\[\n\\frac{\\tan x-\\sin x}{x^3}\n=\\frac{\\sin x}{x}\\cdot\\frac{1-\\cos x}{x^2}\\cdot\\frac1{\\cos x}\n\\longrightarrow1\\cdot\\frac12\\cdot1=\\frac12.\n\\]\n这里用了 \\(1-\\cos x\\sim x^2/2\\)。取 \\(0<|x|\\) 足够小，\\(x\\ne0\\)，且由 \\(\\cos x\\to1\\) 可知 \\(\\cos x\\ne0\\)，各步除法均合法。\n\n因此，遇到加减式应先检查首项是否抵消：若抵消，就继续寻找首个非零项，并控制余项。等价替换可用于整体乘除因子；在和差中分别替换则需另查误差。加减并非一律不能替换，真正的条件是替换造成的总误差相对于分母足够小。",
+  "usage": {
+    "input_tokens": 11953,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 882,
+    "reasoning_output_tokens": 53
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1300,
+  "han_chars": 431,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:53:59.296271+00:00",
+  "elapsed_seconds": 29.396
+}

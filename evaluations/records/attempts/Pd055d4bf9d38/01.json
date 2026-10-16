@@ -1,0 +1,26 @@
+{
+  "key": "Pd055d4bf9d38",
+  "attempt": 1,
+  "started_utc": "2026-10-16T01:02:57.314610+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "d6f77d73d6346d11a61d6413b8dedc46de049661120075cd6d93323f01426a6a",
+  "prompt_chars": 4459,
+  "status": "completed",
+  "text": "{\n  \"texts\": [\n    {\n      \"id\": \"Tf5be20f1a7c3\",\n      \"scores\": {\n        \"correctness\": 5,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 5,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [],\n      \"evidence\": [\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"在第一层，旧token及其位置没变，输入就没变；旧位置又无法关注后来追加的token，所以其注意力输出也没变。这个结论逐层成立\",\n          \"reason\": \"先建立第一层的输入不变，再说明因果限制和逐层传播，完整解释了历史KV保持不变的计算依赖。\"\n        },\n        {\n          \"dimension\": \"prior_knowledge_alignment\",\n          \"quote\": \"query用于与各位置的key计算匹配分数，value则是被加权汇总的内容。\",\n          \"reason\": \"在读者已有矩阵乘法和softmax知识的基础上，补足理解注意力公式所需的角色说明。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"当前query通常与过去query不同，因此过去的注意力权重不能直接复用。\",\n          \"reason\": \"明确区分可复用的投影结果和依赖当前query的权重，支持判断相近计算中哪些中间结果可以缓存。\"\n        },\n        {\n          \"dimension\": \"correctness\",\n          \"quote\": \"序列越长，当前这一步仍需读取和处理越多KV；在维数固定时，这部分注意力计算量随已有长度线性增长。\",\n          \"reason\": \"准确限定缓存的收益，说明避免历史重算并不消除当前位置对历史KV的处理。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"定义、依赖证明、执行过程和计算存储代价各有作用，重复提及复用均服务于不同解释环节。\",\n        \"quote\": \"\"\n      }\n    },\n    {\n      \"id\": \"T3482cb51e27e\",\n      \"scores\": {\n        \"correctness\": 5,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 4,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [],\n      \"evidence\": [\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"逐层来看，只要已有位置的输入不变，该层输出就不变，下一层的输入也不变。\",\n          \"reason\": \"承接因果掩码的说明，将单层的稳定性连接到各层隐状态和KV的稳定性，核心因果链清楚。\"\n        },\n        {\n          \"dimension\": \"conceptual_sequencing\",\n          \"quote\": \"将 \\\\(k_t,v_t\\\\) 追加到该层缓存，再让 \\\\(q_t\\\\) 与截至当前位置的全部 key 计算分数，经过 softmax 后，对全部对应的 value 加权求和。\",\n          \"reason\": \"按实际计算顺序说明追加、匹配和汇总，并明确包含当前位置，便于读者构建执行过程。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"在维度固定时，当前一步的注意力计算量仍随上下文长度线性增长；生成一段长序列时，各步注意力计算的总量仍呈二次增长。\",\n          \"reason\": \"区分单步成本和跨步累计成本，支持读者分析不同生成长度下的计算增长。\"\n        },\n        {\n          \"dimension\": \"cognitive_load\",\n          \"quote\": \"t(d_k+d_v).\",\n          \"reason\": \"存储公式正确，但正文未明确解释两个维度符号，尤其首次出现的d_v需要读者自行推断，造成轻微阅读负担。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"内容围绕缓存对象、复用依据和资源代价推进，累计复杂度的补充直接服务于计算收益的边界说明。\",\n        \"quote\": \"\"\n      }\n    }\n  ],\n  \"pairs\": [\n    {\n      \"left\": \"T3482cb51e27e\",\n      \"right\": \"Tf5be20f1a7c3\",\n      \"winner\": \"tie\",\n      \"reason\": \"两文都完整连接因果限制、逐层状态不变与KV复用，且准确说明当前权重需要重算。右文显式给出第一层的起点并定义存储维度，前提处理稍充分；左文进一步区分单步与累计注意力成本。左文维度符号解释略有缺口，但不妨碍核心理解，整体可理解性相当，两者均无准确性代价。\",\n      \"left_quote\": \"逐层来看，只要已有位置的输入不变，该层输出就不变，下一层的输入也不变。\",\n      \"right_quote\": \"在第一层，旧token及其位置没变，输入就没变；旧位置又无法关注后来追加的token，所以其注意力输出也没变。\"\n    }\n  ]\n}",
+  "usage": {
+    "input_tokens": 13086,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1505,
+    "reasoning_output_tokens": 246
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 3047,
+  "han_chars": 806,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T01:03:39.322041+00:00",
+  "elapsed_seconds": 42.007
+}

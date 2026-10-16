@@ -1,0 +1,6 @@
+interface:
+  display_name: "Pedagogical Readability"
+  short_description: "Restore learning steps and improve continuous reading"
+  default_prompt: "Use $pedagogical-readability to restore the learning steps and run the continuous-reading review in this teaching chapter."
+policy:
+  allow_implicit_invocation: true

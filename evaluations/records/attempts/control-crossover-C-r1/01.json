@@ -1,0 +1,26 @@
+{
+  "key": "control-crossover-C-r1",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:50:26.106077+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "afbe5a1961363359a47504d6772eafcce5c7633ae90500f02869ea9879ad52f7",
+  "prompt_chars": 4965,
+  "status": "completed",
+  "text": "正比例增益不改变固定频率处的开环相位，却能改变相位裕度，关键在于：**相位裕度取的是增益截止频率处的相位，而这个频率会随增益移动。**\n\n对单位负反馈系统\n\\[\nL(s)=\\frac{K}{s(s+1)},\\qquad K>0,\n\\]\n在任意固定的正频率处，有\n\\[\n|L(j\\omega)|=\\frac{K}{\\omega\\sqrt{1+\\omega^2}},\n\\qquad\n\\arg L(j\\omega)=-90^\\circ-\\arctan\\omega.\n\\]\n正实数 \\(K\\) 的幅角为零，因此增大 \\(K\\) 只会放大开环幅值，不会改变该频率处的相位。在 Bode 图上，幅频曲线整体上移，相频曲线保持原样。\n\n但相位裕度并不是在某个预先固定的频率处测量的。首先要找到幅值等于 1，即幅频曲线穿过 \\(0\\,\\mathrm{dB}\\) 的增益截止频率 \\(\\omega_c\\)，再读取那里距离 \\(-180^\\circ\\) 还有多少相位余量：\n\\[\n\\mathrm{PM}=180^\\circ+\\arg L(j\\omega_c)\n=90^\\circ-\\arctan\\omega_c.\n\\]\n所以，即使相频曲线没变，只要读取相位的位置变了，相位裕度就可能改变。\n\n本系统的截止条件为\n\\[\n\\omega_c\\sqrt{1+\\omega_c^2}=K,\n\\]\n也可写成\n\\[\n\\omega_c^2=\\frac{\\sqrt{1+4K^2}-1}{2}.\n\\]\n对正频率，左侧的 \\(\\omega\\sqrt{1+\\omega^2}\\) 严格递增，因此截止频率唯一，而且 \\(K\\) 越大，\\(\\omega_c\\) 越高。与此同时，相位随频率升高而变得更负，因此相位裕度减小。\n\n具体比较两个增益。当 \\(K=\\sqrt2\\) 时，\n\\[\n\\omega_c=1,\\qquad\n\\arg L(j\\omega_c)=-135^\\circ,\\qquad\n\\mathrm{PM}=45^\\circ.\n\\]\n当 \\(K=\\sqrt{20}\\) 时，\n\\[\n\\omega_c=2,\\qquad\n\\arg L(j\\omega_c)=-90^\\circ-\\arctan2\n\\approx-153.43^\\circ,\n\\]\n\\[\n\\mathrm{PM}\\approx26.57^\\circ.\n\\]\n例如，在固定频率 \\(\\omega=1\\) 处，两种增益的相位始终都是 \\(-135^\\circ\\)；只是第二种增益下，该频率处的幅值已超过 1，不能再用这里的相位计算相位裕度。新的截止点移到了 \\(\\omega=2\\)。\n\n相位裕度减小也不等于闭环已经失稳。本系统闭环特征多项式为\n\\[\ns^2+s+K.\n\\]\n对所有 \\(K>0\\)，其根的实部均为负，闭环仍然稳定。\n\n上述“增益增大、截止频率升高、相位裕度减小”的联系，依赖本系统幅值随频率严格下降、相位也随频率下降的性质。对其他系统，正增益仍不改变固定频率处的相位，但幅频曲线可能不单调，甚至存在多个截止频率，因此必须重新确定截止点及其相位，不能无条件照搬这里的变化结论。",
+  "usage": {
+    "input_tokens": 11771,
+    "cached_input_tokens": 4096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 888,
+    "reasoning_output_tokens": 64
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1305,
+  "han_chars": 510,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:50:52.602254+00:00",
+  "elapsed_seconds": 26.496
+}

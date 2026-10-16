@@ -1,0 +1,26 @@
+{
+  "key": "P72dd69aaa766",
+  "attempt": 1,
+  "started_utc": "2026-10-16T01:04:17.573944+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "e1e3ab3f6c65ca82c8f3322e44275ed3a22a77049816c78058ac4328aa56cfb9",
+  "prompt_chars": 4629,
+  "status": "completed",
+  "text": "{\n  \"texts\": [\n    {\n      \"id\": \"T0d5c5e1ce0a1\",\n      \"scores\": {\n        \"correctness\": 5,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 5,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [],\n      \"evidence\": [\n        {\n          \"dimension\": \"conceptual_sequencing\",\n          \"quote\": \"这说明梯度要依次经过每层 Jacobian 的变换。\",\n          \"reason\": \"先用读者掌握的链式法则解释普通网络的有序乘积，再引入残差层，比较所需的前提充分。\"\n        },\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"右侧第一项是捷径直接传回的梯度，第二项是残差分支传回的梯度。两项在输入处相加。\",\n          \"reason\": \"把反向传播公式与两条分支的贡献对应起来，并强调相加，为随后解释抵消建立了直接联系。\"\n        },\n        {\n          \"dimension\": \"correctness\",\n          \"quote\": \"以欧氏范数及其诱导的算子范数为例，若每层都满足\",\n          \"reason\": \"明确范数约定，使前向 Jacobian 的收缩条件能够正确用于列梯度的范数上界。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"这就是结构上“存在直接传播路径”的含义；它并不意味着总乘积必然保留某个大小的梯度。\",\n          \"reason\": \"将展开式中的恒等项与总传播矩阵的性质区分开，支持读者分析其他残差分支下的梯度传播，而不只记住一个反例。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"开头提出核心区别，中间通过公式和反例解释，结尾限定实际训练中的适用范围；重复承担不同功能，无实质冗余。\",\n        \"quote\": \"\"\n      }\n    },\n    {\n      \"id\": \"T38bdcda57da4\",\n      \"scores\": {\n        \"correctness\": 4,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 5,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [\n        {\n          \"severity\": \"minor\",\n          \"quote\": \"普通层用残差分支的 Jacobian 传递梯度\",\n          \"reason\": \"普通层尚无恒等捷径与残差分支的结构区分，此处应称为普通层映射的 Jacobian。后文定义与推导正确，因此只是局部术语误用，不影响核心结论。\"\n        }\n      ],\n      \"evidence\": [\n        {\n          \"dimension\": \"prior_knowledge_alignment\",\n          \"quote\": \"采用列梯度约定，链式法则给出\",\n          \"reason\": \"从读者已有的链式法则知识出发，明确梯度约定，并展示转置 Jacobian 的相乘顺序，前提衔接充分。\"\n        },\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"第一项直接传回上游梯度，第二项是经过残差分支的贡献。\",\n          \"reason\": \"把公式拆成具有明确结构含义的两项，便于理解捷径如何改变反向传播。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"甚至不必完全抵消：若每层 \\\\(J_l=-\\\\tfrac12 I\\\\)，则每层总 Jacobian 为 \\\\(\\\\tfrac12 I\\\\)，跨 \\\\(m\\\\) 层后梯度仍缩小为原来的 \\\\(2^{-m}\\\\)。\",\n          \"reason\": \"在完全抵消之外展示逐层收缩，将普通网络的指数衰减机制与残差网络联系起来，有助于分析相近情形。\"\n        },\n        {\n          \"dimension\": \"overall_comprehensibility\",\n          \"quote\": \"判断时，应区分“结构上存在直接路径”与“当前训练中梯度实际传得怎样”。\",\n          \"reason\": \"结论准确落到任务要求的结构与实际结果之别，且前文已有公式、展开式和反例支撑。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"完全抵消与逐层收缩两个例子分别解释梯度归零和随深度衰减，功能不同；其余内容紧扣推导和适用范围。\",\n        \"quote\": \"\"\n      }\n    }\n  ],\n  \"pairs\": [\n    {\n      \"left\": \"T38bdcda57da4\",\n      \"right\": \"T0d5c5e1ce0a1\",\n      \"winner\": \"tie\",\n      \"reason\": \"两文都充分建立了普通层乘积、残差层两项相加、路径展开与贡献抵消之间的联系，并明确区分结构路径和训练结果。左文用逐层减半补充了渐进衰减机制，但开头把普通层映射称为残差分支有轻微术语代价；右文通过简洁的梯度记号和明确的范数约定降低理解负担，完全抵消的反例也已足以否定绝对保证。两者整体可理解性相当，均无核心技术错误。\",\n      \"left_quote\": \"甚至不必完全抵消：若每层 \\\\(J_l=-\\\\tfrac12 I\\\\)，则每层总 Jacobian 为 \\\\(\\\\tfrac12 I\\\\)，跨 \\\\(m\\\\) 层后梯度仍缩小为原来的 \\\\(2^{-m}\\\\)。\",\n      \"right_quote\": \"捷径仍然存在，但它传回的梯度与残差分支的贡献恰好抵消，总梯度为零。可见，含有 \\\\(I\\\\) 并不能给出总传播矩阵远离零的保证。\"\n    }\n  ]\n}",
+  "usage": {
+    "input_tokens": 13396,
+    "cached_input_tokens": 4096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1591,
+    "reasoning_output_tokens": 132
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 3320,
+  "han_chars": 882,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T01:05:00.762093+00:00",
+  "elapsed_seconds": 43.188
+}

@@ -1,0 +1,26 @@
+{
+  "key": "ml-residual-gradient-A-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:58:12.205972+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "da73e47d0e718e834b81c6fd220a46aad9f1b23b53003f02f11c4c36d7dab37f",
+  "prompt_chars": 855,
+  "status": "completed",
+  "text": "残差连接改变反向传播的关键，是让每层的导数中多出一个恒等项，使梯度可以沿捷径传播。但“存在这条路径”不等于“总梯度一定不会消失”。以下只讨论各层向量维数相同、可微，且加法后没有激活、归一化或投影的简化模型，损失为标量 \\(\\ell\\)。\n\n普通网络的一层写作\n\\[\nx_{l+1}=F_l(x_l),\\qquad J_l=\\frac{\\partial F_l}{\\partial x_l}.\n\\]\n采用列梯度约定，链式法则给出\n\\[\n\\nabla_{x_l}\\ell=J_l^\\top\\nabla_{x_{l+1}}\\ell.\n\\]\n跨越多层时，梯度要依次经过各层 Jacobian 的转置。若前向跨越 \\(m\\) 层的 Jacobian 为\n\\[\nP=J_{l+m-1}\\cdots J_l,\n\\]\n则反向传播为 \\(P^\\top\\nabla_{x_{l+m}}\\ell\\)。如果每层 Jacobian 的相容算子范数都不超过同一个 \\(\\rho<1\\)，那么\n\\[\n\\|P\\|\\le \\rho^m.\n\\]\n这说明传播算子的范数上界随深度指数衰减：反复经过收缩映射，会使传回浅层的梯度越来越弱。\n\n恒等捷径残差层则写作\n\\[\nx_{l+1}=x_l+F_l(x_l),\n\\]\n因此\n\\[\n\\nabla_{x_l}\\ell\n=(I+J_l)^\\top\\nabla_{x_{l+1}}\\ell\n=\\nabla_{x_{l+1}}\\ell+J_l^\\top\\nabla_{x_{l+1}}\\ell.\n\\]\n右边第一项来自恒等捷径，第二项来自残差分支。梯度不再必须全部经过 \\(J_l\\) 的变换；即使残差分支的导数很小，捷径仍提供直接传播的通道。\n\n多层残差网络对应的是 \\(I+J_l\\) 的有序乘积。将其展开，可以看到恒等项，以及经过不同残差分支组合的项。因而，它具有一条完全绕过残差分支的结构路径。特别地，如果所有残差分支都恒为零，各层就是恒等映射，传入的梯度会原样传回。\n\n不过，反向传播得到的是这些路径贡献的**总和**，恒等项并不会被单独保存在最终梯度中。不同贡献可以相互抵消。例如在一维局部情形下，\n\\[\nF_l(x)=-x,\\qquad\n\\frac{dx_{l+1}}{dx_l}=1+(-1)=0.\n\\]\n尽管捷径存在，这一层的总导数仍为零，梯度无法穿过。更一般地，\\(I+J_l\\) 仍可能在某些方向上收缩，连续多层便可能使相应梯度衰减。\n\n因此，残差连接改善的是梯度传播的结构条件，不能保证每个方向、每个参数都有足够大的梯度，更不能保证训练成功。实际网络中的归一化、非线性和投影还会改变传播关系；最终优化表现也取决于参数、数据和训练设定。理解残差连接，应区分“结构上提供直接通道”与“训练中实际得到多大梯度”。",
+  "usage": {
+    "input_tokens": 11099,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 893,
+    "reasoning_output_tokens": 95
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1164,
+  "han_chars": 597,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:58:43.456190+00:00",
+  "elapsed_seconds": 31.25
+}

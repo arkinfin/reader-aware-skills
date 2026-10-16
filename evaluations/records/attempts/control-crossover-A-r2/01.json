@@ -1,0 +1,26 @@
+{
+  "key": "control-crossover-A-r2",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:53:00.977923+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "a205b8ac44bf4224859991b0638f49c9f41e1ecfb4674ab4c881903fda817aba",
+  "prompt_chars": 787,
+  "status": "completed",
+  "text": "正比例增益不改变固定频率处的开环相位，却能改变相位裕度，关键在于：**相位裕度是在增益截止频率处计算的，而这个频率会随增益移动。**相位曲线本身不变，并不意味着沿曲线选取的计算点不变。\n\n对于单位负反馈系统\n\\[\nL(s)=\\frac{K}{s(s+1)},\\qquad K>0,\n\\]\n在任意固定的正频率上，\n\\[\n|L(j\\omega)|=\\frac{K}{\\omega\\sqrt{1+\\omega^2}},\n\\qquad\n\\arg L(j\\omega)=-90^\\circ-\\arctan\\omega.\n\\]\n正实数 \\(K\\) 的幅角为零，因此改变 \\(K\\) 只会把Bode幅频曲线上下平移，不会移动相频曲线。例如，无论取哪个正增益，在 \\(\\omega=1\\) 处的开环相位始终是 \\(-135^\\circ\\)。\n\n但相位裕度不是在任意指定频率处读取的。必须先找到幅值等于1，即幅频曲线穿过 \\(0\\,\\mathrm{dB}\\) 的频率 \\(\\omega_c\\)，再计算\n\\[\nPM=180^\\circ+\\arg L(j\\omega_c)\n=90^\\circ-\\arctan\\omega_c.\n\\]\n它表示在该截止频率处，开环相位距离 \\(-180^\\circ\\) 还差多少。\n\n本系统的截止条件为\n\\[\nK=\\omega_c\\sqrt{1+\\omega_c^2}.\n\\]\n右侧随正频率严格增大，所以截止频率唯一，并且 \\(K\\) 越大，\\(\\omega_c\\) 越高。与此同时，相位随频率升高而变得更负。因此，增大 \\(K\\) 后，虽然每个固定频率处的相位都没变，计算相位裕度的位置却向高频移动，读到的相位更接近 \\(-180^\\circ\\)，相位裕度便减小了。\n\n两个指定增益的结果是：\n\n| 增益 \\(K\\) | 截止频率 \\(\\omega_c\\) | 截止处相位 | 相位裕度 |\n|---|---:|---:|---:|\n| \\(\\sqrt2\\) | \\(1\\) | \\(-135^\\circ\\) | \\(45^\\circ\\) |\n| \\(\\sqrt{20}\\) | \\(2\\) | 约 \\(-153.43^\\circ\\) | 约 \\(26.57^\\circ\\) |\n\n所以，两种增益对应同一条相位曲线，却在不同位置读取相位裕度。这里的因果链是：**增益提高，截止频率升高，截止处相位更负，相位裕度减小。**\n\n相位裕度减小也不等于闭环已经失稳。本系统的闭环特征多项式为\n\\[\ns^2+s+K.\n\\]\n对所有 \\(K>0\\)，其根的实部均为负，闭环仍稳定；上述两个增益下，极点实部都为 \\(-1/2\\)。\n\n最后，这条参数变化规律有适用条件。正比例增益不改变固定频率处相位这一点可以推广，但“增益越大，相位裕度越小”依赖这里的幅值单调下降、截止频率唯一以及相位随频率下降。其他系统可能有非单调幅频曲线或多个截止频率，必须结合具体曲线分析。",
+  "usage": {
+    "input_tokens": 11048,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 890,
+    "reasoning_output_tokens": 73
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1230,
+  "han_chars": 557,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:53:29.872157+00:00",
+  "elapsed_seconds": 28.894
+}

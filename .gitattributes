@@ -1,0 +1,4 @@
+# Unified-diff context lines require a leading space, including empty context.
+# Preserve the exact evidence bytes while checking ordinary source normally.
+docs/original-skill.md whitespace=-blank-at-eol
+evaluations/records/infrastructure/evaluation-gates.patch whitespace=-blank-at-eol

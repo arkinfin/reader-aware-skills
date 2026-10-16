@@ -1,0 +1,60 @@
+{
+  "run_id": "experiment-v1",
+  "seed": 20261016,
+  "frozen_utc": "2026-10-16T00:48:00.859768+00:00",
+  "planned_outputs": 60,
+  "batches": 3,
+  "config": {
+    "generation_model": "gpt-6.1-sol",
+    "generation_effort": "medium",
+    "generation_escalation_reason": "Uniform technical tasks include nontrivial derivations and knowledge dependencies.",
+    "judge_model": "gpt-6.1-sol",
+    "judge_effort": "medium",
+    "source_registry_sha256": "b572f16dea8776002dac41136ff85455dc80067a3dce6c897e9161e7c9894ab8",
+    "cli_version": "codex-cli 0.162.1",
+    "temperature": "not controllable",
+    "sampling_seed": "not controllable",
+    "fallback": "disabled",
+    "isolation_overrides": {
+      "project_doc_max_bytes": "0",
+      "web_search": "\"disabled\"",
+      "features.skip_host_skill_discovery": "true",
+      "features.skill_search": "false",
+      "features.plugins": "false",
+      "features.apps": "false",
+      "features.multi_agent": "false",
+      "features.shell_tool": "false",
+      "features.unified_exec": "false",
+      "features.code_mode_host": "false",
+      "features.browser_use": "false",
+      "features.computer_use": "false",
+      "features.image_generation": "false",
+      "features.hooks": "false",
+      "features.view_image": "false",
+      "skills.config": "[{path=\"/home/samsa/.codex/skills/.system/imagegen\",enabled=false},{path=\"/home/samsa/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/home/samsa/.codex/skills/.system/review-agent\",enabled=false},{path=\"/home/samsa/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/home/samsa/.codex/skills/.system/skill-installer\",enabled=false},{path=\"/home/samsa/.codex/skills/dual-lane-agent-workflow\",enabled=false},{path=\"/home/samsa/.codex/skills/technical-educational-pdf\",enabled=false}]"
+    }
+  },
+  "input_hashes": {
+    "evaluations/tasks/control-crossover.json": "ff6d3f9a39b74e3e23c386d1297a9fee86d56c14b0195f8959663f4a1780929e",
+    "evaluations/tasks/control-state-transfer.json": "d7b333a2816d4ee8538a44572a6546a2283bb46942b956c9434220f1ed169f9c",
+    "evaluations/tasks/math-concept.json": "ba284a5317bc5bdf4f7614202d7b193f2041fd1d2c416ec61681597b2f9de8df",
+    "evaluations/tasks/math-derivation.json": "a9a11e4b6cb322f78990bcfdb3312170e5117b27384b6109c79be16612ee62c7",
+    "evaluations/tasks/math-method.json": "c6fcae5b016d4be7df30dbaeadf85aafcc7effc41dfae559a7969abee92cefe0",
+    "evaluations/tasks/ml-kv-cache.json": "b08bcd853068042aaac5760bf4f2a677f16fd24075e9f755cac429e9bb318ff0",
+    "evaluations/tasks/ml-residual-gradient.json": "7a9079ab3f828d242af4a35147cd9d92fe7d170eb48c4330ffeddfe5f721f9b8",
+    "evaluations/prompts/common.txt": "39457be4c815c123ce95eca3dae05f2982d17c42ad073d14a13d374c00bf59f4",
+    "evaluations/prompts/judge.txt": "967a26185e5204b4a84e9917d6522a5feaed0454ad7ce0a4549ece2bc095429a",
+    "evaluations/prompts/rigor.txt": "9078fb947b9b6650250f462bd5822436a53ba25f57240570f8e04913a2d3a318",
+    "skills/reader-aware-writing/SKILL.md": "43d915c9594fb3eefdd413e251d91eee1cf730ff0121b8381ab672fccf973d67",
+    "evaluations/run.py": "14815481525be0e3e9121ce11eb1b4b21035ef368cb34210531486fefc1cf7d7"
+  },
+  "infrastructure_amendment": {
+    "original_manifest_path": "infrastructure/generation-manifest.json",
+    "original_manifest_sha256": "ea19c8c16c3c7982aeac4ad6245a2803904282a8a53d32127ff64e189b3657a1",
+    "generation_runner_path": "infrastructure/generation-runner.py",
+    "generation_runner_sha256": "b1c5089bf8f7639a8dadd2f9159668428a3b9d69ec5d3325d3188bd56358133e",
+    "evaluation_runner_sha256": "14815481525be0e3e9121ce11eb1b4b21035ef368cb34210531486fefc1cf7d7",
+    "reason": "Independent read-only code review found fail-open cached judgment, output provenance, and redundancy-evidence validation. Fix deterministic gates before any judging; generation prompts/config/schedule remain unchanged.",
+    "applied_utc": "2026-10-16T00:59:54.600184+00:00"
+  }
+}

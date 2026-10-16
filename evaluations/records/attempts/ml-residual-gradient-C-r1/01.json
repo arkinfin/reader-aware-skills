@@ -1,0 +1,26 @@
+{
+  "key": "ml-residual-gradient-C-r1",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:49:24.302786+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "4ea1a698adf92816dace846982707fbea7cca30a4cb9cea32c26670d857ca942",
+  "prompt_chars": 5033,
+  "status": "completed",
+  "text": "残差连接改变了梯度穿过每一层的方式：除了经过残差分支，梯度还可以沿恒等捷径直接传回。但“存在直接路径”不等于“最终梯度一定非零”，因为各条路径的贡献需要相加，可能相互抵消。\n\n只考虑可微、各层向量维数相同的简化模型，加法后没有激活、归一化或投影。记标量损失为 \\(\\ell\\)，列梯度为 \\(g_l=\\nabla_{x_l}\\ell\\)。普通层及其反向传播为\n\\[\nx_{l+1}=F_l(x_l),\\qquad\nJ_l=\\frac{\\partial F_l}{\\partial x_l},\\qquad\ng_l=J_l^\\top g_{l+1}.\n\\]\n跨越 \\(m\\) 层，链式法则给出\n\\[\ng_l=\n\\bigl(J_{l+m-1}\\cdots J_l\\bigr)^\\top g_{l+m}.\n\\]\n这说明梯度要依次经过每层 Jacobian 的变换。以欧氏范数及其诱导的算子范数为例，若每层都满足 \\(\\|J_k\\|\\le\\rho<1\\)，则\n\\[\n\\|g_l\\|\\le \\rho^m\\|g_{l+m}\\|.\n\\]\n每层的收缩会累积，形成随深度指数衰减的上界。\n\n恒等捷径残差层改为\n\\[\nx_{l+1}=x_l+F_l(x_l).\n\\]\n由于输入同时进入恒等分支和残差分支，该层的 Jacobian 是 \\(I+J_l\\)，于是\n\\[\ng_l=(I+J_l)^\\top g_{l+1}\n   =g_{l+1}+J_l^\\top g_{l+1}.\n\\]\n右侧第一项是捷径直接传回的梯度，第二项是残差分支传回的梯度。两项在输入处相加。因此，即使残差分支的 Jacobian 很小，整层也不必像普通层那样把梯度大幅缩小。\n\n跨越多层时，传播矩阵变成\n\\[\n(I+J_{l+m-1})\\cdots(I+J_l).\n\\]\n按原有顺序展开，其中包含一个全程选择恒等项得到的 \\(I\\)，以及经过不同残差分支得到的项。这就是结构上“存在直接传播路径”的含义；它并不意味着总乘积必然保留某个大小的梯度。\n\n关键在于，恒等项与其他项可能抵消。若残差分支恒为零，则 \\(J_l=0\\)，整层是恒等映射，梯度原样通过。反过来，在一维例子 \\(F_l(x)=-x\\) 中，\n\\[\nx_{l+1}=x_l-x_l=0,\\qquad 1+F_l'(x)=0.\n\\]\n捷径仍然存在，但它传回的梯度与残差分支的贡献恰好抵消，总梯度为零。可见，含有 \\(I\\) 并不能给出总传播矩阵远离零的保证。\n\n残差连接提供了有利于梯度传播的结构条件，却不是训练结果的保证。实际网络还可能包含归一化、非线性和投影，传播关系需要按具体结构分析；参数、数据和训练设定也会影响优化表现。因此，残差连接能够缓解梯度消失，但“有残差就绝不会梯度消失”并不成立。",
+  "usage": {
+    "input_tokens": 11816,
+    "cached_input_tokens": 4096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 874,
+    "reasoning_output_tokens": 52
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1156,
+  "han_chars": 579,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:49:54.244450+00:00",
+  "elapsed_seconds": 29.942
+}

@@ -1,0 +1,16 @@
+{
+  "id": "ml-kv-cache",
+  "domain": "machine-learning",
+  "challenge": "computational dependency",
+  "reader": "计算机专业本科生，掌握矩阵乘法、softmax和神经网络前向计算，知道语言模型逐token生成，但尚不熟悉因果自注意力与KV cache。",
+  "goal": "解释标准因果自注意力中KV cache缓存什么、为何过去条目可复用，以及它节省哪些计算、仍需哪些计算、带来什么存储代价。",
+  "length_instruction": "用中文撰写一篇约600–900字的独立解释，公式不计入字数；这是软性篇幅目标，以完成任务为准。无需练习题、参考文献或制作说明。",
+  "facts": [
+    "讨论参数固定、关闭dropout的标准decoder自注意力推理；token位置与此前上下文不改动，使用精确缓存，不讨论压缩、滑动窗口或跨请求复用。",
+    "单头单层：第i个位置的输入隐向量hi产生qi=hiWQ、ki=hiWK、vi=hiWV。key维数为dk。",
+    "位置t的注意力输出ot=Σ(i=1…t) a(t,i)vi，a(t,i)=exp(qt·ki/√dk)/Σ(j=1…t)exp(qt·kj/√dk)。因果掩码禁止访问未来位置。",
+    "在给定条件下，已有位置各层的隐状态及其k、v不随后续token追加而改变。缓存按层保存过去的k、v，并追加当前kt、vt。",
+    "新的qt与过去和当前的全部key计算分数，再对全部相应value加权；过去的注意力权重不是当前的权重。",
+    "单层单头缓存t个位置时，KV元素个数为t(dk+dv)，其中dv为value维数；忽略batch和精度等常数。缓存是推理状态，不是更新模型参数。"
+  ]
+}

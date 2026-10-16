@@ -1,0 +1,31 @@
+{
+  "id": "math-derivation-C-r3",
+  "task": "math-derivation",
+  "domain": "mathematics",
+  "group": "C",
+  "repeat": 3,
+  "prompt_sha256": "1585583fcd0e48af29f065820bd8d618f41532648b694122c99f198808b1fbc3",
+  "key": "math-derivation-C-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:57:06.798732+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 4934,
+  "status": "completed",
+  "text": "推导相似公式时，关键是固定过渡矩阵的约定，并分清“基向量怎样表示”和“坐标向哪个方向转换”。这里约定\n\\[\nF=EP.\n\\]\n其中，\\(E=(e_1,\\ldots,e_n)\\) 表示一组有序基，\\(Ec\\) 表示用列向量 \\(c\\) 的分量作系数，对这些基向量作线性组合。\n\n先看这个等式的第 \\(j\\) 列：\n\\[\nf_j=e_1p_{1j}+\\cdots+e_np_{nj}.\n\\]\n因此，**\\(P\\) 的第 \\(j\\) 列是新基向量 \\(f_j\\) 在基 \\(E\\) 下的坐标**。这里描述的是基向量之间的关系；要确定坐标转换方向，还需把同一个向量的两种表示联系起来。\n\n对任意 \\(v\\in V\\)，有\n\\[\nv=E[v]_E=F[v]_F=EP[v]_F.\n\\]\n由于向量在基 \\(E\\) 下的坐标唯一，得到\n\\[\n[v]_E=P[v]_F,\\qquad [v]_F=P^{-1}[v]_E.\n\\]\n所以，虽然约定写成 \\(F=EP\\)，但 **\\(P\\) 把 \\(F\\) 坐标转换成 \\(E\\) 坐标**，逆矩阵则负责反方向转换。不要只根据基名的排列猜坐标方向，应以这个等式为准。\n\n现在求同一个线性变换 \\(T\\) 在基 \\(F\\) 下的矩阵 \\(B\\)。设输入向量的 \\(F\\) 坐标为 \\(x\\)。先乘 \\(P\\)，把输入换成 \\(E\\) 坐标；再乘 \\(A\\)，得到像向量的 \\(E\\) 坐标；最后乘 \\(P^{-1}\\)，把输出换回 \\(F\\) 坐标：\n\\[\nx=[v]_F\n\\xrightarrow{\\ P\\ }[v]_E\n\\xrightarrow{\\ A\\ }[T(v)]_E\n\\xrightarrow{\\ P^{-1}\\ }[T(v)]_F.\n\\]\n于是\n\\[\nBx=[T(v)]_F=P^{-1}APx.\n\\]\n任意 \\(x\\in\\mathbb R^n\\) 都对应某个向量 \\(v\\)，故\n\\[\n\\boxed{B=P^{-1}AP}.\n\\]\n矩阵乘积作用于列向量时从右往左执行，这就确定了左右乘次序。按相似的定义，\\(A\\) 与 \\(B\\) 相似：它们描述同一个变换，只是采用的基不同。\n\n用给定二维数据检验。因为 \\(E\\) 是标准基，直接把两个 \\(F\\) 基向量作为列排入矩阵：\n\\[\nP=\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\n\\qquad\nP^{-1}=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}.\n\\]\n计算得\n\\[\nB=\n\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}\n\\begin{pmatrix}2&0\\\\0&3\\end{pmatrix}\n\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix}\n=\n\\begin{pmatrix}2&0\\\\1&3\\end{pmatrix}.\n\\]\n\n再直接检查两列的含义。由于 \\(A\\) 把标准坐标的两个分量分别乘以 \\(2,3\\)，所以\n\\[\nT(f_1)=T\\binom11=\\binom23=2f_1+f_2,\n\\qquad\nT(f_2)=T\\binom01=\\binom03=3f_2.\n\\]\n它们在 \\(F\\) 下的坐标分别为 \\((2,1)^{\\mathsf T}\\)、\\((0,3)^{\\mathsf T}\\)，恰好就是所得 \\(B\\) 的两列。这同时验证了计算结果和坐标转换方向。",
+  "usage": {
+    "input_tokens": 11781,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1005,
+    "reasoning_output_tokens": 65
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1448,
+  "han_chars": 425,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:57:39.599551+00:00",
+  "elapsed_seconds": 32.801
+}

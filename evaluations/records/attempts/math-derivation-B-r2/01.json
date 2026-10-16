@@ -1,0 +1,26 @@
+{
+  "key": "math-derivation-B-r2",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:52:53.649215+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "b3997f449344a62a896bb1450fc0b5fdf0fc548485ec06bc31cf7bb5ec9a1f10",
+  "prompt_chars": 987,
+  "status": "completed",
+  "text": "相似公式描述的是：**同一个线性变换，在不同有序基下有不同的矩阵表示。** 推导时，应先弄清坐标怎样转换，再确定矩阵相乘的次序。\n\n设 \\(V\\) 是 \\(n\\) 维实向量空间，\\(E=(e_1,\\ldots,e_n)\\)、\\(F=(f_1,\\ldots,f_n)\\) 是两组有序基，约定\n\\[\nF=EP.\n\\]\n这里的基组记号表示按系数作线性组合。比较第 \\(j\\) 个位置，便有\n\\[\nf_j=\\sum_{i=1}^n e_i p_{ij},\n\\qquad\n[f_j]_E=\n\\begin{pmatrix}p_{1j}\\\\ \\vdots\\\\p_{nj}\\end{pmatrix}.\n\\]\n因此，**\\(P\\) 的第 \\(j\\) 列是新基向量 \\(f_j\\) 在基 \\(E\\) 下的坐标**。由于两边都是基，\\(P\\) 可逆。\n\n但“用 \\(E\\) 表示 \\(F\\)”与“把哪种坐标变成哪种坐标”容易混淆。对任意 \\(v\\in V\\)，由\n\\[\nv=F[v]_F=EP[v]_F=E[v]_E\n\\]\n以及向量在基 \\(E\\) 下坐标的唯一性，得到\n\\[\n\\boxed{[v]_E=P[v]_F},\n\\qquad\n\\boxed{[v]_F=P^{-1}[v]_E}.\n\\]\n所以，\\(P\\) 把 **\\(F\\) 坐标转换为 \\(E\\) 坐标**，\\(P^{-1}\\) 则反向转换。转换前后，向量 \\(v\\) 本身没有改变。\n\n现在设同一个线性变换 \\(T:V\\to V\\) 在两组基下的矩阵分别为 \\(A,B\\)，即\n\\[\n[T(v)]_E=A[v]_E,\\qquad [T(v)]_F=B[v]_F.\n\\]\n要从输入的 \\(F\\) 坐标得到输出的 \\(F\\) 坐标，可以依次完成三步：先乘 \\(P\\) 换成 \\(E\\) 坐标，再乘 \\(A\\) 实施变换，最后乘 \\(P^{-1}\\) 换回 \\(F\\) 坐标。因此\n\\[\n[T(v)]_F\n=P^{-1}[T(v)]_E\n=P^{-1}A[v]_E\n=P^{-1}AP[v]_F.\n\\]\n与 \\(B[v]_F\\) 比较，由于 \\(v\\) 任意，\\([v]_F\\) 遍历所有 \\(n\\) 维列向量，故\n\\[\n\\boxed{B=P^{-1}AP}.\n\\]\n矩阵作用从右向左进行，这正是左右乘次序的依据。按定义，同阶方阵满足这一关系且 \\(P\\) 可逆，就称它们相似。\n\n用题给二维数据检验：\n\\[\nP=\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\n\\quad\nP^{-1}=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix},\n\\quad\nA=\\begin{pmatrix}2&0\\\\0&3\\end{pmatrix}.\n\\]\n于是\n\\[\nB=P^{-1}AP\n=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}\n \\begin{pmatrix}2&0\\\\3&3\\end{pmatrix}\n=\\begin{pmatrix}2&0\\\\1&3\\end{pmatrix}.\n\\]\n再直接检查它的两列。因 \\(E\\) 为标准基，\n\\[\nT(f_1)=T\\binom11=\\binom23=2f_1+f_2,\n\\qquad\nT(f_2)=T\\binom01=\\binom03=3f_2.\n\\]\n故两列 \\(F\\) 坐标分别是 \\((2,1)^{\\mathsf T}\\)、\\((0,3)^{\\mathsf T}\\)，与所算 \\(B\\) 完全一致。记住坐标路径\n\\[\nF\\text{坐标}\\xrightarrow{P}E\\text{坐标}\n\\xrightarrow{A}E\\text{坐标}\n\\xrightarrow{P^{-1}}F\\text{坐标},\n\\]\n就能从方向重建公式，而不必硬记次序。",
+  "usage": {
+    "input_tokens": 11240,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1120,
+    "reasoning_output_tokens": 90
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1604,
+  "han_chars": 379,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:53:30.348312+00:00",
+  "elapsed_seconds": 36.699
+}

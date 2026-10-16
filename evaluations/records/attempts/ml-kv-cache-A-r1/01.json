@@ -1,0 +1,26 @@
+{
+  "key": "ml-kv-cache-A-r1",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:50:58.873572+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "1fb45883f91cf1e5334cf4483e39dfdfd0fe4dd84d4eabcc5e19992a5cb9a558",
+  "prompt_chars": 947,
+  "status": "completed",
+  "text": "语言模型逐 token 生成时，每一步都要利用已有上下文。KV cache 的作用，是保存过去位置在各层产生的 key（键）和 value（值），使下一步无需重新计算它们。这里讨论参数固定、关闭 dropout 的标准 decoder 自注意力推理；已有 token 的位置和上下文保持不变，缓存精确保存原值。\n\n先看单层、单头。位置 \\(i\\) 的输入隐向量 \\(h_i\\) 经过三个投影：\n\n\\[\nq_i=h_iW_Q,\\qquad k_i=h_iW_K,\\qquad v_i=h_iW_V.\n\\]\n\nquery 表示当前位置用于匹配的信息，key 用于计算匹配分数，value 则提供被汇总的内容。因果掩码只允许位置 \\(t\\) 访问自身及之前的位置，因此其注意力输出为：\n\n\\[\na_{t,i}=\n\\frac{\\exp(q_tk_i^\\top/\\sqrt{d_k})}\n{\\sum_{j=1}^{t}\\exp(q_tk_j^\\top/\\sqrt{d_k})},\n\\qquad\no_t=\\sum_{i=1}^{t}a_{t,i}v_i.\n\\]\n\n过去的 KV 为什么可以复用？关键在于因果依赖：过去位置看不到后来追加的 token，所以追加内容不会改变它原来的注意力输出。逐层来看，只要已有位置的输入不变，该层输出就不变，下一层的输入也不变。因此，在上述条件下，过去位置在各层的隐状态及其 K、V 都保持不变，可以直接使用缓存中的结果。\n\n处理新位置时，每一层只需为当前位置计算新的 \\(q_t,k_t,v_t\\)，将 \\(k_t,v_t\\) 追加到该层缓存，再让 \\(q_t\\) 与截至当前位置的全部 key 计算分数，经过 softmax 后，对全部对应的 value 加权求和。过去的 query 无需参与当前输出的计算，因此通常不缓存；过去的注意力权重也不能直接复用，因为新的 query 会产生新的分数和权重。\n\n相比每次把整个前缀重新做一遍前向计算，KV cache 省去了过去位置重复的 K、V 投影，以及为重新得到这些位置隐状态而进行的前向计算。不过，新位置仍需完成自身各层的计算，并读取全部历史 KV。在维度固定时，当前一步的注意力计算量仍随上下文长度线性增长；生成一段长序列时，各步注意力计算的总量仍呈二次增长。\n\n代价是额外存储。单层单头保存 \\(t\\) 个位置，需要的 KV 元素数为：\n\n\\[\nt(d_k+d_v).\n\\]\n\n多层、多头时需汇总各层各头的缓存，所以存储量随上下文长度增长。KV cache 本质上是用空间换取较少的重复计算；它属于本次推理的状态，并不更新模型参数。",
+  "usage": {
+    "input_tokens": 11125,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 748,
+    "reasoning_output_tokens": 86
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1106,
+  "han_chars": 606,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:51:28.076934+00:00",
+  "elapsed_seconds": 29.203
+}

@@ -1,0 +1,26 @@
+{
+  "key": "math-concept-D-r2",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:54:04.833619+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "ccd049afbf52a875bfb6a6b20987873243bedfa70c75f5d83483dd33058bee5d",
+  "prompt_chars": 5192,
+  "status": "completed",
+  "text": "对一元实函数，在内点处，**可导与可微等价，二者都能推出连续；连续却未必可导。**要理解这组关系，关键是区分实际增量与它的线性部分。\n\n设函数 \\(f\\) 在内点 \\(x_0\\) 的某个邻域内有定义，自变量从 \\(x_0\\) 变到 \\(x_0+h\\)，实际增量为\n\\[\n\\Delta y=f(x_0+h)-f(x_0).\n\\]\n连续只要求：当 \\(h\\to0\\) 时，\\(\\Delta y\\to0\\)。它说明函数值的变化趋于零，却没有规定这种变化与 \\(h\\) 的比值如何。\n\n可导进一步要求这个比值趋于某个有限实数：\n\\[\nf'(x_0)=\\lim_{h\\to0}\\frac{\\Delta y}{h}.\n\\]\n这里取极限时 \\(h\\ne0\\)，并且要从正、负两侧趋近零。导数描述实际增量相对于自变量增量的变化率。\n\n可微则把同一件事写成“线性部分加余项”：\n\\[\n\\Delta y=ah+r(h),\\qquad\n\\lim_{h\\to0}\\frac{r(h)}h=0.\n\\]\n其中 \\(a\\) 与 \\(h\\) 无关，余项记作 \\(r(h)=o(h)\\)。这要求余项相对于 \\(h\\) 可以忽略，比仅要求余项趋于零更强。令 \\(dx=h\\)，定义微分为\n\\[\ndy=a\\,dx=ah.\n\\]\n因此，微分是实际增量中的线性部分，不是实际增量本身。\n\n为什么可导与可微等价？若可导，令 \\(a=f'(x_0)\\)，并定义 \\(r(h)=\\Delta y-ah\\)，则\n\\[\n\\frac{r(h)}h=\\frac{\\Delta y}h-a\\to0,\n\\]\n所以可微。反过来，若可微，将增量表达式除以 \\(h\\)，便有\n\\[\n\\frac{\\Delta y}h=a+\\frac{r(h)}h\\to a,\n\\]\n所以可导，且 \\(a=f'(x_0)\\)。这说明两种定义分别从“比值的极限”和“增量的分解”刻画同一性质。\n\n可微还蕴含连续：\\(ah\\to0\\)，而对 \\(h\\ne0\\)，有 \\(r(h)=h[r(h)/h]\\to0\\)，故 \\(\\Delta y\\to0\\)。但反向不成立。例如 \\(f(x)=|x|\\) 在零点连续，其差商为\n\\[\n\\frac{|h|}{h}=\n\\begin{cases}\n-1,&h<0,\\\\\n1,&h>0.\n\\end{cases}\n\\]\n左右导数不同，因而不可导，也不可微。函数值趋近，并不保证变化率趋于同一个数。\n\n再看 \\(f(x)=x^2\\)。在固定的 \\(x_0\\) 处，\n\\[\n\\Delta y=2x_0h+h^2,\\qquad dy=2x_0h.\n\\]\n二者相差 \\(h^2\\)，而 \\(h^2/h=h\\to0\\)，所以这个误差是 \\(o(h)\\)。于是可以用\n\\[\nf(x_0+h)\\approx f(x_0)+f'(x_0)h\n\\]\n作线性近似，但通常不能把近似号改成等号。尤其在 \\(x_0=0\\) 时，\\(dy=0\\)，实际增量却为 \\(h^2\\)：微分为零不表示函数没有变化，只表示变化中没有非零的一次线性部分。",
+  "usage": {
+    "input_tokens": 11959,
+    "cached_input_tokens": 4096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 915,
+    "reasoning_output_tokens": 54
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1278,
+  "han_chars": 462,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:54:35.203779+00:00",
+  "elapsed_seconds": 30.37
+}

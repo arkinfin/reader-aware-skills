@@ -1,0 +1,31 @@
+{
+  "id": "math-derivation-B-r1",
+  "task": "math-derivation",
+  "domain": "mathematics",
+  "group": "B",
+  "repeat": 1,
+  "prompt_sha256": "b3997f449344a62a896bb1450fc0b5fdf0fc548485ec06bc31cf7bb5ec9a1f10",
+  "key": "math-derivation-B-r1",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:50:52.629335+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 987,
+  "status": "completed",
+  "text": "相似公式描述的是：同一个线性变换，换一组基后，其矩阵怎样改变。要确定过渡矩阵的方向，先看约定\n\\[\nF=EP.\n\\]\n这里把有序基写成一行，表示按矩阵各列给出的系数作线性组合。展开第 \\(j\\) 列便有\n\\[\nf_j=e_1p_{1j}+\\cdots+e_np_{nj},\n\\qquad [f_j]_E=P_{\\cdot j}.\n\\]\n因此，\\(P\\) 的第 \\(j\\) 列是“新基向量 \\(f_j\\) 在旧基 \\(E\\) 下的坐标”。两组都是基，所以 \\(P\\) 可逆。\n\n基向量的表示与任意向量的坐标转换要区分清楚。对任意 \\(v\\in V\\)，由\n\\[\nv=E[v]_E=F[v]_F=EP[v]_F\n\\]\n及基下坐标的唯一性，得到\n\\[\n[v]_E=P[v]_F,\\qquad [v]_F=P^{-1}[v]_E.\n\\]\n可见，虽然约定写成 \\(F=EP\\)，但 \\(P\\) 作用于坐标时，方向是从 \\(F\\) 坐标到 \\(E\\) 坐标；反方向才用 \\(P^{-1}\\)。这里向量 \\(v\\) 本身没有改变，改变的是表示它的坐标列。\n\n现在固定同一个线性变换 \\(T\\)。它在两组基下的矩阵分别满足\n\\[\n[T(v)]_E=A[v]_E,\\qquad [T(v)]_F=B[v]_F.\n\\]\n把坐标转换关系分别用于输入向量 \\(v\\) 和输出向量 \\(T(v)\\)，便有\n\\[\n[T(v)]_E=A P[v]_F,\n\\qquad\n[T(v)]_E=P[T(v)]_F=PB[v]_F.\n\\]\n所以对任意 \\(v\\)，\n\\[\nAP[v]_F=PB[v]_F.\n\\]\n由于 \\(v\\) 遍历 \\(V\\) 时，\\([v]_F\\) 遍历全部 \\(\\mathbb R^n\\)，故\n\\[\nAP=PB.\n\\]\n两边左乘 \\(P^{-1}\\)，得到\n\\[\n\\boxed{B=P^{-1}AP}.\n\\]\n乘法次序也可以沿坐标转换来理解：从右向左，先用 \\(P\\) 把输入换成 \\(E\\) 坐标，再用 \\(A\\) 表示变换，最后用 \\(P^{-1}\\) 把输出换回 \\(F\\) 坐标。这样得到的才是直接作用于 \\(F\\) 坐标的矩阵 \\(B\\)。\n\n用给定二维数据检验：\n\\[\nP=\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\n\\quad\nP^{-1}=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix},\n\\quad\nA=\\begin{pmatrix}2&0\\\\0&3\\end{pmatrix}.\n\\]\n计算得\n\\[\nB=P^{-1}AP\n=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}\n\\begin{pmatrix}2&0\\\\3&3\\end{pmatrix}\n=\\begin{pmatrix}2&0\\\\1&3\\end{pmatrix}.\n\\]\n再直接检查它的列。因 \\(E\\) 是标准基，\n\\[\nT(f_1)=T\\binom11=\\binom23=2f_1+f_2,\n\\qquad\nT(f_2)=T\\binom01=\\binom03=3f_2.\n\\]\n于是 \\([T(f_1)]_F=(2,1)^{\\mathsf T}\\)、\\([T(f_2)]_F=(0,3)^{\\mathsf T}\\)，恰好是上述 \\(B\\) 的两列。\n\n一般地，同阶方阵之间若存在可逆矩阵 \\(P\\)，满足 \\(B=P^{-1}AP\\)，就称它们相似。本题中，这一关系由同一个 \\(T\\) 在两组基下的表示自然导出；具体使用哪个 \\(P\\)，必须服从给定的基与坐标方向。",
+  "usage": {
+    "input_tokens": 11238,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1114,
+    "reasoning_output_tokens": 124
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1509,
+  "han_chars": 415,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:51:26.876999+00:00",
+  "elapsed_seconds": 34.248
+}

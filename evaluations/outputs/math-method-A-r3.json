@@ -1,0 +1,31 @@
+{
+  "id": "math-method-A-r3",
+  "task": "math-method",
+  "domain": "mathematics",
+  "group": "A",
+  "repeat": 3,
+  "prompt_sha256": "2371ef5569b64de6ab4300c840a39aba5b56020aea5b6b79f9ec000a96fdf2b8",
+  "key": "math-method-A-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:57:44.892786+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 788,
+  "status": "completed",
+  "text": "判断一阶等价替换是否够用，关键是看：**替换后的误差，除以原题分母后是否仍趋于零。** 对乘除结构，等价替换通常可以直接使用；遇到加减，尤其是主要项相消时，就要检查更高阶的项。\n\n先看第一个极限：\n\\[\nL_1=\\lim_{x\\to0}\\frac{\\sin x}{x}.\n\\]\n由 \\(\\sin x\\sim x\\)，即\n\\[\n\\frac{\\sin x}{x}\\to1,\n\\]\n直接得到 \\(L_1=1\\)。也可以写成\n\\[\n\\sin x=x+o(x),\\qquad\n\\frac{\\sin x}{x}=1+o(1).\n\\]\n这里分母是 \\(x\\)，一阶近似的误差 \\(o(x)\\) 除以 \\(x\\) 后趋于零，因此一阶信息已经足够。\n\n再看\n\\[\nL_2=\\lim_{x\\to0}\\frac{\\tan x-\\sin x}{x^3}.\n\\]\n虽然 \\(\\tan x\\sim x\\)、\\(\\sin x\\sim x\\)，但不能分别替换后，把分子算成 \\(x-x=0\\)。这两个等价关系只告诉我们\n\\[\n\\tan x=x+o(x),\\qquad \\sin x=x+o(x).\n\\]\n相减后只能确定分子是 \\(o(x)\\)，无法确定它与 \\(x^3\\) 的比值。一阶项抵消后，原先被忽略的误差恰好可能决定答案。“都近似于 \\(x\\)”并不意味着“它们的差可以近似于零”。\n\n此时可以用泰勒公式保留到三阶：\n\\[\n\\begin{aligned}\n\\tan x-\\sin x\n&=\\left(x+\\frac{x^3}{3}+o(x^3)\\right)\n-\\left(x-\\frac{x^3}{6}+o(x^3)\\right)\\\\\n&=\\frac{x^3}{2}+o(x^3).\n\\end{aligned}\n\\]\n因此\n\\[\nL_2=\\lim_{x\\to0}\\left(\\frac12+o(1)\\right)=\\frac12.\n\\]\n保留到三阶的依据是：分母为 \\(x^3\\)，需要识别分子中的三阶项，并确保剩余误差除以 \\(x^3\\) 后趋于零。本题的三阶系数不为零，所以计算到这里即可。\n\n本题还有一种更简洁的办法：先用恒等式把差化成乘积，\n\\[\n\\tan x-\\sin x=\\frac{\\sin x(1-\\cos x)}{\\cos x},\n\\]\n于是\n\\[\n\\frac{\\tan x-\\sin x}{x^3}\n=\\frac{\\sin x}{x}\\cdot\n\\frac{1-\\cos x}{x^2}\\cdot\\frac1{\\cos x}\n\\longrightarrow1\\cdot\\frac12\\cdot1=\\frac12.\n\\]\n取 \\(0<|x|\\) 足够小时，各分母均非零。这里等价替换作用于整体乘除因子，因而适用。\n\n因此，遇到相减结构，先检查首项是否抵消，再选择恒等变形或更高阶展开。并非所有差式都禁止等价替换，也并非看到 \\(x^3\\) 就机械地展开到三阶；真正的标准是：所保留的信息能否确定相减后的首个非零项，所舍弃的误差是否足够小。",
+  "usage": {
+    "input_tokens": 11062,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 848,
+    "reasoning_output_tokens": 42
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1267,
+  "han_chars": 428,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:58:14.955640+00:00",
+  "elapsed_seconds": 30.063
+}

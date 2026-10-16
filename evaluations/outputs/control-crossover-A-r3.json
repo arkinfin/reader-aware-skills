@@ -1,0 +1,31 @@
+{
+  "id": "control-crossover-A-r3",
+  "task": "control-crossover",
+  "domain": "control-theory",
+  "group": "A",
+  "repeat": 3,
+  "prompt_sha256": "a205b8ac44bf4224859991b0638f49c9f41e1ecfb4674ab4c881903fda817aba",
+  "key": "control-crossover-A-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:56:10.025170+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 787,
+  "status": "completed",
+  "text": "对开环系统\n\\[\nL(s)=\\frac{K}{s(s+1)},\\qquad K>0,\n\\]\n“正比例增益不改变相位”与“增益改变相位裕度”并不矛盾：前者比较的是**同一个固定频率**处的相位，后者比较的是**各自增益截止频率**处的相位。增益变化后，这个取相位的位置会移动。\n\n将 \\(s=j\\omega\\) 代入，有\n\\[\n|L(j\\omega)|=\\frac{K}{\\omega\\sqrt{1+\\omega^2}},\n\\qquad\n\\arg L(j\\omega)=-90^\\circ-\\arctan\\omega .\n\\]\n正实数 \\(K\\) 的幅角为零，因此无论怎样改变 \\(K>0\\)，每个固定频率处的开环相位都保持不变。在 Bode 图上，增大 \\(K\\) 只使幅频曲线整体上移，相频曲线保持原样。\n\n但是，相位裕度并非在任意固定频率处读取。它要先找到开环幅值等于 1，即幅频曲线穿过 \\(0\\,\\mathrm{dB}\\) 的位置：\n\\[\n|L(j\\omega_c)|=1\n\\quad\\Longleftrightarrow\\quad\nK=\\omega_c\\sqrt{1+\\omega_c^2}.\n\\]\n右侧随正频率严格增大，且从零增至无穷，所以本系统对每个正增益都只有一个截止频率；增大 \\(K\\)，必然使 \\(\\omega_c\\) 增大。与此同时，相位表达式中的 \\(\\arctan\\omega\\) 随频率增大，因此截止频率右移后，读到的相位会更负，更接近 \\(-180^\\circ\\)。\n\n按照题给定义，\n\\[\nPM=180^\\circ+\\arg L(j\\omega_c)\n   =90^\\circ-\\arctan\\omega_c.\n\\]\n两种增益的结果如下：\n\n| 增益 | 增益截止频率 | 截止处开环相位 | 相位裕度 |\n|---|---:|---:|---:|\n| \\(K=\\sqrt2\\) | \\(1\\,\\mathrm{rad/s}\\) | \\(-135^\\circ\\) | \\(45^\\circ\\) |\n| \\(K=\\sqrt{20}\\) | \\(2\\,\\mathrm{rad/s}\\) | 约 \\(-153.43^\\circ\\) | 约 \\(26.57^\\circ\\) |\n\n例如，在固定频率 \\(\\omega=1\\) 处，两种增益对应的相位都是 \\(-135^\\circ\\)。但当 \\(K=\\sqrt{20}\\) 时，该处幅值为 \\(\\sqrt{10}\\)，已经不是截止点，不能用这里的相位计算相位裕度。应当移到新的截止频率 \\(\\omega_c=2\\)，再读取相位。\n\n因此，关键联系是：**增益改变幅值，幅值决定截止频率，截止频率决定计算相位裕度时采用哪个相位值。**相频曲线虽然没动，曲线上的取值位置却变了。\n\n这一趋势在本系统的全部 \\(K>0\\) 范围内成立，但相位裕度减小不等于闭环已经失稳。闭环特征多项式为\n\\[\ns^2+s+K,\n\\]\n其根对所有 \\(K>0\\) 都位于左半平面。对其他系统，则必须重新检查幅频和相频特性：幅频曲线可能不单调，可能存在多个截止频率，相位也未必随频率下降，因而不能无条件断言“增大增益必使相位裕度减小”。",
+  "usage": {
+    "input_tokens": 11052,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 937,
+    "reasoning_output_tokens": 74
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1340,
+  "han_chars": 538,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:56:40.758366+00:00",
+  "elapsed_seconds": 30.733
+}

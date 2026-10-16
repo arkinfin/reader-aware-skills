@@ -1,0 +1,26 @@
+{
+  "key": "P9dee20d5ef6f",
+  "attempt": 1,
+  "started_utc": "2026-10-16T01:04:17.855682+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_sha256": "ee0cfcaf69a8f9f13e579b08611886fd9c0f0b95fe86b6516c32416f47ffef48",
+  "prompt_chars": 4952,
+  "status": "completed",
+  "text": "{\n  \"texts\": [\n    {\n      \"id\": \"T028c177c36fe\",\n      \"scores\": {\n        \"correctness\": 5,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 5,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [],\n      \"evidence\": [\n        {\n          \"dimension\": \"conceptual_sequencing\",\n          \"quote\": \"由于状态导数的变换包含初值\",\n          \"reason\": \"从读者熟悉的拉普拉斯变换引出初值项，再定义传递函数，清楚交代零初始状态这一边界条件的来源。\"\n        },\n        {\n          \"dimension\": \"correctness\",\n          \"quote\": \"若初值不为零，输出一般还包含第二项，不能只用 \\\\(G(s)U(s)\\\\) 表示。不过，某些内部状态即使非零，也可能完全不影响输出。\",\n          \"reason\": \"准确区分非零初值对输出的一般影响与不可见状态的例外，避免把内部状态非零误认为输出必然非零。\"\n        },\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"第二个状态既不受输入驱动，也不影响输出，所以它的动态没有出现在传递函数中。\",\n          \"reason\": \"把矩阵计算结果与输入、状态、输出之间的结构直接联系起来，解释了遗漏动态的原因。\"\n        },\n        {\n          \"dimension\": \"overall_comprehensibility\",\n          \"quote\": \"若同时令 \\\\(x_1(0)=0\\\\)，输出始终为零，内部状态却不断增大。\",\n          \"reason\": \"明确补足初始条件，使零输出与内部增长可以同时成立，从而具体呈现输入输出稳定性与内部稳定性的区别。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"这说明状态坐标可以改变，外部输入输出关系仍然相同。\",\n          \"reason\": \"区分状态表示方式与外部映射，支持读者理解其他坐标表示以及同一传递函数对应不同状态模型的情形。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"定义、推导、反例与坐标变换各有作用；对核心区别的再次概括用于连接结论，没有实质冗余。\",\n        \"quote\": \"\"\n      }\n    },\n    {\n      \"id\": \"Ta853f954a77b\",\n      \"scores\": {\n        \"correctness\": 5,\n        \"prior_knowledge_alignment\": 5,\n        \"conceptual_sequencing\": 5,\n        \"motivation\": 5,\n        \"explanatory_coherence\": 5,\n        \"cognitive_load\": 5,\n        \"transfer_support\": 5,\n        \"overall_comprehensibility\": 5\n      },\n      \"errors\": [],\n      \"evidence\": [\n        {\n          \"dimension\": \"prior_knowledge_alignment\",\n          \"quote\": \"矩阵 \\\\(A\\\\) 描述状态自身的演化，\\\\(B\\\\) 描述输入如何作用于状态，\\\\(C\\\\) 描述状态如何形成输出，\\\\(D\\\\) 则描述输入对输出的直接作用。\",\n          \"reason\": \"逐一解释初学者首次接触的矩阵角色，使已有矩阵运算知识能够与系统含义对应。\"\n        },\n        {\n          \"dimension\": \"conceptual_sequencing\",\n          \"quote\": \"这个式子把输出分成两部分：输入引起的响应，以及初始状态引起的响应。\",\n          \"reason\": \"在完整拉普拉斯表达式之后解释两项含义，再设置零初值得到传递函数，顺序清楚且前提明确。\"\n        },\n        {\n          \"dimension\": \"explanatory_coherence\",\n          \"quote\": \"原因是第二个状态既不受输入驱动，也不影响输出，其动态没有进入输入到输出的映射。\",\n          \"reason\": \"将内部指数增长未出现在传递函数中的现象归因于系统结构，形成从方程到计算再到解释的完整联系。\"\n        },\n        {\n          \"dimension\": \"correctness\",\n          \"quote\": \"因此，传递函数稳定，并不足以保证某个给定状态空间模型的内部状态都衰减。\",\n          \"reason\": \"正确限定结论针对给定状态模型，未将稳定传递函数误判为内部稳定的充分条件。\"\n        },\n        {\n          \"dimension\": \"transfer_support\",\n          \"quote\": \"理解两者的联系时，应始终区分三个问题：输入怎样影响输出、初值怎样产生响应，以及内部状态本身怎样演化。\",\n          \"reason\": \"给出可用于分析相近系统的三个判断维度，帮助读者区分外部映射、初值响应与内部动态。\"\n        }\n      ],\n      \"redundancy\": {\n        \"score\": 1,\n        \"reason\": \"符号说明、初值推导、两状态例子与坐标变换互相补充，结尾概括提供分析框架，没有实质冗余。\",\n        \"quote\": \"\"\n      }\n    }\n  ],\n  \"pairs\": [\n    {\n      \"left\": \"Ta853f954a77b\",\n      \"right\": \"T028c177c36fe\",\n      \"winner\": \"tie\",\n      \"reason\": \"两文均从状态含义进入含初值的拉普拉斯关系，再用给定系统解释隐藏的内部增长，核心结论准确且前提充分。左文逐项解释矩阵角色，并以三个问题组织后续分析；右文更明确说明非零内部状态可能不影响输出，衔接初值响应与隐藏动态。两种处理都适合目标读者，未造成实质理解负担或准确性代价，整体可理解性相当。\",\n      \"left_quote\": \"理解两者的联系时，应始终区分三个问题：输入怎样影响输出、初值怎样产生响应，以及内部状态本身怎样演化。\",\n      \"right_quote\": \"若初值不为零，输出一般还包含第二项，不能只用 \\\\(G(s)U(s)\\\\) 表示。不过，某些内部状态即使非零，也可能完全不影响输出。\"\n    }\n  ]\n}",
+  "usage": {
+    "input_tokens": 13449,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1508,
+    "reasoning_output_tokens": 49
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 3456,
+  "han_chars": 1014,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T01:04:58.069861+00:00",
+  "elapsed_seconds": 40.214
+}

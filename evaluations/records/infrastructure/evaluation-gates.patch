@@ -1,0 +1,109 @@
+--- generation-runner.py
++++ evaluation-runner.py
+@@ -141,6 +141,8 @@
+ 
+ 
+ def preflight():
++    if (RUN/'manifest.json').exists():
++        raise SystemExit('Frozen run exists; preflight cannot alter its configuration.')
+     if not (RUN / 'config.json').exists():
+         workspace = str(ROOT.parents[1])
+         sys.path.insert(0, str(Path(workspace) / 'workflow'))
+@@ -175,6 +177,8 @@
+ def prepare():
+     if (RUN / 'manifest.json').exists():
+         raise SystemExit('Frozen run already exists; use resume commands, do not overwrite.')
++    if any((EVAL/'outputs').glob('*.json')) or any((EVAL/'judgments').glob('*.json')):
++        raise SystemExit('Fresh study requires empty output/judgment directories; do not reuse prior results.')
+     tasks = [read(p) for p in sorted((EVAL / 'tasks').glob('*.json'))]
+     assert len(tasks) == 7
+     assert sum(t['domain'] == 'mathematics' for t in tasks) == 3
+@@ -247,8 +251,9 @@
+             key = cell['id']
+             path = EVAL/'outputs'/f'{key}.json'
+             if path.exists():
+-                assert read(path)['prompt_sha256']==cell['prompt_sha256']
+-                return read(path)
++                existing=read(path)
++                validate_output(existing,cell)
++                return existing
+             if stop.is_set():
+                 return {'status':'not_started_after_batch_failure'}
+             prompt = (RUN/'generation-prompts'/f'{key}.txt').read_text()
+@@ -268,11 +273,26 @@
+             raise SystemExit(f'Batch {rep} incomplete. Saved all attempts; resume without changing conditions.')
+ 
+ 
++def validate_output(record,cell):
++    assert record['status']=='completed' and record['key']==cell['id']
++    assert all(record[k]==v for k,v in cell.items())
++    source=read(RUN/'attempts'/cell['id']/f"{record['attempt']:02d}.json")
++    assert source['status']=='completed'
++    assert record=={**cell,**{k:v for k,v in source.items() if k!='transport'}}, 'Output differs from successful attempt'
++    assert record['prompt_sha256']==sha((RUN/'generation-prompts'/f"{cell['id']}.txt").read_bytes())
++
++
+ def blind():
+     manifest = verify_frozen()
+-    assert len(list((EVAL/'outputs').glob('*.json'))) == 60
++    files={p.stem:p for p in (EVAL/'outputs').glob('*.json')}
++    assert set(files)=={c['id'] for c in manifest['cells']}
++    for cell in manifest['cells']:
++        validate_output(read(files[cell['id']]),cell)
+     if (RUN/'blind-map.json').exists():
++        for relative,expected in read(RUN/'blind-freeze.json')['hashes'].items():
++            assert sha((RUN/relative).read_bytes())==expected
+         return
++    write(RUN/'output-freeze.json',{'frozen_utc':now(),'hashes':{key:sha(path.read_bytes()) for key,path in sorted(files.items())}})
+     rng = random.Random(manifest['seed'] + 1)
+     tasks = {read(p)['id']:read(p) for p in (EVAL/'tasks').glob('*.json')}
+     packets, mapping = [], {}
+@@ -315,6 +335,7 @@
+ 
+ 
+ def validate_judgment(data,packet):
++    assert set(data)=={'texts','pairs'}
+     texts={t['id']:t['text'] for t in packet['texts']}
+     assert {t['id'] for t in data['texts']}==set(texts)
+     assert len(data['texts'])==len(texts)
+@@ -325,10 +346,14 @@
+         assert len(item['evidence'])>=2
+         for ev in item['errors']+item['evidence']:
+             assert ev['quote'] and ev['quote'] in text, 'Non-verbatim evidence'
+-            assert ev['reason']
++            assert ev['reason'].strip()
++        assert all(e['dimension'] in DIMENSIONS for e in item['evidence'])
+         assert all(e['severity'] in {'major','minor'} for e in item['errors'])
+         redundant=item['redundancy']
+         assert type(redundant['score']) is int and 1<=redundant['score']<=5
++        assert redundant['reason'].strip()
++        if redundant['score']>1:
++            assert redundant['quote'].strip(), 'Redundancy problem needs verbatim evidence'
+         assert not redundant['quote'] or redundant['quote'] in text
+     expected={(p['left'],p['right']) for p in packet['pairs']}
+     assert {(p['left'],p['right']) for p in data['pairs']}==expected
+@@ -344,10 +369,23 @@
+     verify_frozen()
+     for relative,expected in read(RUN/'blind-freeze.json')['hashes'].items():
+         assert sha((RUN/relative).read_bytes())==expected, 'Changed blind input: '+relative
++    for key,expected in read(RUN/'output-freeze.json')['hashes'].items():
++        assert sha((EVAL/'outputs'/f'{key}.json').read_bytes())==expected
+     def work(key):
+         path=EVAL/'judgments'/f'{key}.json'
+         if path.exists():
+-            return read(path)['status']
++            record=read(path)
++            assert record['status']=='validated' and record['id']==key
++            validate_judgment(record['judgment'],read(RUN/'blind-packets'/f'{key}.json'))
++            meta=record['metadata']
++            source=read(RUN/'attempts'/key/f"{meta['attempt']:02d}.json")
++            assert meta=={k:v for k,v in source.items() if k not in {'transport','text'}}
++            assert source['status']=='completed'
++            raw=source['text'].strip()
++            if raw.startswith('```'):
++                raw=re.sub(r'^```(?:json)?\s*|\s*```$','',raw)
++            assert record['judgment']==json.loads(raw)
++            return 'validated'
+         outcome=bounded_call((RUN/'judge-prompts'/f'{key}.txt').read_text(),key,'technical_guard')
+         if outcome['status']!='completed':
+             print(f'{key}: failed transport',flush=True)

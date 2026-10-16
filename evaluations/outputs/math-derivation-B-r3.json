@@ -1,0 +1,31 @@
+{
+  "id": "math-derivation-B-r3",
+  "task": "math-derivation",
+  "domain": "mathematics",
+  "group": "B",
+  "repeat": 3,
+  "prompt_sha256": "b3997f449344a62a896bb1450fc0b5fdf0fc548485ec06bc31cf7bb5ec9a1f10",
+  "key": "math-derivation-B-r3",
+  "attempt": 1,
+  "started_utc": "2026-10-16T00:55:36.162568+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "prompt_chars": 987,
+  "status": "completed",
+  "text": "相似公式描述的是：**同一个线性变换，在不同基下的矩阵如何联系。** 推导时，先固定约定\n\\[\nF=EP,\n\\]\n再判断坐标转换方向，便不会混淆左右乘的次序。这里把有序基写成“向量行”，例如 \\(Ec\\) 表示用列向量 \\(c\\) 的各分量作为系数，对基 \\(E\\) 作线性组合。\n\n设 \\(P\\) 的第 \\(j\\) 列为 \\(p_j\\)。由 \\(F=EP\\) 的第 \\(j\\) 列可得\n\\[\nf_j=Ep_j,\\qquad p_j=[f_j]_E.\n\\]\n所以，**\\(P\\) 的各列依次是新基 \\(F\\) 的基向量在旧基 \\(E\\) 下的坐标**。虽然这个约定写的是“用 \\(E\\) 表示 \\(F\\)”，但 \\(P\\) 对坐标列的作用方向，要从同一向量的两种表示中确定。\n\n对任意 \\(v\\in V\\)，有\n\\[\nv=E[v]_E=F[v]_F=EP[v]_F.\n\\]\n由于同一向量在基 \\(E\\) 下的坐标唯一，\n\\[\n[v]_E=P[v]_F,\\qquad [v]_F=P^{-1}[v]_E.\n\\]\n因此，\\(P\\) 把 \\(F\\) 坐标转换为 \\(E\\) 坐标，\\(P^{-1}\\) 则沿反方向转换。这里改变的是坐标表示，向量 \\(v\\) 本身没有改变。\n\n现在设同一个线性变换 \\(T\\) 在两组基下的矩阵分别为 \\(A、B\\)。从 \\(v\\) 的 \\(F\\) 坐标出发，先转成 \\(E\\) 坐标，再用 \\(A\\) 表示变换，最后把结果转回 \\(F\\) 坐标，得到\n\\[\n\\begin{aligned}\n[T(v)]_F\n&=P^{-1}[T(v)]_E\\\\\n&=P^{-1}A[v]_E\\\\\n&=P^{-1}AP[v]_F.\n\\end{aligned}\n\\]\n另一方面，按 \\(B\\) 的定义，\n\\[\n[T(v)]_F=B[v]_F.\n\\]\n每个 \\(n\\) 维实列向量都能作为某个 \\(v\\) 的 \\(F\\) 坐标，故两矩阵对所有列向量的作用相同，从而\n\\[\n\\boxed{B=P^{-1}AP}.\n\\]\n矩阵乘积从右往左作用：右端的 \\(P\\) 转换输入坐标，中间的 \\(A\\) 实施变换，左端的 \\(P^{-1}\\) 转换输出坐标。这个次序由坐标方向决定。\n\n用给定的二维数据检验：\n\\[\nP=\\begin{pmatrix}1&0\\\\1&1\\end{pmatrix},\\quad\nP^{-1}=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix},\\quad\nA=\\begin{pmatrix}2&0\\\\0&3\\end{pmatrix}.\n\\]\n于是\n\\[\nB=P^{-1}AP\n=\\begin{pmatrix}1&0\\\\-1&1\\end{pmatrix}\n\\begin{pmatrix}2&0\\\\3&3\\end{pmatrix}\n=\\begin{pmatrix}2&0\\\\1&3\\end{pmatrix}.\n\\]\n还可直接核对它的两列。由于 \\(E\\) 是标准基，\n\\[\nT(f_1)=T\\binom11=\\binom23=2f_1+f_2,\\qquad\nT(f_2)=T\\binom01=\\binom03=3f_2.\n\\]\n所以 \\([T(f_1)]_F=(2,1)^{\\mathsf T}\\)、\\([T(f_2)]_F=(0,3)^{\\mathsf T}\\)，恰好是 \\(B\\) 的第一、第二列。\n\n同阶方阵若存在可逆矩阵 \\(P\\) 满足上述公式，就称为相似矩阵。本例中的可逆性由两组基保证；具体使用公式时，仍须先明确约定是 \\(F=EP\\)，才能正确确定坐标转换方向。",
+  "usage": {
+    "input_tokens": 11242,
+    "cached_input_tokens": 8320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1103,
+    "reasoning_output_tokens": 102
+  },
+  "adapter_model_label": "gpt-6.1-sol",
+  "server_model_identity": "not independently exposed by CLI",
+  "model_revision": "not exposed by CLI",
+  "chars": 1511,
+  "han_chars": 449,
+  "tool_items": [],
+  "finished_utc": "2026-10-16T00:56:09.997139+00:00",
+  "elapsed_seconds": 33.835
+}
