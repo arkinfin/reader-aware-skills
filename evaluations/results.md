@@ -178,5 +178,7 @@ unconfirmed in this study. The original skill's runtime dependency is retained
 with the owner's approval. No post-result skill tuning was performed to make
 the numbers favorable. Future work can calibrate evaluation discrimination and
 use more demanding reader-dependency tasks or natural human feedback; it must be
-a newly registered study, not a rewrite of these results. Public release still
-requires separate owner authorization.
+a newly registered study, not a rewrite of these results. The owner subsequently
+authorized public distribution and reported positive small-group informal review
+feedback, without standardized questionnaire results or controlled learning outcomes.
+That qualitative feedback is separate from the locked automated findings above.

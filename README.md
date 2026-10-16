@@ -66,7 +66,12 @@ final-answer-only or strictly structured-output request.
 These local installation conventions follow the [official Codex skill documentation](https://learn.chatgpt.com/docs/build-skills).
 No global agent compatibility or automatic-trigger performance is claimed.
 
-## Evaluation
+## Experience and evaluation
+
+The maintainer reports positive feedback from a small informal review group.
+No standardized questionnaire results or controlled learning outcomes are
+available for this feedback. It is encouraging feedback for sharing these skills;
+measured learning gains and a general comprehensibility benefit remain unverified.
 
 The [protocol](evaluations/methodology.md) distinguishes correctness,
 comprehensibility and learning gain. The completed exploration comprises 36
@@ -109,7 +114,7 @@ python3 scripts/validate_release.py
 
 See [reproduction instructions](evaluations/reproduction.md) for evidence scope
 and the distinction between offline replay and new model calls. This is an
-experimental release candidate for review; incremental benefit remains
+experimental release; incremental benefit remains
 unconfirmed. No skill changes were made after seeing these results.
 
 ## Rights and distribution
@@ -120,8 +125,8 @@ workflow, third-party papers and documentation retain their own rights and are
 not redistributed. Task packs restate facts in original wording; no full handbook
 or private conversation is included.
 
-This repository is being prepared locally for review. Public upload, remote push
-and a formal release require the owner's separate authorization.
+The owner has authorized public distribution of this experimental version.
+Informal review feedback and automated evaluation results are reported separately.
 
 [中文项目交付报告](docs/project-report.zh-CN.md) covers the assets, mechanism
 questions, limitations and release recommendation.

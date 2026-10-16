@@ -51,7 +51,7 @@
     "Human learning/retention/transfer testing.",
     "Cross-model efficacy and automatic activation evaluation."
   ],
-  "publication": "Local candidate only; no remote push or public release authorized.",
+  "publication": "Validation snapshot predates publication. The owner subsequently authorized public GitHub distribution; live repository/release verification is recorded separately.",
   "staged_whitespace_check": {
     "initial_exit_code": 2,
     "final_exit_code": 0,

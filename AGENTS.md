@@ -20,5 +20,7 @@ or regenerate poor texts. Do not change the skill and claim prior outputs tested
 the revision. Published `evaluations/records` support offline replay without
 model calls. Keep private transport diagnostics and authentication out of Git.
 
-The owner authorized local commits and MIT licensing of the skill text. No
-remote push, public upload or release is authorized.
+The owner authorized local commits and MIT licensing of the skill text, then
+explicitly authorized public GitHub publication of this version. Preserve the
+distinction between positive informal review feedback and inconclusive automated
+evaluation. Do not publish private transport logs, chats or handbook source files.
